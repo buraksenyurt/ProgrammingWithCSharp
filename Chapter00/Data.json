@@ -1,0 +1,122 @@
+﻿[
+  {
+    "id": "d5e8b21d-4ec3-4723-aabe-cbb2dcd9d7f2",
+    "title": "Inventory Tracking System",
+    "summary": "Bu projede amaç basit bir envanter takip sistemi geliştirilmesidir.",
+    "level": 70
+  },
+  {
+    "id": "d9c41b8f-ecc4-4236-9538-8a6ad37d0ee3",
+    "title": "Terminal-Based Dungeon Game",
+    "summary": "Terminalden programın sorduğu sorulara göre oyuncuyu yönlendirilen bir zindan oyunudur. Tek level tasarlanması yeterlidir. Görsel bir öğe içermemektedir.",
+    "level": 90
+  },
+  {
+    "id": "c9235b47-076c-4d64-b42d-b57d39cfa6c8",
+    "title": "Random Data Set Generator",
+    "summary": "Hepimizin derdi bazen rastgele test verisi bulmak olur. Örnek ürün listeleri, kullanıcı profilleri gibi. Bu tip veri setlerini oluşturmayı kolaylaştıran bir programdır.",
+    "level": 80
+  },
+  {
+    "id": "e8fae5c8-62da-4eaa-9d35-8b06e49fb58f",
+    "title": "Simple Abstract Syntax Tree (AST) Interpreter",
+    "summary": "Oldukça basit seviyede bir dil yorumlayıcı programdır.",
+    "level": 100
+  },
+  {
+    "id": "bc7a7d32-8b09-4f8b-890d-5fd2b5c1d657",
+    "title": "Lightweight API Gateway",
+    "summary": "API Gateway prensiplerini içeren bir yönetim programıdır.",
+    "level": 70
+  },
+  {
+    "id": "6b6eb3c8-fdbf-4623-b6f7-1b309567f195",
+    "title": "Backend Service Development for Kanban Board Applications",
+    "summary": "Önyüz tarafında Kanban modelinde çalışan bir arayüz için gerekli fonksiyonellikleri sağlayan bir Web API'dir. Rest veya gRPC şeklinde çalıştırılabilir.",
+    "level": 65
+  },
+  {
+    "id": "d8a0c9ea-e4e2-4a3f-86a0-b2ee1b0df10e",
+    "title": "Static Code Quality Analyzer",
+    "summary": "Bir .net uygulama kodunu tarayıp belli başlı kod kalite metriklerini ölçümleyerek raporlayan bir araçtır.",
+    "level": 100
+  },
+  {
+    "id": "e9650eeb-961c-4887-bb55-4448c716e2f1",
+    "title": "Data Transfer Application Between Different Sources",
+    "summary": "Farklı kaynaklar arasında veri taşıması yapılmasını sağlayan yönetici uygulamadır. SSIS (Sql Server Integration Services) benzeri bir uygulamanın çok basit bir sürümüdür.",
+    "level": 85
+  },
+  {
+    "id": "05d5b8ae-e162-4e9a-bb44-72343aeea636",
+    "title": "Radio Stations Program",
+    "summary": "Internet üzerinden yayın yapan radyo programları için offline çalışan bir desktop uygulamasıdır.",
+    "level": 60
+  },
+  {
+    "id": "a370e8ef-2636-4f8d-9c4c-275238ed9b29",
+    "title": "E-commerce Cart System",
+    "summary": "Bir e-ticaret sistesinin sadece alışveriş sepeti modülünün geliştirilmesini içerir. Önyüz tasarımından ziyade arka plandaki model yapılarının tasarımı, bileşenler ve fonksiyonların içeriği önemlidir.",
+    "level": 85
+  },
+  {
+    "id": "e4ec7b69-e89c-46bf-8139-e1d40a2e9ee2",
+    "title": "Library Management System (Nuget Clone)",
+    "summary": "Burada Nuget benzeri bir paket yönetim sisteminin benzeri inşa edilir. Paket listeleme, versiyonlama, doküman desteği ve programlara indirebilme özelliklerinin olması yeterlidir.",
+    "level": 90
+  },
+  {
+    "id": "6b951e64-2f9c-46a4-93e3-bc09b119e3fa",
+    "title": "Online Multi User Exam/Quiz Platform (Mentimeter Clone)",
+    "summary": "Online platformda çalışan öğrenciler için soru setlerinin hazırlanabildiği bir web uygulamasıdır.",
+    "level": 100
+  },
+  {
+    "id": "ecb5e758-23b7-4e04-8e3a-477a2fe57b38",
+    "title": "Employee Management System",
+    "summary": "Hafifsiklet bir insan kaynakları yönetimi uygulamasıdır. Mavi yakalılar için tasarlanabilir. Organizasyon ağacı desteği olmalıdır.",
+    "level": 65
+  },
+  {
+    "id": "57f09776-bb1d-4a1c-92e7-726d5d96f2c6",
+    "title": "Topic Based ChatBot Application",
+    "summary": "Azure platformunun AI kabiliyetleri kullanılarak tasarlanacak ve platforma giren kullanıcılara yardım edebilecek bir chat bot uygulamasıdır.",
+    "level": 75
+  },
+  {
+    "id": "fc3b8d72-45ef-4a91-9713-5ba2e05e5e91",
+    "title": "Stock Market Tracking and Analysis Program",
+    "summary": "Piyasa verilerini analiz ederen bir takım sonuçlar üreten ve tavsiyelerde bulunan bir web uygulaması olarak düşünülebilir.",
+    "level": 60
+  },
+  {
+    "id": "7fdba578-bc6a-4d94-8583-4091c5d6c34e",
+    "title": "Sequential Task Management System",
+    "summary": "Bir sistemdeki planlı işleri çalışıtırıp, yönetiminin de yapılabildiği desktop uygulamasıdır. Web tabanlı olarak da tasarlanabilir.",
+    "level": 90
+  },
+  {
+    "id": "22bf3e68-2077-4d0e-9b9b-015e7b13e4c2",
+    "title": "Real-Time Data Processing Service",
+    "summary": "Bir veri setini gerçek zamanlı olarak analiz edip sonuç çıkartan servis uygulamasıdır. Performans öncelikli bir uygulama olduğu için paralel çalıştırma veya multitasking gibi özellikler öne çıkar.",
+    "level": 100
+  },
+  {
+    "id": "55b18938-7f9c-43ff-9b40-f3b3e70e08d3",
+    "title": "Smart Notepad Application (Notion Clone)",
+    "summary": "Notion benzeri bir not tutma uygulaması olarak düşünülebilir. Desktop uygulaması stilinde geliştirilebilir. Notion'daki her özelliği içermesine gerek yoktur ancak notları kalıcı olarak saklama, hatırlatma, önceliklendir ve export/import gibi özellikler barındırabilir.",
+    "level": 70
+  },
+  {
+    "id": "58a3c9a1-e7e5-4b78-b2d8-1e8ea82ac7bf",
+    "title": "Simple 2D Platform Game",
+    "summary": "OpenGL veya DirectX gibi kütüphanelere erişebilen paketler ile masaüstü windows uygulaması olarak geliştirilebileceği gibi Unity ile de yazılabilir. Tek sahnelik bir platform oyunu olması yeterlidir.",
+    "level": 80
+  },
+  {
+    "id": "b496f71f-3f1b-45b9-89cc-6cccf45b307a",
+    "title": "ECS Based Game Engine",
+    "summary": "Burada asıl amaç ECS (Entity Component System) yapısını kullanan basit bir oyun motorunun inşasıdır. C# dilinin temel enstrümanları ve .net platformunun bazı özellikleri kullanılarak tasarlanmaya çalışılır.",
+    "level": 100
+  }
+]
