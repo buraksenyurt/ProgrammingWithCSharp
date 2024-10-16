@@ -42,6 +42,8 @@ Odak noktası bir noktada var olan türleri kullanarak kendi türlerimizi inşa 
 
 IP demişken System.Net isimli alanındaki karşılığına da bir bakdın derim :smile:
 
+Struct olarak inşa edilebilecek bazı nesne modelleri için örnekler de verebiliriz. Vektörler, kompleks sayılar, dikdörtgen gibi geometrik şekiller, sıcaklık, web sitesine giriş yapan kullanıcı vb
+
 Sorular / Araştırma Konuları
 
 - Solution (sln) ne işe yarar?
@@ -75,3 +77,50 @@ git pull
 
 Bu dersteki amacımız nesnelerimizi işe yarar fonksiyonellikler ile güçlendirmek ve bazı temel karar yapıları ile döngüleri kullanmak.
 
+//TODO@buraksenyurt
+
+## Çerezlik Kod Pratikleri
+
+Bu bölümde dersler sırasında işlediğimiz örnekleri pekiştirmek amacıyla kullanabileceğimiz bazı örnek senaryolara yer verilmektedir. Kodlama pratiğinizi artırmak için kullanabilirsiniz.
+
+Senaryo kodları: Y -> Yellow, O -> Orange, R -> Red
+
+| Kod       | Konu                                  | Açıklama                                                                             | Kurallar |
+|-----------|---------------------------------------|--------------------------------------------------------------------------------------|
+| **Y00** | Nesne Modellemeleri(Class)            | Okuduğunuz kitaplar için bir envanter uygulaması geliştirmektesiniz. Bir kitabın nesnel olarak moddellenmesinde kullanılacak tasarıma ihtiyacınız var. Bu anlamda sizden Book isimli bir sınıf tasarlamanız bekleniyor. | int, string, bool, decimal veri türleri mutlaka kullanılmalı. Kod, bir kitabın bilgilerini string türde özetleyen, kitap fiyatına indirim uygulayan en az iki metot içermeli.
+| **Y01** | Value Type Tasarlaması(Struct)        | Geliştirmekte olduğumuz iki boyutlu oyunda Vektör değerlerini tutmak istiyoruz. Bunun için bir struct tasarlamanız bekleniyor. | Struct 2 boyutlu düzlemde mutlaka x ve y değerlerini taşımalı. double veri türü kullanılmalı. Bir vektörü birim vektöre dönüştüren, vektör bükülüğünü hesap eden en az iki metot yazılmalı|
+| **Y02** | Terminal ile Çalışmak| Bu çalışmada bir Console uygulaması oluşturup ekrana en sevdiğiniz çizgi roman/kitap karakterinin bilgilerini yazdırmanız bekleniyor. | Karaktere ait tüm bilgiler öncelikle ayrı değişkenlerde toplanmalı. string, double, char, bool, uint veri türleri mutlaka kullanılmalı. Bilgileri ekrana yazdırma operasyonunu bir metot üstlenmeli  |
+| **Y03** | Enum Türü Kullanımı | Bir web uygulamasının backend tarafında kodlama yapıyorsunuz. İş kurallarını işleten bazı fonksiyonlar HTTP durum kodları ile çalışıyor. HTTP durum kodlarının sayısal anlamlarını bir Enum sabiti olarak tanımlamanız bekleniyor. | Enum sabiti HTTP durum kodlarından en az 5ini karşılamalı. Uygulama kodunda Enum değerine göre ekrana bilgilendirme yapmamızı sağlayacak string türden değer döndüren bir metot bulunmalı. |
+| **Y04** | | | |
+| **Y05** | | | |
+| **Y06** | | | |
+| **Y07** | | | |
+| **Y08** | | | |
+| **Y09** | | | |
+| **Y10** | | | |
+| **Y11** | | | |
+| **Y12** | | | |
+| **O01** | | | |
+| **O02** | | | |
+| **O03** | | | |
+| **O04** | | | |
+| **O05** | | | |
+| **O06** | | | |
+| **O07** | | | |
+| **O08** | | | |
+| **O09** | | | |
+| **O10** | | | |
+| **O11** | | | |
+| **O12** | | | |
+| **R01** | | | |
+| **R02** | | | |
+| **R03** | | | |
+| **R04** | | | |
+| **R05** | | | |
+| **R06** | | | |
+| **R07** | | | |
+| **R08** | | | |
+| **R09** | | | |
+| **R10** | | | |
+| **R11** | | | |
+| **R12** | | | |
