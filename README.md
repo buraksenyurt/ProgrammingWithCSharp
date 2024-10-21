@@ -7,6 +7,7 @@ C# programalama dersi için açılmış olan ve örnek kodları içeren repodur.
     - [Chapter 01](#ders-01)
     - [Chapter 02](#ders-02)
     - [Çerezlik Kod Pratikleri](#çerezlik-kod-pratikleri)
+    - [Free Zone](#free-zone)
 
 ## Ders 00
 
@@ -135,3 +136,7 @@ Senaryo Kodları : Y -> Yellow, O -> Orange, R -> Red
 | **R10** | | | |
 | **R11** | | | |
 | **R12** | | | |
+
+## Free Zone
+
+Solution içerisinde yer alan Free Zone klasöründe normal ders müfredatı projelerini bozmadan ele aldığımız örnek kütüphanelere yer verilmektedir. Söz gelibi örnek struct tasarımları için Learning.Structs isimli kütühaneden yararlanılabilir ya da farklı türden döngü örnekleri için Learning.Loops kütüphanesinden.

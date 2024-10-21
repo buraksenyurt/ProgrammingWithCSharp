@@ -12,9 +12,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapter01", "Chapter01\Chap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapter00", "Chapter00\Chapter00.csproj", "{A9F9401A-5C7E-4829-9EEC-CD2CE0786575}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter02", "Chapter02\Chapter02.csproj", "{796B200C-7ACD-485F-BDD0-71E3AE9FFBD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapter02", "Chapter02\Chapter02.csproj", "{796B200C-7ACD-485F-BDD0-71E3AE9FFBD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azon.WeatherLib", "Azon.WeatherLib\Azon.WeatherLib.csproj", "{11B73CC5-FB3F-488D-B554-C1D076E0B75F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Azon.WeatherLib", "Azon.WeatherLib\Azon.WeatherLib.csproj", "{11B73CC5-FB3F-488D-B554-C1D076E0B75F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FreeZone", "FreeZone", "{F792BD09-1D1B-4E53-902F-2251EAFFD76B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.Structs", "Learning.Structs\Learning.Structs.csproj", "{0DC82391-4D12-4253-B871-540008C61AEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.Structs.Client", "Learning.Structs.Client\Learning.Structs.Client.csproj", "{405BCD94-AA3C-4B75-8289-410DB81970BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.Loops", "Learning.Loops\Learning.Loops.csproj", "{0116A2B5-AC4D-4E54-BE1E-434630DFA595}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,9 +46,26 @@ Global
 		{11B73CC5-FB3F-488D-B554-C1D076E0B75F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11B73CC5-FB3F-488D-B554-C1D076E0B75F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11B73CC5-FB3F-488D-B554-C1D076E0B75F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DC82391-4D12-4253-B871-540008C61AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DC82391-4D12-4253-B871-540008C61AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DC82391-4D12-4253-B871-540008C61AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DC82391-4D12-4253-B871-540008C61AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{405BCD94-AA3C-4B75-8289-410DB81970BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{405BCD94-AA3C-4B75-8289-410DB81970BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{405BCD94-AA3C-4B75-8289-410DB81970BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{405BCD94-AA3C-4B75-8289-410DB81970BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0116A2B5-AC4D-4E54-BE1E-434630DFA595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0116A2B5-AC4D-4E54-BE1E-434630DFA595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0116A2B5-AC4D-4E54-BE1E-434630DFA595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0116A2B5-AC4D-4E54-BE1E-434630DFA595}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0DC82391-4D12-4253-B871-540008C61AEF} = {F792BD09-1D1B-4E53-902F-2251EAFFD76B}
+		{405BCD94-AA3C-4B75-8289-410DB81970BE} = {F792BD09-1D1B-4E53-902F-2251EAFFD76B}
+		{0116A2B5-AC4D-4E54-BE1E-434630DFA595} = {F792BD09-1D1B-4E53-902F-2251EAFFD76B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2622B61-B5A7-4CAD-9CC3-84B635B74D60}
