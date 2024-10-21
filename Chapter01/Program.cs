@@ -25,7 +25,7 @@ internal class Program
     private static void Main(string[] args)
     {
         Console.Beep();
-        Console.WriteLine("Hello, World!");
+        Console.WriteLine("Hello, World!"); // WriteLine ve Beep, Console sınıfının statik metotlarıdır. Nesne örneğine ihtiyaç duymayan metotalar.
 
         string fullName = "Burak Selim Şenyurt";
         string repoAddress = "https://github.com/buraksenyurt/ProgrammingWithCSharp";
