@@ -78,7 +78,17 @@ git pull
 
 Bu dersteki amaç nesnelerin işe yarar fonksiyonellikler ile güçlendirilmesi ve bazı temel karar yapıları ile döngüleri kullanmaktır. Bu senaryoları kavramsal bütünlüğü olan namepsace siloları ve hatta ayrık sınıf kütüphanelerinde _(Class Library)_ inşa etmek de hedefler arasındadır.
 
-//TODO@buraksenyurt
+Dersimizde Solution kavramı ve içeriğinden de bahsettik. Bir solution içerisinde birden fazla proje barındıran, projeler arasında anlamsal bütünlüğün sağlandığını bir çalışma ortamı olarak düşünülebilir. Bazı platformlarda bu workspace olarak da ifade edilebilir.
+
+![image](https://github.com/user-attachments/assets/aa0b10f1-59cc-4a87-ac70-4d377b582c78)
+
+**Metotlar Hakkında**
+
+- Metot Overloading; Aynı isimde olan ama farklı sayıda veya tipte parametre ile çalışan metotlara verilen isimlendirmedir. Örneğin Console.WriteLine buna güzel bir örnek teşkil etmektedir.
+- statik metotlar tanımlandıkları veri yapısının nesne örneğine ihtiyaç duymadan çalıştırılabilirler.
+- Geriye değer döndürmeyen metotlar void olarak tanımlanır. Constructor _(yapıcı metotlar)_ bir istisnadır. Bulunduğu türle aynı adı taşırlar, parametre alabilirler ancak void dahi olamazlar. Amaçları bulunduğu veri modeline ait nesne örneklerini oluşturmaktır. 
+
+Ayrıca debug işlemlerine de değindik. Kodun çalışma zamanında nasıl çalıştığını görmek açısından debug modda ilerlenebilir. Debug modda kodun belli uğrak noktaları _(Breakpoint)_ programcı tarafında belirlenebilir. Kod satırlarında ilerlerken Step Into, Step Over gibi teknikler kullanılabilir. Örneğin Step Into ile sıradaki metodun içerisine girilebilirken, Step Over ile metod çağrısı sonrasındaki satıra geçilebilir. F5 ile breakpoint noktaları arasında da hızlı hareket etmek imkanı vardır. Debug işlemlerini genelde kodun nasıl çalıştığını gözlemlemek için ya da çalışma zamanındaki problemleri görmek için kullanırız. Ancak tavsiye edilen çeşitli kabul kriterleri _(assertions)_ nezninden çalışırlığı test edilmiş kodlar yazmak ve gelişmiş log mekanizmaları ile olası problemleri gözlemlemektir.
 
 ## Çerezlik Kod Pratikleri
 
