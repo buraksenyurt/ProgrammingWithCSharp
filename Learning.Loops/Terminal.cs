@@ -73,15 +73,16 @@
             Console.WriteLine();
         }
 
-        public static void GetBooksStartingWith(char letter)
+        public static List<string> GetBooksStartingWith(char letter)
         {
+            List<string> result = [];
             int i = 0;
             bool found = false;
             do
             {
                 if (books[i].StartsWith(letter.ToString(), StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.WriteLine(books[i]);
+                    result.Add(books[i]);
                     found = true;
                 }
                 i++;
@@ -91,7 +92,44 @@
             {
                 Console.WriteLine($"No books found starting with '{letter}'");
             }
+            return result;
+        }
+
+        // Kitap içinde belli bir kelime geçenleri döndüren metot
+        public static List<string> GetBooksContainingWord(string word)
+        {
+            List<string> result = [];
+            for (int i = 0; i < books.Length; i++)
+            {
+                if (books[i].Contains(word))
+                {
+                    result.Add(books[i]);
+                }
+            }
+            return result;
+        }
+
+        // Belli sayıda kelimeden fazlasına sahip olan kitapları bulan metot
+        public static List<string> GetBooksWithWordCountGreaterThan(int wordCount)
+        {
+            List<string> result = [];
+            foreach (var book in books)
+            {
+                if (book.Split(' ').Length > wordCount)
+                {
+                    result.Add(book);
+                }
+            }
+            return result;
+        }
+
+        public static void PrintBooks(List<string> books)
+        {
             Console.WriteLine();
+            foreach (var book in books)
+            {
+                Console.WriteLine(book);
+            }
         }
     }
 }
