@@ -6,6 +6,7 @@ C# programalama dersi için açılmış olan ve örnek kodları içeren repodur.
     - [Chapter 00](#ders-00)
     - [Chapter 01](#ders-01)
     - [Chapter 02](#ders-02)
+    - [Chapter 03](#ders-03)
     - [Çerezlik Kod Pratikleri](#çerezlik-kod-pratikleri)
     - [Free Zone](#free-zone)
 
@@ -216,9 +217,7 @@ Microsoft.AspNetCore.Http.IMiddleware
 
 Kalıtım konusunu anlamak önemlidir. Sonraki derste işleyeceğimiz çok biçimli türler oluşturmak için zemin hazırlar. Çok biçimli olmak kısaca ata türün kendisine atanan alt tür nesne örneklerinin davranışlarını icra edebilmesi olarak özetlenebilir.
 
-```text
-Kalıtım(Inheritance) kullanışlı bir yetenek olmakla birlikte bazı durumlarda dez avantajlara sahip olabilir. Örneğin sınıflar arası katı bir yapı olması bir sınıfın her özelliğinin miras alınması demek ve bu bazen istenen esnekliği engelleyebiliyor. Bu nedenle günümüz moder oyun motorlarında kullanılan ECS(Entity Component System) mekanizmaları kalıtım yerine Composition over Inheritance yaklaşımını terchi ediyor.
-```
+*Not: Kalıtım(Inheritance) kullanışlı bir yetenek olmakla birlikte bazı durumlarda dez avantajlara sahip olabilir. Örneğin sınıflar arası katı bir yapı olması bir sınıfın her özelliğinin miras alınması demek ve bu bazen istenen esnekliği engelleyebiliyor. Bu nedenle günümüz moder oyun motorlarında kullanılan ECS(Entity Component System) mekanizmaları kalıtım yerine Composition over Inheritance yaklaşımını terchi ediyor.*
 
 ## Ders 04
 
