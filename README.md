@@ -91,6 +91,171 @@ Dersimizde Solution kavramı ve içeriğinden de bahsettik. Bir solution içeris
 
 Ayrıca debug işlemlerine de değindik. Kodun çalışma zamanında nasıl çalıştığını görmek açısından debug modda ilerlenebilir. Debug modda kodun belli uğrak noktaları _(Breakpoint)_ programcı tarafında belirlenebilir. Kod satırlarında ilerlerken Step Into, Step Over gibi teknikler kullanılabilir. Örneğin Step Into ile sıradaki metodun içerisine girilebilirken, Step Over ile metod çağrısı sonrasındaki satıra geçilebilir. F5 ile breakpoint noktaları arasında da hızlı hareket etmek imkanı vardır. Debug işlemlerini genelde kodun nasıl çalıştığını gözlemlemek için ya da çalışma zamanındaki problemleri görmek için kullanırız. Ancak tavsiye edilen çeşitli kabul kriterleri _(assertions)_ nezninden çalışırlığı test edilmiş kodlar yazmak ve gelişmiş log mekanizmaları ile olası problemleri gözlemlemektir.
 
+## Ders 03
+
+Bu derse kadar öğrendiklerimizle bir sınıf veya struct modelini inşa edebilir, belli özellikler ekleyebilir, bazı metotlar ile fonksiyonellikle ve davranışlar kazandırabiliriz. Encapsulation kavramını da gördüğümüz için nesne yönelimli dillerin bir diğer prensibi olan kalıtım konusuna değinebiliriz. Kalıtım(Inheritance) yine soyut bir kavram olduğunda teorik anlatımla öğrenilmesi zor olabilir. Ancak kullanılan platformun kendi dinamikleri içerisinde bu pratiğin sıklıkla uygulandığı gerçek hayat senaryolarına rastlarız. 
+
+.Net platformu açısından düşünelim. Çalışma zamanında kullanılan Exception türlerini ele alalım. Var olan Exception hiyerarşisi türetme sistemi üzerine kuruludur. Kendi istisna türlerimizi de Exception sınıfından türeterek oluşturabilir ve çalışma zamanı için ele alınmasını sağlayabiliriz. Aşağıdaki çizelgede bu hiyerarşi basitçe örneklenmiştir.
+
+```text
+System.Exception
+  + Message : string
+  + StackTrace : string
+  + ToString() : string
+      |
+      +--> AccountNotFoundException (Kullanıcı tanımlı bir exception sınıfı)
+               + ErrorCode : int
+               + GetCustomMessage() : string
+```
+
+Bir başka örnek ise Windows Form kontrolleri ile ilgilidir. Arayüzde kullanılan her kontrolün belli özellikleri ve davranışları ortaktır. Tekrardan yazılmak yerine üst sınıfta organize edilebilir ve devralınan sınıflarda kullanılabilir ve hatta istenirse davranış alt sınıflarca değiştirilebilir. Aşağıdaki çizelgede bu durum basitçe ele alınmıştır.
+
+```text
+System.Windows.Forms.Control
+  + Width : int
+  + Height : int
+  + Render() : void
+      |
+      +--> ButtonBase
+      |        + IsPressed : bool
+      |        + OnPress() : void
+      |        |
+      |        +--> Button
+      |        |        + Text : string
+      |        |        + OnClick() : void
+      |        |
+      |        +--> CheckBox
+      |                 + IsChecked : bool
+      |                 + OnCheck() : void
+      |
+      +--> Label
+               + Content : string
+               + SetContent() : void
+```
+
+Bir başka güzel örnekte abstract tanımlanmış olan Stream sınıfıdır. Abstract sınıflar kısaca kendisinden nesne örneklenemeyen ama türetme amacıyla devralan sınıflara bir yol gösteren *(contract tanımlayan da diyebiliriz)*, türeyen sınıfları ortak özellik veya davranışları uygulamaya zorlayan tiplerdir. Stream sınıfı için örneğin aşağıdaki basit çizelgeyi göz önüne alabiliriz. Bir stream dosya tabanlı, bellek odaklı veya ağ üzerine çalıştırılabilir. Temelde hepsi ilgili ortamdan veri okuma veya veri yazma üzerine kendilerine has özelleştirmeler içerir. Belleğe veri yazıp okumak ile ağ soketi üzerinden bunu yapmak ya da fiziki diskten aynı işleri gerçekleştirmek farklı davranışlar olsa de özünde birer Streaming operasyonudur. 
+
+```text
+System.IO.Stream (abstract)
+  + CanRead : bool
+  + CanWrite : bool
+  + Read() : int
+  + Write() : void
+      |
+      +--> FileStream
+      |        + FilePath : string
+      |        + OpenFile() : void
+      |        |
+      |        +--> EncryptedFileStream
+      |                 + EncryptionKey : string
+      |                 + Decrypt() : void
+      |
+      +--> MemoryStream
+      |        + Capacity : int
+      |        + Resize() : void
+      |
+      +--> NetworkStream
+               + NetworkAddress : string
+               + Connect() : void
+```
+
+İlerleyen derslerde çalışma zamanı kodlarına metadata _(çalışma zamanında kullanılabilecek ek bilgiler)_ eklemek için Attribute yapılarından nasıl faydalanabileceğimizi de göreceğiz. Kendi Attribute türlerimizi de Exception kurgusundakine benzer bir şekilde yazabiliriz. Aşağıda bu türetmenin de basit bir hali vardır.
+
+```text
+System.Attribute
+  + TypeId : object
+  + IsDefaultAttribute() : bool
+      |
+      +--> MyCustomAttribute
+               + Description : string
+               + IsValid() : bool
+
+```
+
+Türetmelerde class ve sınıfların farklı bir türü olan Abstract Class tipi ile Interface türünden yararlanılır. Interface türleri blokları olan özellik veya metotlar tanımlamazlar. Sadece kendisini implemente eden türlerin uygulaması gereken kuralları tanımlayan bir sözleşme _(contract)_ sağlarlar. SOLID prensiplerinin bir çok ilkesinde interface kullanımları tercih edilir. Örneğin Asp.Net Middleware hiyerarşisinde IMiddleware isimli interface için basitçe aşağıdakine benzer bir kullanım söz konusudur.
+
+```text
+Microsoft.AspNetCore.Http.IMiddleware
+  + InvokeAsync(HttpContext) : Task
+      |
+      +--> AuthenticationMiddleware
+      |        + Authenticate() : Task
+      |        |
+      |        +--> JwtAuthenticationMiddleware
+      |                 + ValidateToken() : bool
+      |
+      +--> LoggingMiddleware
+               + LogRequest() : void
+               + LogResponse() : void
+```
+
+IMiddleware çalışma zamanında web motorunun kullanabileceği middleware olarak isimlendirilen ara katmanların yazım kuralını tanımlar. Buna göre kendi Middleware'imizi sisteme entegre etmek istersek tek yapmamız gereken IMiddleware implementasyonunu yazmak ve uygulama nesnesine bunu bildirmektir. Web motoru bu implementasyonu gördüğünde bizim yazdığımı middleware'in InvokeAsync metodunu tetikler. Aşağıdaki çizelgede bu durum gösterilmektedir.
+
+```text
+Microsoft.AspNetCore.Http.IMiddleware
+  + InvokeAsync(HttpContext, RequestDelegate) : Task
+      |
+      +--> AuthenticationMiddleware
+      |        + InvokeAsync(HttpContext, RequestDelegate) : Task (override)
+      |        + AuthenticateUser(HttpContext) : bool
+      |        |
+      |        +--> JwtAuthenticationMiddleware
+      |                 + InvokeAsync(HttpContext, RequestDelegate) : Task (override)
+      |                 + ValidateToken(string) : bool
+      |
+      +--> LoggingMiddleware
+      |        + InvokeAsync(HttpContext, RequestDelegate) : Task (override)
+      |        + LogRequest(HttpContext) : void
+      |        + LogResponse(HttpContext) : void
+      |
+      +--> PerformanceMiddleware (Custom)
+               + InvokeAsync(HttpContext, RequestDelegate) : Task (override)
+               + MeasurePerformance(HttpContext) : void
+               + LogPerformance(HttpContext, TimeSpan) : void
+```
+
+Kalıtım konusunu anlamak önemlidir. Sonraki derste işleyeceğimiz çok biçimli türler oluşturmak için zemin hazırlar. Çok biçimli olmak kısaca ata türün kendisine atanan alt tür nesne örneklerinin davranışlarını icra edebilmesi olarak özetlenebilir.
+
+```text
+Kalıtım(Inheritance) kullanışlı bir yetenek olmakla birlikte bazı durumlarda dez avantajlara sahip olabilir. Örneğin sınıflar arası katı bir yapı olması bir sınıfın her özelliğinin miras alınması demek ve bu bazen istenen esnekliği engelleyebiliyor. Bu nedenle günümüz moder oyun motorlarında kullanılan ECS(Entity Component System) mekanizmaları kalıtım yerine Composition over Inheritance yaklaşımını terchi ediyor.
+```
+
+## Ders 04
+
+**throw new NotImplementedException();**
+
+## Ders 05
+
+**throw new NotImplementedException();**
+
+# Ders 06
+
+**throw new NotImplementedException();**
+
+# Ders 07
+
+**throw new NotImplementedException();**
+
+# Ders 08
+
+**throw new NotImplementedException();**
+
+# Ders 09
+
+**throw new NotImplementedException();**
+
+# Ders 10
+
+**throw new NotImplementedException();**
+
+# Ders 11
+
+**throw new NotImplementedException();**
+
+# Ders 12
+
+**throw new NotImplementedException();**
+
 ## Çerezlik Kod Pratikleri
 
 Bu bölümde dersler sırasında işlenen konuları pekiştirmek amacıyla kullanılabilecek bazı örnek senaryolara yer verilmektedir. Kodlama pratiğinin artırılması için kullanılabilir.
