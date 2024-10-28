@@ -12,6 +12,7 @@
         // private City[] cities = new City[10];
         // İçerisinde City türünden elemanlar barındıracak bir List koleksiyonu.
         private List<City> cityList = [];
+        
         public void AddCity(City city)
         {
             cityList.Add(city);
@@ -29,6 +30,15 @@
         }
         public Temperature GetTemperature(string cityName)
         {
+            /*
+             Yeni eklenmeiş ama henüz içeriği yazılmamış metotlar söz konusu olduğunda,
+            diğer programcıların veya object user'ların bu durumdan haberdar olması adına da
+            NotImplementeException kullanılabilir.
+
+            throw ile çalışma zamanına (runtime) bir Exception nesnesi fırlatılabilir.
+            new ile başlayan kısım Exception nesne örneğidir.
+            Bu exception nesneleri bir try...catch mekanizması ile yakalanarak kontrol altına alınabilir.
+             */
             throw new NotImplementedException();
         }
 
