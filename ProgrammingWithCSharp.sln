@@ -26,7 +26,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learning.Loops", "Learning.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapter03", "Chapter03\Chapter03.csproj", "{FA6E15AA-A5E9-4AC5-9A54-18CBB6833682}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter04", "Chapter04\Chapter04.csproj", "{1CDC6C2D-EDA9-4453-BBA9-55AFC0E1DBFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapter04", "Chapter04\Chapter04.csproj", "{1CDC6C2D-EDA9-4453-BBA9-55AFC0E1DBFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningInterfaces", "LearningInterfaces\LearningInterfaces.csproj", "{298F37C3-A08D-4621-82A6-455B8E624786}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,6 +72,10 @@ Global
 		{1CDC6C2D-EDA9-4453-BBA9-55AFC0E1DBFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CDC6C2D-EDA9-4453-BBA9-55AFC0E1DBFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CDC6C2D-EDA9-4453-BBA9-55AFC0E1DBFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{298F37C3-A08D-4621-82A6-455B8E624786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{298F37C3-A08D-4621-82A6-455B8E624786}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{298F37C3-A08D-4621-82A6-455B8E624786}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{298F37C3-A08D-4621-82A6-455B8E624786}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{0DC82391-4D12-4253-B871-540008C61AEF} = {F792BD09-1D1B-4E53-902F-2251EAFFD76B}
 		{405BCD94-AA3C-4B75-8289-410DB81970BE} = {F792BD09-1D1B-4E53-902F-2251EAFFD76B}
 		{0116A2B5-AC4D-4E54-BE1E-434630DFA595} = {F792BD09-1D1B-4E53-902F-2251EAFFD76B}
+		{298F37C3-A08D-4621-82A6-455B8E624786} = {F792BD09-1D1B-4E53-902F-2251EAFFD76B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2622B61-B5A7-4CAD-9CC3-84B635B74D60}
