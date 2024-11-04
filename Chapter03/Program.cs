@@ -33,9 +33,9 @@ namespace Chapter03
 
                 // throw new ArgumentException("Argüman hatası");
 
-                //var silo = new HttpManager();
-                //var result = silo.Send("http://movies.api/action/12", "");
-                //Console.WriteLine(result);
+                // var silo = new HttpManager();
+                // var result = silo.Send("http://movies.api/action/12", "");
+                // Console.WriteLine(result);
 
                 /*
                     Plane is a GameObject.
@@ -43,7 +43,9 @@ namespace Chapter03
                     vecihi değişkeni üzerinden GameObject'teki X,Y özelliklerine erişebilir
                     Draw metodunu çağırabiliriz ve ayrıca kendi metotlarını da kullanabiliriz.
                  */
-                Plane vecihi = new Plane { X = 10, Y = 20 };
+
+                Plane vecihi = new() { X = 10, Y = 20 };
+                // decimal salary = 1000.50M;
                 vecihi.Draw(); //base class metodu
                 vecihi.Fire(); // kendi metodu
 

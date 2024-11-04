@@ -38,6 +38,7 @@
         public InvalidUrlException(string url)
             : base($"{url} bilgisi geçersiz.")
         {
+            
         }
     }
 }
