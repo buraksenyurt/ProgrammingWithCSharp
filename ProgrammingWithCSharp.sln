@@ -28,7 +28,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapter03", "Chapter03\Chap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chapter04", "Chapter04\Chapter04.csproj", "{1CDC6C2D-EDA9-4453-BBA9-55AFC0E1DBFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningInterfaces", "LearningInterfaces\LearningInterfaces.csproj", "{298F37C3-A08D-4621-82A6-455B8E624786}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.Interfaces", "Learning.Interfaces\Learning.Interfaces.csproj", "{298F37C3-A08D-4621-82A6-455B8E624786}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
