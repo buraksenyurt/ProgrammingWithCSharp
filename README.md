@@ -7,6 +7,7 @@ C# programalama dersi için açılmış olan ve örnek kodları içeren repodur.
     - [Chapter 01](#ders-01)
     - [Chapter 02](#ders-02)
     - [Chapter 03](#ders-03)
+    - [Chapter 04](#ders-04)
     - [Çerezlik Kod Pratikleri](#çerezlik-kod-pratikleri)
     - [Free Zone](#free-zone)
 
@@ -227,11 +228,11 @@ GameObject sınıfı kendisinden türeyen oyun sahası aktörleri için ortak ö
 
 ## Ders 04
 
-Bu derste ağırlıklı olarak kalıtım _(Inheritance)_ ve çok biçimlilik üzerinde duruldu. Buna istinaden abstract sınıf, abstract üyeler ve interface türü üzerinde duruldu. Çok biçimlilik genel olarak çalışma zamanı olan veya genişletilebilir olması istenen kütüphanelerde daha çok anlam kazanan bir kavramdır. Sistemin hangi davranışları işletebileceğini dışarıya bir sözleşme olarak açması olarak da düşünülebilir. 
+Bu derste ağırlıklı olarak kalıtım _(Inheritance)_ ve çok biçimlilik _(polymorphism)_ üzerinde duruldu. Bunun için abstract sınıf, abstract üyeler ve interface kavramlarına değinildi. Çok biçimlilik _(polymorphism)_ genel olarak çalışma zamanı olan veya genişletilebilir olması istenen kütüphanelerde daha çok anlam kazanan bir kavramdır. Sistemin hangi davranışları işletebileceğini dışarıya bir sözleşme olarak açması olarak da düşünülebilir. 
 
-Abstract sınıflar normal sınıflara benzer metotlar, özellikler , alanla vs içerebilir. new operatörü ile örneklenip kullanamazlar ancak constructor sahibi olabilirler zira bu yapıcı metotlar türeyen tiplerin constructor'ları tarafından kullanılabilir. Örneklerimizde bu tip bir kullanım da yer alıyor. Abstract tanımlanmış üyeler türeyen sınıflarda ezilmek zorundadır. Bu virtual olarak tanımlanmaktan farklı bir durumdur. Virtual tanımlanmış olan bir fonksiyonellik alt sınıflarda istenirse override ediliz. Edilmezse kendi varsayılan davranışını sergiler. 
+Abstract sınıflar normal sınıflara benzer bir başka deyişle metotlar, özellikler, alanlar vs içerebilir. new operatörü ile örneklenip kullanılamazlar ancak yapıcı metot _(constructor)_ içerbilirler zira bu yapıcı metotlar türeyen tipler tarafından kullanılabilir. Örneklerimizde bu tip bir kullanım da yer alıyor. Abstract tanımlanmış üyeler türeyen sınıflarda ezilmek _(override)_ zorundadır. Bu, bir üyenin üst türde virtual tanımlanmasından farklı bir durumdur. Virtual tanımlanmış olan bir fonksiyonellik _istenirse_ alt sınıflarda override edilir ve eğer edilmezse kendi varsayılan davranışını sergiler. 
 
-Interface türü iş yapan bloklar içermez. Sadece kendisini uygulayan türler için uygulamaları gerekenleri belirten bir sözleşme sunar. Hem interface hem de abstract türler kendilerinden türeyen nesneleri taşıyabildiğinden farklı türetme örneklerinin yer aldığı toplu veri kümelerini işlemek kolaylaşır. Bu da uygulamaların kod değişikliğine gerek kalmadan genişletilebilirliğinin yolunu açar. Plug-In'ler geliştirmek, çalışma zamanlarına yeni davranış biçimleri kazandırmak bu ilkenin uygulanmasının bir sonucudur. .Net sistemi içerisinde de kullanılan birçok interface türü vardır. Bunların bazıları ile ilgili örnekler Learning.Interfaces projesinde yer almaktadır.
+Interface türü iş yapan kod blokları içermez. Sadece kendisini uygulayan türler için uygulamaları gereken kuralları belirten bir sözleşme _(contract)_ sunar. Hem interface hem de abstract türler kendilerinden türeyen nesneleri taşıyabildiğinden farklı türetme örneklerinin yer aldığı toplu veri kümelerini işlemek kolaylaşır. Bu da uygulamaların kod değişikliğine gerek kalmadan genişletilebilirliğinin yolunu açar. Plug-In'ler geliştirmek, çalışma zamanlarına yeni davranış biçimleri kazandırmak bu ilkenin uygulanmasının bir sonucudur. .Net sistemi içerisinde kullanılan birçok interface türü vardır. Bunların bazıları ile ilgili örnekler Learning.Interfaces projesinde yer almaktadır.
 
 ## Ders 05
 
@@ -279,14 +280,14 @@ Senaryo Kodları : Y -> Yellow, O -> Orange, R -> Red
 | **Y03** | Enum Türü Kullanımı | Bir web uygulamasının backend tarafında kodlama yapıyorsunuz. İş kurallarını işleten bazı fonksiyonlar HTTP durum kodları ile çalışıyor. HTTP durum kodlarının sayısal anlamlarını bir Enum sabiti olarak tanımlamanız bekleniyor. | Enum sabiti HTTP durum kodlarından en az 5ini karşılamalı. Uygulama kodunda Enum değerine göre ekrana bilgilendirme yapmamızı sağlayacak string türden değer döndüren bir metot bulunmalı. |
 | **Y04** | Metot Kullanımları | Termianale farklı desenelerde çıktılar veren bir metot geliştirmemiz isteniyor. Örneğin "Merhaba Dünya!" için "m_e_r_h_a_b_a d_ü_n_y_a_!" yazması vb | Parametre olarak stili değiştirilecek string değer alan ve geriye string değer döndüren bir metot olması bekleniyor. Metot parametre olarak nasıl bir formatta çıktı hazırlayacağını da argüman olarak alabilir. |
 | **Y05** | Döngülerin Etkin Kullanımı | Elimizde birden fazla şehir bilgisinin tutulduğu bir sınıf olduğunu düşünelim. Bu şehir nesneler List türünden bir koleksiyonda tutuluyor olsunlar(Reporter sınıfına benzer) Belli mevsimlere göre sıcaklık ortalamalarının altına veya üstünde kalan şehirlerin listesini döndüren bir metot yazmamız bekleniyor | Reporter sınıfını baz alabiliriz. List koleksiyonlarının arama işlemleri için zengin metotları vardır. Bunlar kullanmayalım. Basit for veya while, do...while gibi döngülerden yararlanalım. |
-| **Y06** | | | |
-| **Y07** | | | |
+| **Y06** | Interface Kullanımları | Masaüstü uygulamalar geliştirmemizi sağlayan bir program üzerinde çalıştığımız düşünelim. Visual Studio IDE gibi. Senaryoda AzonButton, AzonImageButton, AzonRadioButton, AzonGridButton gibi kendi sınıflarımız olsun. Tüm bu sınıflar için ekrana çizdirme _(Render)_ operasyonunu ortak bir davranış olarak tasarlayalım. Draw operasyonu içeren tüm bileşenler için topluca bu işlevi çalıştıracak döngüyü içeren metodu yazmayı deneyin.  | Tüm button kontrollerinin Draw operasyonunu kendince işletmesi ve mutlak suretle içermesi gerekmektedir. Button kontrolleri bizim tarafımızdan tasarlanan basit entity sınıfları olarak düşünülebilir. Id, Position, Text gibi özellikleri olabilir kendilerine has metotları da bulunabilir. |
+| **Y07** | Exception Durumları  | Envanterde olan ürünlerin yönetildiği bir uygulamada çalıştığınızı düşünün. Inventory isimli sınıfızda farklı kategorilerdeki ürünlerin stok bilgileri de tutuluyor. Stok bilgileri için ayrı bir veri yapınız var. Stoktaki ürün sayısının eksi değer girilmesi halinde ortama InvalidProductCountException isimli bir exception nesnesi fırlatmanız bekleniyor. | Stok bilgilerini tutan sınıfta kateogori numarası, ürün numarası ve güncel ürün sayısı bilgilerini tutabilirsiniz. Inventory sınıfı bu stok sınıfına ait nesne örneklerinin koleksiyonunu taşımalıdır. Fırlatılan Exception runtime' da _(Console uygulaması olarak tasarlanabilir)_ yakalanmalıdır. |
 | **Y08** | | | |
 | **Y09** | | | |
 | **Y10** | | | |
 | **Y11** | | | |
 | **Y12** | | | |
-| **O01** | | | |
+| **O01** | Polimorfik Nesnelerin Keşfi | Bu çalışmada bir oyunun anlık halinin kayıt edilmesi üzerine bir süreç söz konusudur. Bir oyunda sahadaki nesneleri yöneten nesnenin kayıt işlemini çalışma zamanından önce belirlenen ortama yazması beklenir. Bazı durumlarda metin tabanlı bir dosyaya bazı hallerde cloud ortamındaki bir servise veya veri tabanına yazdırabilir. | Buradaki tek kural oyun sahasındaki nesneleri tutan container bileşeninin yazma operasyonunu değiştirmek için kodunu değiştirmeden hareket edilmesi gerekliliğidir. Yani kaydetme davranışının değişime kapalı ama genişletilmeye açık bir şekilde tesis edilmesi beklenmektedir. Bu davranış genişletmesi için Interface kullanımı zaruridir |
 | **O02** | | | |
 | **O03** | | | |
 | **O04** | | | |
@@ -298,7 +299,7 @@ Senaryo Kodları : Y -> Yellow, O -> Orange, R -> Red
 | **O10** | | | |
 | **O11** | | | |
 | **O12** | | | |
-| **R01** | | | |
+| **R01** | Plug-In Tabanlı Geliştirme | Bu senaryoda bir programın kodunun değiştirilmeden genişletilebilmesi ele alınır. Örneğin bir grafik uygulamasının standart kütüphanesinde temel resim fonksiyonlarını sunduğunu düşünelim. Gölgeleme, siyah beyaza çevirme gibi efektleri işeten fonksiyonlar olarak düşünebiliriz. Amacımız yalın bir SDK geliştirmek ve buradan sunacağımız imkanlarla bu SDK'yi kullanan taraflara kendi efektlerini de ekleyebilmelerini sağlamak. | Bu örneklte SDK görevi gören bir Class Library, bunu kullanan hayali bir grafik uygulaması (terminal tabanlı geliştirilebilir) söz konusudur. SDK kullanıcısı kendi efektini runtime'a öğretmek için SDK'yi baz alır. Grafik çizim uygulaması (terminal uygulaması olduğunu bir kez daha hatırlatalım) yeni efektleri, SDK'den geliştirilen yeni Class Library' yi kullanarak ele alabilir. Önemli kural, grafik uygulaması (runtime sahibi) yeni efektleri içeren (ve bunun için SDK kütüphanesini referans eden) kütüphaneyi referans etmeden kullanmalıdır.  |
 | **R02** | | | |
 | **R03** | | | |
 | **R04** | | | |
