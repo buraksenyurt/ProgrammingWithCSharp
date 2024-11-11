@@ -40,6 +40,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.Structs", "FreeZon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.Structs.Client", "FreeZone\Learning.Structs.Client\Learning.Structs.Client.csproj", "{A42537B9-9763-4351-90FE-15C68C1216CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "O01", "Practices\Orange\O01\O01.csproj", "{0257B422-27CF-419D-B15F-DB9C8A06B246}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +92,10 @@ Global
 		{A42537B9-9763-4351-90FE-15C68C1216CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A42537B9-9763-4351-90FE-15C68C1216CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A42537B9-9763-4351-90FE-15C68C1216CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0257B422-27CF-419D-B15F-DB9C8A06B246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0257B422-27CF-419D-B15F-DB9C8A06B246}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0257B422-27CF-419D-B15F-DB9C8A06B246}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0257B422-27CF-419D-B15F-DB9C8A06B246}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +109,7 @@ Global
 		{05759530-DF58-40C1-80AA-E261B5DCDBEC} = {0C8F7AAE-55DC-46D9-9BE6-F7CA135C9214}
 		{D5CA2E7A-0408-4CC4-9DBC-B98EE365DA96} = {0C8F7AAE-55DC-46D9-9BE6-F7CA135C9214}
 		{A42537B9-9763-4351-90FE-15C68C1216CD} = {0C8F7AAE-55DC-46D9-9BE6-F7CA135C9214}
+		{0257B422-27CF-419D-B15F-DB9C8A06B246} = {7B076E92-B821-4A35-8FDC-21505A66CC7C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2622B61-B5A7-4CAD-9CC3-84B635B74D60}
