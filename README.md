@@ -10,6 +10,7 @@ C# programalama dersi için açılmış olan ve örnek kodları içeren repodur.
     - [Chapter 04](#ders-04)
     - [Çerezlik Kod Pratikleri](#çerezlik-kod-pratikleri)
     - [Free Zone](#free-zone)
+    - [Kaynak Önerileri](#kaynak-önerileri)
     - [Vize Sınavı Soruları](#vize-sınavı-soruları)
     - [Final Sınavı Soruları](#final-sınavı-soruları)
 
@@ -286,7 +287,7 @@ Senaryo Kodları : Y -> Yellow _(Yani hafifsiklet kod parçaları)_, O -> Orange
 | **Y09** | | | |
 | **Y10** | | | |
 | **Y11** | | | |
-| **Y12** | | | |
+| **Y12** | **Test Pratikleri** |Test Driven Development pratiklerinin kazanılması için yapılan çeşitli kod kataları vardır. Bunlardan birisi de Fizz Buzz problemidir. 0dan 100e kadar sayan bir metot 3 ve 5 ile bölünebilen sayılara bakar. 3 ile bölünenler için ekrana Fizz, 5 ile bölünenler için Buzz, hem 3 hem de 5 ile bölünenler için FizzBuzz yazar.  İstenen şey bu metodu test driven development yaklaşımı ile yazmaktır.|XUnit türünden bir test projesi üzerinde geliştirilmelidir. Proje en az 5 test metodu içermelidir.|
 | **O01** | **Polimorfik Nesnelerin Keşfi** |Bu çalışmada bir oyunun anlık halinin kayıt edilmesi üzerine bir süreç söz konusudur. Bir oyunda sahadaki nesneleri yöneten nesnenin kayıt işlemini çalışma zamanından önce belirlenen ortama yazması beklenir. Bazı durumlarda metin tabanlı bir dosyaya bazı hallerde cloud ortamındaki bir servise veya veri tabanına yazdırabilir. |Buradaki tek kural oyun sahasındaki nesneleri tutan container bileşeninin yazma operasyonunu değiştirmek için kodunu değiştirmeden hareket edilmesi gerekliliğidir. Yani kaydetme davranışının değişime kapalı ama genişletilmeye açık bir şekilde tesis edilmesi beklenmektedir. Bu davranış genişletmesi için Interface kullanımı zaruridir|
 | **O02** | **Metinsel Veri Manipülasyonları** |Elimizde şöyle bir metinsel içerik olduğunu düşünelim. **{html}{body}{head}Product Info{head}{p}Title: {@model.Title}{p}{br}{p}Description : {@model.Description}{br}{p}List Price : {@model.ListPrice}{p}{body}{html}** Yazacağımız bir runtime da @model ile başlayan yerleri gerçekten bir Product sınıfının verileri ile değiştirmek istiyoruz. Bunu işleten metotu yazmayı deneyiniz|Ortamda bir Product sınıfı olmalı ve ayrıca belirtilen metinsel ifade bir text dosyadan okunmalı. Metodumuz text tabanlı dosyayı almalı ve burada @model ile başlayan kısımları tespit edip doğru Product nesne özellikleri ile değiştirebilmeli.|
 | **O03** | | | |
@@ -301,7 +302,7 @@ Senaryo Kodları : Y -> Yellow _(Yani hafifsiklet kod parçaları)_, O -> Orange
 | **O12** | | | |
 | **R01** | **Plug-In Tabanlı Geliştirme** |Bu senaryoda bir programın kodunun değiştirilmeden genişletilebilmesi ele alınır. Örneğin bir grafik uygulamasının standart kütüphanesinde temel resim fonksiyonlarını sunduğunu düşünelim. Gölgeleme, siyah beyaza çevirme gibi efektleri işeten fonksiyonlar olarak düşünebiliriz. Amacımız yalın bir SDK geliştirmek ve buradan sunacağımız imkanlarla bu SDK'yi kullanan taraflara kendi efektlerini de ekleyebilmelerini sağlamak.|Bu örneklte SDK görevi gören bir Class Library, bunu kullanan hayali bir grafik uygulaması (terminal tabanlı geliştirilebilir) söz konusudur. SDK kullanıcısı kendi efektini runtime'a öğretmek için SDK'yi baz alır. Grafik çizim uygulaması (terminal uygulaması olduğunu bir kez daha hatırlatalım) yeni efektleri, SDK'den geliştirilen yeni Class Library' yi kullanarak ele alabilir. Önemli kural, grafik uygulaması (runtime sahibi) yeni efektleri içeren (ve bunun için SDK kütüphanesini referans eden) kütüphaneyi referans etmeden kullanmalıdır.|
 | **R02** | **Nesne Bağımlılıklarını Gevşetmek** |Bir bayi otomasyon sistemindeki faturalama süreçlerinin ele alındığı bir modülde geliştirici olarak çalıştığınızı düşünün. Faturanın kendisini bir model nesnesi olarak tasarladınız ve bir başka bileşeniniz de fatura kesme işini üstleniyor. Bir fatura kesildiğinde müşteriye bildirim gönderilmesi isteniyor ancak bu bildirimin nasıl yapılacağı belli değil. SMS ile olabilir, E-Posta gönderimi olabilir, Whatsapp mesajı olabilir veya push notification tarzı yeni bir hizmet kullanılabilir. Bu işin Fatura kesme işini üstlenen component'ten soyutlanarak dışarı alınması ve gevşek bağlı bir bileşen halinde tasarlanması bekleniyor. Senaryo gereği bu gönderim işlemlerinden birden fazlası aynı anda yapılabilir. Yani hem SMS hem e-posta gönderimleri de söz konusu olabilir. Dolayısıyla bileşen bağımlılığının birden fazla dış enstrümanı kullanacak şekilde tesis edilmesi gerekiyor.|Yeni bir gönderim şeklini sisteme eklerken veya önceden tanımlanmış olanları kullanırken fatura kesme operasyonunu üstlenen bileşen kodunda değişiklik yapmamamlıyız.|
-| **R03** | | | |
+| **R03** | **Performanslı İçerik Üretmek** |Bir projede test verisi üretmemiz isteniyor. Test verileri rastgele metinsel içeriklerden oluşan ancak boyutları 2 ila 5 Mb arasında değişen dosyalar olmalı. Dosya sayısı istenen test kümesi için ayrılan fiziki disk alanına göre belirlenmekte. Örneğin 500 Mb lık bir test içeriği için 100 tane 5 mb'lık dosya üretmek gibi. İstenen şey bu üretim işinin mümkün mertebe en hızlı biçimde yapılması. |Dosya üretme işlerini üstlenen bir runtime geliştirilmeli ve dosyalar sıralı olarak değil eş zamanlı olarak üretilebilmeli ve ayrıca her dosyanın içeriği farklı olmalı. Her dosya PREPARED FOR TEST PURPOSE ifadesi ile başlamalı ve bitmeli.|
 | **R04** | | | |
 | **R05** | | | |
 | **R06** | | | |
@@ -318,7 +319,7 @@ Solution içerisinde yer alan Free Zone klasöründe normal ders müfredatı pro
 
 ## Kaynak Önerileri
 
-C# dilini nesne yönelimli özelliklerini de harmanlayan bazı kaynakların en azından referans olarak kullanılmasında yarar olabilir. Bunları aşağıdaki listede bulabilirsiniz.
+C# dilini nesne yönelimli dil özelliklerini de harmanlayan bazı kaynakların en azından referans olarak kullanılmasında yarar olabilir. Buradaki kitaplarda geçen kavramların birçoğu farklı diller içinde geçerlidir ve ağırlıklı olarak yazılım mühendisliği alanının önemli kavramlarını ele almaktadır.
 
 - **Clean Code.** _Robert C. Martin_
 - **Pragmatic Programmer.** _David Thomas, Andrew Hunt_
