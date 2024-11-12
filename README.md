@@ -339,7 +339,7 @@ C# dilini nesne yönelimli dil özelliklerini de harmanlayan bazı kaynakların 
 
 ## Vize Sınavı Soruları
 
-Sonradan eklenecek;
+Sorular ve cevaplar [Midterm.md](Midterm.md) isimli dokümanda yer almaktadır.
 
 ## Final Sınavı Soruları
 
