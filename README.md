@@ -244,7 +244,11 @@ Interface türü iş yapan kod blokları içermez. Sadece kendisini uygulayan t�
 
 ## Ders 05
 
-**throw new NotImplementedException();**
+Bir önceki dersimizde kalıtım ve polimorfik yapıları incelemiş ve son olarak interface türünün nasıl kullanılabileceğine bakmıştım. Bu derste amacımız bileşenler arası bağımlılıkları konuşmak ve özellikle Dependency Inversion prensibini öğrenmek olacak. Bileşenler (Component) kendi işleri ile uğraşan ve bu anlamda belli fonksiyonellikleri icra eden yapıtaşları olarak düşünülebilirler. Çoğu senaryoda bir bileşen bazı işlevleri için farklı bileşenlere ihtiyaç duyar. Bileşenler arası bağımlılıkları yönetimi önemli bir konudur. Kodun değişime uğramadan genişletilebilmesi gibi önemli problemlerin çözümünde sıkı bağlı (tightly coupled) ilişkiler yerine gevşek bağlı (loosely coupled) bir yaklaşım tercih edilir. Bu soyut konuları daha iyi irdelemek ve kalıtım konusunu da bu çerçevede tekrar etmek için aşağıdaki örnek senaryoyu ele alabiliriz.
+
+![image](https://github.com/user-attachments/assets/fce58f92-b101-4f2e-9ef7-8a5fd88bfd92)
+
+
 
 # Ders 06
 
