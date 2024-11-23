@@ -20,7 +20,6 @@ internal class Program
         taskManager.AssignTaskToRobot(3, "Inspect robot quality");
 
         taskManager.ExecuteAllTasks();
-
         taskManager.GenerateReport();
     }
 }

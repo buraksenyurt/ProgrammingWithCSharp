@@ -4,21 +4,13 @@ using RobotFactory.Reports;
 
 namespace RobotFactory.Managers;
 
-public class TaskManager
+public class TaskManager(IRobotFactory robotFactory, ReportGenerator reportGenerator)
 {
-    private readonly IRobotFactory _robotFactory;
-    private readonly ReportGenerator _reportGenerator;
     private readonly List<Robot> _robots = [];
-
-    public TaskManager(IRobotFactory robotFactory, ReportGenerator reportGenerator)
-    {
-        _robotFactory = robotFactory;
-        _reportGenerator = reportGenerator;
-    }
 
     public void AddRobot(string type, int id, string name)
     {
-        var robot = _robotFactory.CreateRobot(type, id, name);
+        var robot = robotFactory.CreateRobot(type, id, name);
         _robots.Add(robot);
         Console.WriteLine($"{robot.Name} added to task manager.");
     }
@@ -45,6 +37,6 @@ public class TaskManager
 
     public void GenerateReport()
     {
-        _reportGenerator.Generate(_robots);
+        reportGenerator.Generate(_robots);
     }
 }
