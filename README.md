@@ -250,9 +250,98 @@ Bir önceki dersimizde kalıtım ve polimorfik yapıları incelemiş ve son olar
 
 Masaüstü uygulamalar için bir form geliştirme ürünü tasarladığımı düşünelim. Formu tasarlayan diğer programcılar için bir framework sunuyoruz. Buna göre kullanabilecekleri bileşenleri hazır olarak da vermekteyiz. Örneğin çeşitli türden butonlar , resim içerebilen kutular, metinsel bilgiler barındıran alanları birer bileşen olarak sağlıyoruz. Bunların hemen hepsinde ortak özellikler ve davranışlar yer alıyor. Söz gelimi her kontrolün ekran üzerindeki konumu, benzersiz kimlik tanımlayıcısı (ID gibi) ya da geliştiricinin onu kolayca anlayabileceği adı var. Fakat bunlara ek kendilerine has özellikleri de olabilir. Örneğin RadioButton bir Button kontrolüdür ama ekstradan opsiyonların listesini ve hangisinin seçili olduğunu da barındırır. Ya da PictureBox bileşeni de bir kontroldür ama örneğin resmin adresini ya da byte array içeriğini taşıyan bir özelliği de vardır. Dolayısıyla kontroller arasındaki ilişkiyi tesis ederken her şeyin bir Control nesnesi olduğunu ama butonlar, liste kutuları, metin kontrolleri gibi alt nesne gruplarının da olduğu göz önüne alınmalıdır.
 
+Burada bileşenler arasındaki ilişkileri çok basit seviyede aşağıdaki gibi tasarladığımızı ifade edebiliriz. Editör tarafından sunulan bütün bileşeneler esasında bir Control nesnesidir. Ortak özellikler Control sınıfında toplanmıştır ve bu sınıf abstract olarak tanımlanmıştır. Bir alt seviyeye inilebileceğini göstermek için Button türevli bileşenler BaseButton sınıfından türetilmiştir. Örneğin Button, RadioButton, LinkButton sınıfları ButtonBase türünden birer Control nesnesidir diyebiliriz. Button'lar ile ortak özellikler içermeyen kontroller ise farklı sınıflarda toplanmıştır. Label, GridBox veya CheckBox gibi. Tüm kontrollerin ekrana çizilmesi gibi ortak bir davranış söz konusudur. Lakin bu davranış örneğin DbConnector için geçerli değildir zira bu nesne ekran çizdirilmesi gereken bir bileşen değildir. Çizdirme davranışı IDrawable arayüzü üzerinde tanımlanmıştır. Programdaki Form sınıfı basit bir Container görevini icra eder. Kendi içinde n adet Control nesnesi barındırabilir ve bunlardan sadece IDrawable olanları çizer.
+
 ![image](https://github.com/user-attachments/assets/727b9072-8171-47bb-80d6-756288072915)
 
-Senaryoda bizi bileşenler arası bağımlılıkları çözmeye itecek nokta kaydetme operasyonudur. Herhangibir t anında designer uygulamasının ekranın o anki halini kaydetmesi beklenir. Buna göre form üzerinde hangi kontrolleri olduğu, nerede konumlandıkları, adları, id bilgileri varsa ekstra değerleri kayıt altına alınmalıdır. Framework sunan taraf bu davranışı bir Interface üzerinde sağlar. Kendi için varsayılan olarak dosyaya kaydetme bileşenini de verir ancak framework'ü kullanan geliştiriciler isterlerse kendi kaydetme davranışlarını içeren bileşenleri çalışma zamanında kullanabilirler. Bu, framework içerisinde Form yönetimini sağlayan çalışma zamanının kendisine enjekte edilen kaydetme bileşeni ile birlikte çalışabilmesi demektir. İşte bu noktada SOLID' in Dependency Inversion ilkesi devreye girerek ilgili bağımlılığın tersine çevrilmesine ve dolayısıyla kapalı sistem kodunu değiştirmeden dışarıdan çalışacağı bileşenin entegre edilebilmesi olanağına kavuşulur. Interface türünün kendisini implemente eden türleri taşıyabilmesi ve sebeple polimorfik (çok biçimli) hareket edebilmesi işin çözüldüğü noktadır.
+Senaryoda bizi bileşenler arası bağımlılıkları çözmeye itecek nokta kaydetme operasyonudur. Herhangibir t anında designer uygulamasının ekranın o anki halini kaydetmesi beklenir. Buna göre form üzerinde hangi kontrolleri olduğu, nerede konumlandıkları, adları, id bilgileri varsa ekstra değerleri kayıt altına alınmalıdır. Framework sunan taraf bu davranışı bir Interface üzerinde sağlar. Kendi için varsayılan olarak dosyaya kaydetme bileşenini de verir ancak framework'ü kullanan geliştiriciler isterlerse kendi kaydetme davranışlarını içeren bileşenleri çalışma zamanında kullanabilirler. Bu, framework içerisinde Form yönetimini sağlayan çalışma zamanının kendisine enjekte edilen kaydetme bileşeni ile birlikte çalışabilmesi demektir. İşte bu noktada SOLID' in Dependency Inversion ilkesi devreye girerek ilgili bağımlılığın tersine çevrilmesine ve dolayısıyla kapalı sistem kodunu değiştirmeden dışarıdan çalışacağı bileşenin entegre edilebilmesi olanağına kavuşulur. Interface türünün kendisini implemente eden türleri taşıyabilmesi ve sebeple polimorfik *(çok biçimli)* hareket edebilmesi işin çözüldüğü noktadır. Örneğimizde Form bileşeninin bağımlı olduğu kaydetme operasyonu IPersistence arayüzü üzerinden CsvPersistence ve DbPersistence bileşenlerine uygulanmıştır. Bunun için Form sınıfından Constructor Injection tekniği ele alınmıştır.
+
+```csharp
+public class Form
+    {
+        private readonly List<Control> _controls = [];
+        private readonly IPersistence _persistence;
+
+        public Form(IPersistence persistence)
+        {
+            _persistence = persistence;
+        }
+
+        public void AddControls(params Control[] controls)
+        {
+            _controls.AddRange(controls);
+        }
+        public void LocateAll()
+        {
+            foreach (Control control in _controls)
+            {
+                Console.WriteLine($"{control.Id} location set");
+            }
+        }
+        public void DrawAll()
+        {
+            foreach (Control control in _controls)
+            {
+                if (control is IDrawable drawable)
+                {
+                    drawable.Draw();
+                }
+            }
+        }
+
+        public void Save()
+        {
+            _persistence.Save(_controls);
+        }
+    }
+```
+
+Burada dikkat edileceği üzere Form sınıfının yapıcı metodu IPersistence arayüzü tarafından taşınabilecek bir nesne alır. Sınıfın gerekli olan noktasında ki bu örnekte Save metodudur, IPersistence'ın çalışma zamanında bağlanmış olan bileşenindeki asıl Save metodu işletilir. Bunu Program.cs içerisinde aşağıdaki gibi kullandığımızı ifade edebiliriz.
+
+```csharp
+internal class Program
+{
+    static void Main()
+    {
+        var csvSaver = new CsvPersistence();
+
+        // var dbSaver = new DbPersistence();
+        Form mainForm = new(csvSaver); 
+
+        Button btnSave = new(101, "btnSave", (0, 100))
+        {
+            Text = "Save"
+        };
+        Button btnClose = new(102, "btnClose", (0, 500))
+        {
+            Text = "Close"
+        };
+        CheckBox chkIsActiveProfile = new(104, "chkIsActive", (0, 10))
+        {
+            Text = "Is Active Profile",
+            IsChecked = true
+        };
+        Label lblTitle = new(106, "lblTitle", (50, 50))
+        {
+            Text = "Title"
+        };
+        LinkButton lnkAbout = new(204, "lnkAbout", (400, 50))
+        {
+            Url = new Uri("https://www.azon.com.tr/about")
+        };
+        DbConnector dbConnector = new(90, "dbConnector", (0, 0))
+        {
+            ConnectionString = "data source=localhost:database=Northwind;integrated security=sspi"
+        };
+
+        mainForm.AddControls(btnSave, btnClose, lblTitle, lnkAbout, chkIsActiveProfile, dbConnector);
+        mainForm.DrawAll();
+        mainForm.Save();
+    }
+}
+```
+
+Bu yaklaşımın bir sonraki seviyesi bu tip bileşen bağımlılıklarını bir Dependency Injection Container aracı üzerinden yürütmek olacaktır. Bu amaçla DI Container araçları incelenebilir. Microsoft .net platformunun güncel versiyonları core sürümlerinden beri internal bir DI mekanizması sağlar ancak büyük projelerde yetersiz kaldığı noktalar olabilir. Autofac, Windsor Castle, Ninject, SimpleInjector vb alternatifler düşünülebilir.
 
 **Alternatif Senaryolar**
 
