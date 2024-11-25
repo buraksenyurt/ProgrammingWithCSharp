@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Y06", "Practices\Yellow\Y06
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotFactory", "FreeZone\RobotFactory\RobotFactory.csproj", "{262A692A-5576-4D57-AD1A-8EC8DDA02897}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter05", "Chapter05\Chapter05.csproj", "{9FE5AF1A-108D-466C-BFD3-8E267E470548}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +135,10 @@ Global
 		{262A692A-5576-4D57-AD1A-8EC8DDA02897}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{262A692A-5576-4D57-AD1A-8EC8DDA02897}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{262A692A-5576-4D57-AD1A-8EC8DDA02897}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FE5AF1A-108D-466C-BFD3-8E267E470548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FE5AF1A-108D-466C-BFD3-8E267E470548}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FE5AF1A-108D-466C-BFD3-8E267E470548}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FE5AF1A-108D-466C-BFD3-8E267E470548}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
