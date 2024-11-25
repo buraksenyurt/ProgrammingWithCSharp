@@ -1,22 +1,16 @@
-﻿namespace Chapter05.Components
+﻿namespace Chapter05.Components;
+
+/*
+    Tasarımımıza göre ekrana çizilebilen tüm bileşenleri tarifleyen nesnedir.
+ */
+public abstract class Control(int id, string name, (double, double) position)
 {
-    /*
-        Tasarımımıza göre ekrana çizilebilen tüm bileşenleri tarifleyen nesnedir.
-     */
-    public abstract class Control
+    public int Id { get; set; } = id;
+    protected string? Name { get; set; } = name;
+    protected (double, double) Position { get; set; } = position;
+
+    public override string ToString()
     {
-        public int Id { get; set; }
-        protected string Name { get; set; }
-        protected (double, double) Position { get; set; }
-        protected Control(int id, string name, (double, double) position)
-        {
-            Id = id;
-            Name = name;
-            Position = position;
-        }
-        public override string ToString()
-        {
-            return $"{Id}|{this.GetType().Name}|{Name}|{Position}";
-        }
+        return $"{Id}|{this.GetType().Name}|{Name}|{Position}";
     }
 }

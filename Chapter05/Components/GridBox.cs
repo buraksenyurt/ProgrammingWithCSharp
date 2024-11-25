@@ -1,23 +1,19 @@
 ﻿using Chapter05.Contracts;
 
-namespace Chapter05.Components
+namespace Chapter05.Components;
+
+internal class GridBox(int id, string name, (double, double) position)
+        : Control(id, name, position), IDrawable
 {
-    internal class GridBox
-        : Control, IDrawable
+    public int RowCount { get; set; }
+    public int ColumnCount { get; set; }
+
+    public void Draw()
     {
-        public int RowCount { get; set; }
-        public int ColumnCount { get; set; }
-        public GridBox(int id, string name, (double, double) position)
-            : base(id, name, position)
-        {
-        }
-        public void Draw()
-        {
-            Console.WriteLine("GridBox draw at {0}:{1}", Position.Item1, Position.Item2);
-        }
-        public override string ToString()
-        {
-            return $"{base.ToString()}|{RowCount}|{ColumnCount}";
-        }
+        Console.WriteLine("GridBox draw at {0}:{1}", Position.Item1, Position.Item2);
+    }
+    public override string ToString()
+    {
+        return $"{base.ToString()}|{RowCount}|{ColumnCount}";
     }
 }

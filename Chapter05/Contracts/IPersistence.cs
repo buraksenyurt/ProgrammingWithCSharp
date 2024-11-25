@@ -1,9 +1,8 @@
 ﻿using Chapter05.Components;
 
-namespace Chapter05.Contracts
+namespace Chapter05.Contracts;
+
+public interface IPersistence
 {
-    public interface IPersistence
-    {
-        void Save(List<Control> controls);
-    }
+    void Save(List<Control> controls);
 }

@@ -1,14 +1,13 @@
 ﻿using Chapter05.Components;
 using Chapter05.Contracts;
 
-namespace Chapter05.Persistence
+namespace Chapter05.Persistence;
+
+public class DbPersistence
+    : IPersistence
 {
-    public class DbPersistence
-        : IPersistence
+    public void Save(List<Control> controls)
     {
-        public void Save(List<Control> controls)
-        {
-            Console.WriteLine("Database save");
-        }
+        Console.WriteLine("Database save");
     }
 }

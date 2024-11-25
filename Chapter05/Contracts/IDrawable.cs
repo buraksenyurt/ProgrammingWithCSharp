@@ -1,7 +1,6 @@
-﻿namespace Chapter05.Contracts
+﻿namespace Chapter05.Contracts;
+
+public interface IDrawable
 {
-    public interface IDrawable
-    {
-        void Draw();
-    }
+    void Draw();
 }
