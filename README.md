@@ -354,7 +354,22 @@ Yukarıdaki senaryoya alternatif olabilecek farklı konular da ele alınabilir. 
 
 # Ders 06
 
-**throw new NotImplementedException();**
+Önceki derslerde nesne yönelimli dil özelliklerinin temellerini inceledik. Son derslerde ise özellikle Single Responsibility ve Depedency Inversion gibi kavramlara hafif geçişler yaptık. Her iki prensip Robert C. Martin tarafından ortaya konan ve S.O.L.I.D. olarak kısaltılan yazılım geliştirme felsefesinin unsurlarıdır. Bu prensipler temelde yüksek kalite kodlamayı ve sürdürülebilirliği hedefler. Amaç kodun okunabilir, değiştirilebilir, genişletilebilir ve bakımının kolay yapılabilmesini sağlamaktır. Prensipler doğru ve yerinde kullanıldığında test edilebilirliği yüksek, güvenilir, daha az hataya sebep olan kodların üretilmesi mümkün hale gelir. Bu da standartlara uygun bir kodlama tabanının oluşmasına ve olası problemlerin minimize edilmesine zemin hazırlar. Bu dersteki amacımız prensipleri basit uygulamalar üzerinden incelemektir. Öncelikle her ilke kısaca neyi öğütlüyor bir bakalım.
+
+- SRP _(Single Responsibility Principle)_ : Bir sınıfın yalnızca bir görevi ve bu görevin de yalnızca bir sebebi olmalıdır.
+- OCP _(Open/Closed Principle)_ : Sınıflar yeni özelliklere açık, değişikliklere kapalı olmalıdır.
+- LSP _(Liskov Substitution Principle)_ : Türetilmiş sınıflar bir üst sınıfın yerine (türetildikleri sınıf) kullanılabilmelidir.
+- ISP _(Interface Segregation Principle)_ : Bir interface onun uygulayıcısı olan türlerin ihtiyacı olmayan metotları içermemelidir.
+- DIP _(Dependency Inversion Principle)_ : Yüksek seviyeli modüller, düşük seviyeli modüllere bağımlı olmamamlıdır. Tüm bu modüller _(component'ler de olabilir)_ soyutlamalara bağımlı olmalıdır.
+
+İlkeler basit olmasına rağmen bazen birbirlerine karıştırıldığı durumlar da söz konusu olabilir. Bu durumları da kısaca ele almaya çalışalım.
+
+- **SRP ve ISP Karışıklığı:** SRP bir sınıfın tek bir sorumluluğa sahip olmasını gerektirir ve Interface Segregation prensibi de bir arayüz için uygulayıcılarının ihtiyaç duymadığı metotları içermemesi gerektiğini belirtir. Bu bazen birbirlerine karıştırılabilir ama sınıfları SRP'ye uygun hale getirmek arayüzlerin de ISP'ye uygun hale getirilmesi sonucunu doğurur.
+- **LSP ve OCP Karışıklığı:** Liskov ilkesi türetilmiş sınıfların türediği taban sınıf gibi davranabilmesini savunur ve bu OCP ile karışabilir ancak şöyle bir durum vardır; LSP'nin ihlal edildiği durumlarda OCP'yi sağlamak pek mümkün değildir.
+- **OCP ve DIP Karışıklığı:** Open/Closed ilkesi yeni davranışlar eklemek için mevcut kodun değiştirilmemesini savunurken, Dependency Inversion prensibi bağımlılıkların soyutlanarak sağlanması gerektiğini öğütler. Esasında DIP ile bağımlılıklar soyutlandığında OCP otomatik olarak sağlanmış olur. Bağımlılıkların mümkün mertebe somut sınıflar yerine arayüzler _(interface)_ yardımıyla soyutlanması gerekir.
+- SRP ve OCP Karmaşıklığı: OCP bir sınıfa yeni davranış eklerken mevcut kodun değiştirilmemesi gerektiğini söyler ve SPR'de bir sınıfın tek bir sorumluluğu olması gerektiğini belirtir. SRP'nin birincil olarak ele alınması sınıfların doğru şekilde bölünmesini de kolaylaştırır ve bu doğarl olarak OCP'nin uygulanmasını da kolaylaştırır.
+
+Yukarıda belirtilen ilkeler ile ilgili örnek kod uygulamaları FreeZone bölümünde yer almaktadır.
 
 # Ders 07
 
