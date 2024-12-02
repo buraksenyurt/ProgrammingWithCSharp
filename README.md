@@ -2,31 +2,31 @@
 
 C# programalama dersi için açılmış olan ve örnek kodları içeren repodur.
 
-- [OOP Fundamentals with C#](#programming-with-csharp)
-    - [Ders 00: .Net Platformunun Tanıtımı, Ortam Gereksinimleri ve Hello World Uygulaması](#ders-00-net-platformunun-tanitimi-ortam-gereksinimleri-ve-hello-world-uygulamasi)
-    - [Ders 01: Temel Veri Türleri, Class ve Struct Tanımlamaları](#ders-01-temel-veri-türleri-class-ve-struct-tanimlamalari)
-    - [Ders 02: Metotlar, Karar Yapıları, Basit Döngüler ve Debug İşlemleri](#ders-02-metotlar-karar-yapilari-basit-döngüler-ve-debug-işlemleri)
-    - [Ders 03: Kalıtım Konusuna Giriş, Exception Hiyerarşisi ve Exception Handling](#ders-03-kalitım-konusuna-giriş-exception-hiyerarşisi-ve-exception-handling)
-    - [Ders 04: Abstract ve Interface Türleri, Çok Biçimlilik Kavramı](#ders-04-abstract-ve-interface-türleri-çok-biçimlilik-kavramı)
-    - [Ders 05: Bileşenler Arası Bağımlılıkların Yönetimi](#ders-05-bileşenler-arası-bağımlılıkların-yönetimi)
-    - [Ders 06: Library Geliştirme, Genişletilebilir Uygulamalar ve SOLID Prensiplerinin Temelleri](#ders-06-library-geliştirme-genişletilebilir-uygulamalar-ve-solid-prensiplerinin-temelleri)
-        - [JSON Serileştirme ve DTO Senaryosu](#json-serileştirme-ve-dto-senaryosu)
-    - [Ders 07](#ders-07)
-    - [Ders 08](#ders-08)
-    - [Ders 09](#ders-09)
-    - [Ders 10](#ders-10)
-    - [Ders 11](#ders-11)
-    - [Çerezlik Kod Pratikleri](#çerezlik-kod-pratikleri)
-    - [Free Zone](#free-zone)
-    - [Kaynak Önerileri](#kaynak-önerileri)
-    - [Vize Sınavı Soruları](#vize-sınavı-soruları)
-    - [Final Sınavı Soruları](#final-sınavı-soruları)
+- [C# ile Nesne Yönelimli Programlamanın Temelleri](#programming-with-csharp)
+  - [Ders 00: .Net Platformunun Tanıtımı, Ortam Gereksinimleri ve Hello World Uygulaması](#ders-00-net-platformunun-tanımıtı-ortam-gereksinimleri-ve-hello-world-uygulaması)
+  - [Ders 01: Temel Veri Türleri, Class ve Struct Tanımlamaları](#ders-01-temel-veri-türleri-class-ve-struct-tanımlamaları)
+  - [Ders 02: Metotlar, Karar Yapıları, Basit Döngüler ve Debug İşlemleri](#ders-02-metotlar-karar-yapıları-basit-döngüler-ve-debug-i̇şlemleri)
+  - [Ders 03: Kalıtım Konusuna Giriş, Exception Hiyerarşisi ve Exception Handling](#ders-03-kalıtım-konusuna-giriş-exception-hiyerarşisi-ve-exception-handling)
+  - [Ders 04: Abstract ve Interface Türleri, Çok Biçimlilik Kavramı](#ders-04-abstract-ve-interface-türleri-çok-biçimlilik-kavramı)
+  - [Ders 05: Bileşenler Arası Bağımlılıkların Yönetimi](#ders-05-bileşenler-arası-bağımlılıkların-yönetimi)
+  - [Ders 06: Library Geliştirme, Genişletilebilir Uygulamalar ve SOLID Prensiplerinin Temelleri](#ders-06-library-geliştirme-genişletilebilir-uygulamalar-ve-solid-prensiplerinin-temelleri)
+    - [JSON Serileştirme ve DTO Senaryosu](#json-serileştirme-ve-dto-senaryosu)
+  - [Ders 07](#ders-07)
+  - [Ders 08](#ders-08)
+  - [Ders 09](#ders-09)
+  - [Ders 10](#ders-10)
+  - [Ders 11](#ders-11)
+  - [Çerezlik Kod Pratikleri](#çerezlik-kod-pratikleri)
+  - [Free Zone](#free-zone)
+  - [Kaynak Önerileri](#kaynak-önerileri)
+  - [Vize Sınavı Soruları](#vize-sınavı-soruları)
+  - [Final Sınavı Soruları](#final-sınavı-soruları)
 
 ## Ders 00 _(.Net Platformunun Tanımıtı, Ortam Gereksinimleri ve Hello World Uygulaması)_
 
 Bu ilk dersteki amacımız standart bir Hello World uygulamasından ziyade dersin ana konularından olan nesne kavramını anlamaya çalışmaktır. Nesne yönelimli dil konsepti _(Object Oriented Programming)_ gerçek hayat iş modellerinin kurgulanmasında büyük kolaylıklar sağlar. Bu açıdan bakıldığıda her hangibir şeyi nesnel olarak modellemek mümkündür. Bu felsefeyi kavramak soyut kavramları nedeniyle çoğu zaman zordur. Bu nedenle ders için verilen proje ödevlerinin tutulduğu JSON bazlı dosya üzerine basit bir iş modeli kurgusu tartışılmıştır. Data.json içerisinde yer alan her bir projeyi programatik ortamda başka object user'ların _(ya da diğer programcıların)_ da kullanabilmesi için nasıl bir yol izlenebilir? İşte burada kendi veri türümüzün tasarımını yapmamız gerektiği kararına varabiliriz.
 
-Örnekte tasarlanmış olan Homework sınıfı bu işi üstlenir. Çok basit anlamda JSON dosyasındaki bir içeriğin nesnel izdüşümünü tanımlar. Ödevlerin benzersiz IDsi, başlığı, açıklaması ve seviye puanı sınıfın birer özelliği olur. Bu görsel olarak aşağıdaki çizelgede olduğu gibi ifade edilebilir. 
+Örnekte tasarlanmış olan Homework sınıfı bu işi üstlenir. Çok basit anlamda JSON dosyasındaki bir içeriğin nesnel izdüşümünü tanımlar. Ödevlerin benzersiz IDsi, başlığı, açıklaması ve seviye puanı sınıfın birer özelliği olur. Bu görsel olarak aşağıdaki çizelgede olduğu gibi ifade edilebilir.
 
 ![image](https://github.com/user-attachments/assets/79a783ae-777c-4f76-86f9-bc503a604fa0)
 
@@ -98,13 +98,13 @@ Dersimizde Solution kavramı ve içeriğinden de bahsettik. Bir solution içeris
 
 - Metot Overloading; Aynı isimde olan ama farklı sayıda veya tipte parametre ile çalışan metotlara verilen isimlendirmedir. Örneğin Console.WriteLine buna güzel bir örnek teşkil etmektedir.
 - statik metotlar tanımlandıkları veri yapısının nesne örneğine ihtiyaç duymadan çalıştırılabilirler.
-- Geriye değer döndürmeyen metotlar void olarak tanımlanır. Constructor _(yapıcı metotlar)_ bir istisnadır. Bulunduğu türle aynı adı taşırlar, parametre alabilirler ancak void dahi olamazlar. Amaçları bulunduğu veri modeline ait nesne örneklerini oluşturmaktır. 
+- Geriye değer döndürmeyen metotlar void olarak tanımlanır. Constructor _(yapıcı metotlar)_ bir istisnadır. Bulunduğu türle aynı adı taşırlar, parametre alabilirler ancak void dahi olamazlar. Amaçları bulunduğu veri modeline ait nesne örneklerini oluşturmaktır.
 
 Ayrıca debug işlemlerine de değindik. Kodun çalışma zamanında nasıl çalıştığını görmek açısından debug modda ilerlenebilir. Debug modda kodun belli uğrak noktaları _(Breakpoint)_ programcı tarafında belirlenebilir. Kod satırlarında ilerlerken Step Into, Step Over gibi teknikler kullanılabilir. Örneğin Step Into ile sıradaki metodun içerisine girilebilirken, Step Over ile metod çağrısı sonrasındaki satıra geçilebilir. F5 ile breakpoint noktaları arasında da hızlı hareket etmek imkanı vardır. Debug işlemlerini genelde kodun nasıl çalıştığını gözlemlemek için ya da çalışma zamanındaki problemleri görmek için kullanırız. Ancak tavsiye edilen çeşitli kabul kriterleri _(assertions)_ nezninden çalışırlığı test edilmiş kodlar yazmak ve gelişmiş log mekanizmaları ile olası problemleri gözlemlemektir.
 
 ## Ders 03 _(Kalıtım Konusuna Giriş, Exception Hiyerarşisi ve Exception Handling)_
 
-Bu derse kadar öğrendiklerimizle bir sınıf veya struct modelini inşa edebilir, belli özellikler ekleyebilir, bazı metotlar ile fonksiyonellikle ve davranışlar kazandırabiliriz. Encapsulation kavramını da gördüğümüz için nesne yönelimli dillerin bir diğer prensibi olan kalıtım konusuna değinebiliriz. Kalıtım(Inheritance) yine soyut bir kavram olduğunda teorik anlatımla öğrenilmesi zor olabilir. Ancak kullanılan platformun kendi dinamikleri içerisinde bu pratiğin sıklıkla uygulandığı gerçek hayat senaryolarına rastlarız. 
+Bu derse kadar öğrendiklerimizle bir sınıf veya struct modelini inşa edebilir, belli özellikler ekleyebilir, bazı metotlar ile fonksiyonellikle ve davranışlar kazandırabiliriz. Encapsulation kavramını da gördüğümüz için nesne yönelimli dillerin bir diğer prensibi olan kalıtım konusuna değinebiliriz. Kalıtım(Inheritance) yine soyut bir kavram olduğunda teorik anlatımla öğrenilmesi zor olabilir. Ancak kullanılan platformun kendi dinamikleri içerisinde bu pratiğin sıklıkla uygulandığı gerçek hayat senaryolarına rastlarız.
 
 .Net platformu açısından düşünelim. Çalışma zamanında kullanılan Exception türlerini ele alalım. Var olan Exception hiyerarşisi türetme sistemi üzerine kuruludur. Kendi istisna türlerimizi de Exception sınıfından türeterek oluşturabilir ve çalışma zamanı için ele alınmasını sağlayabiliriz. Aşağıdaki çizelgede bu hiyerarşi basitçe örneklenmiştir.
 
@@ -144,7 +144,7 @@ System.Windows.Forms.Control
                + SetContent() : void
 ```
 
-Bir başka güzel örnekte abstract tanımlanmış olan Stream sınıfıdır. Abstract sınıflar kısaca kendisinden nesne örneklenemeyen ama türetme amacıyla devralan sınıflara bir yol gösteren *(contract tanımlayan da diyebiliriz)*, türeyen sınıfları ortak özellik veya davranışları uygulamaya zorlayan tiplerdir. Stream sınıfı için örneğin aşağıdaki basit çizelgeyi göz önüne alabiliriz. Bir stream dosya tabanlı, bellek odaklı veya ağ üzerine çalıştırılabilir. Temelde hepsi ilgili ortamdan veri okuma veya veri yazma üzerine kendilerine has özelleştirmeler içerir. Belleğe veri yazıp okumak ile ağ soketi üzerinden bunu yapmak ya da fiziki diskten aynı işleri gerçekleştirmek farklı davranışlar olsa de özünde birer Streaming operasyonudur. 
+Bir başka güzel örnekte abstract tanımlanmış olan Stream sınıfıdır. Abstract sınıflar kısaca kendisinden nesne örneklenemeyen ama türetme amacıyla devralan sınıflara bir yol gösteren _(contract tanımlayan da diyebiliriz)_, türeyen sınıfları ortak özellik veya davranışları uygulamaya zorlayan tiplerdir. Stream sınıfı için örneğin aşağıdaki basit çizelgeyi göz önüne alabiliriz. Bir stream dosya tabanlı, bellek odaklı veya ağ üzerine çalıştırılabilir. Temelde hepsi ilgili ortamdan veri okuma veya veri yazma üzerine kendilerine has özelleştirmeler içerir. Belleğe veri yazıp okumak ile ağ soketi üzerinden bunu yapmak ya da fiziki diskten aynı işleri gerçekleştirmek farklı davranışlar olsa de özünde birer Streaming operasyonudur.
 
 ```text
 System.IO.Stream (abstract)
@@ -227,7 +227,7 @@ Microsoft.AspNetCore.Http.IMiddleware
 
 Kalıtım konusunu anlamak önemlidir. Sonraki derste işleyeceğimiz çok biçimli türler oluşturmak için zemin hazırlar. Çok biçimli olmak kısaca ata türün kendisine atanan alt tür nesne örneklerinin davranışlarını icra edebilmesi olarak özetlenebilir.
 
-*Not: Kalıtım(Inheritance) kullanışlı bir yetenek olmakla birlikte bazı durumlarda dez avantajlara sahip olabilir. Örneğin sınıflar arası katı bir yapı olması bir sınıfın her özelliğinin miras alınması demek ve bu bazen istenen esnekliği engelleyebiliyor. Bu nedenle günümüz moder oyun motorlarında kullanılan ECS(Entity Component System) mekanizmaları kalıtım yerine Composition over Inheritance yaklaşımını terchi ediyor.*
+_Not: Kalıtım(Inheritance) kullanışlı bir yetenek olmakla birlikte bazı durumlarda dez avantajlara sahip olabilir. Örneğin sınıflar arası katı bir yapı olması bir sınıfın her özelliğinin miras alınması demek ve bu bazen istenen esnekliği engelleyebiliyor. Bu nedenle günümüz moder oyun motorlarında kullanılan ECS(Entity Component System) mekanizmaları kalıtım yerine Composition over Inheritance yaklaşımını terchi ediyor._
 
 Bu derste kendi Exception sınıfımızı türetip basit bir türetme deneyiminden sonra aşağdaki görseli ele alıp GameObject, Plane ve Player ilişkilerini irdeledik.
 
@@ -237,9 +237,9 @@ GameObject sınıfı kendisinden türeyen oyun sahası aktörleri için ortak ö
 
 ## Ders 04 _(Abstract ve Interface Türleri, Çok Biçimlilik Kavramı)_
 
-Bu derste ağırlıklı olarak kalıtım _(Inheritance)_ ve çok biçimlilik _(polymorphism)_ üzerinde duruldu. Bunun için abstract sınıf, abstract üyeler ve interface kavramlarına değinildi. Çok biçimlilik _(polymorphism)_ genel olarak çalışma zamanı olan veya genişletilebilir olması istenen kütüphanelerde daha çok anlam kazanan bir kavramdır. Sistemin hangi davranışları işletebileceğini dışarıya bir sözleşme olarak açması olarak da düşünülebilir. 
+Bu derste ağırlıklı olarak kalıtım _(Inheritance)_ ve çok biçimlilik _(polymorphism)_ üzerinde duruldu. Bunun için abstract sınıf, abstract üyeler ve interface kavramlarına değinildi. Çok biçimlilik _(polymorphism)_ genel olarak çalışma zamanı olan veya genişletilebilir olması istenen kütüphanelerde daha çok anlam kazanan bir kavramdır. Sistemin hangi davranışları işletebileceğini dışarıya bir sözleşme olarak açması olarak da düşünülebilir.
 
-Abstract sınıflar normal sınıflara benzer bir başka deyişle metotlar, özellikler, alanlar vs içerebilir. new operatörü ile örneklenip kullanılamazlar ancak yapıcı metot _(constructor)_ içerbilirler zira bu yapıcı metotlar türeyen tipler tarafından kullanılabilir. Örneklerimizde bu tip bir kullanım da yer alıyor. Abstract tanımlanmış üyeler türeyen sınıflarda ezilmek _(override)_ zorundadır. Bu, bir üyenin üst türde virtual tanımlanmasından farklı bir durumdur. Virtual tanımlanmış olan bir fonksiyonellik _istenirse_ alt sınıflarda override edilir ve eğer edilmezse kendi varsayılan davranışını sergiler. 
+Abstract sınıflar normal sınıflara benzer bir başka deyişle metotlar, özellikler, alanlar vs içerebilir. new operatörü ile örneklenip kullanılamazlar ancak yapıcı metot _(constructor)_ içerbilirler zira bu yapıcı metotlar türeyen tipler tarafından kullanılabilir. Örneklerimizde bu tip bir kullanım da yer alıyor. Abstract tanımlanmış üyeler türeyen sınıflarda ezilmek _(override)_ zorundadır. Bu, bir üyenin üst türde virtual tanımlanmasından farklı bir durumdur. Virtual tanımlanmış olan bir fonksiyonellik _istenirse_ alt sınıflarda override edilir ve eğer edilmezse kendi varsayılan davranışını sergiler.
 
 Interface türü iş yapan kod blokları içermez. Sadece kendisini uygulayan türler için uygulamaları gereken kuralları belirten bir sözleşme _(contract)_ sunar. Hem interface hem de abstract türler kendilerinden türeyen nesneleri taşıyabildiğinden farklı türetme örneklerinin yer aldığı toplu veri kümelerini işlemek kolaylaşır. Bu da uygulamaların kod değişikliğine gerek kalmadan genişletilebilirliğinin yolunu açar. Plug-In'ler geliştirmek, çalışma zamanlarına yeni davranış biçimleri kazandırmak bu ilkenin uygulanmasının bir sonucudur. .Net sistemi içerisinde kullanılan birçok interface türü vardır. Bunların bazıları ile ilgili örnekler Learning.Interfaces projesinde yer almaktadır.
 
@@ -255,7 +255,7 @@ Burada bileşenler arasındaki ilişkileri çok basit seviyede aşağıdaki gibi
 
 ![image](https://github.com/user-attachments/assets/727b9072-8171-47bb-80d6-756288072915)
 
-Senaryoda bizi bileşenler arası bağımlılıkları çözmeye itecek nokta kaydetme operasyonudur. Herhangibir t anında designer uygulamasının ekranın o anki halini kaydetmesi beklenir. Buna göre form üzerinde hangi kontrolleri olduğu, nerede konumlandıkları, adları, id bilgileri varsa ekstra değerleri kayıt altına alınmalıdır. Framework sunan taraf bu davranışı bir Interface üzerinde sağlar. Kendi için varsayılan olarak dosyaya kaydetme bileşenini de verir ancak framework'ü kullanan geliştiriciler isterlerse kendi kaydetme davranışlarını içeren bileşenleri çalışma zamanında kullanabilirler. Bu, framework içerisinde Form yönetimini sağlayan çalışma zamanının kendisine enjekte edilen kaydetme bileşeni ile birlikte çalışabilmesi demektir. İşte bu noktada SOLID' in Dependency Inversion ilkesi devreye girerek ilgili bağımlılığın tersine çevrilmesine ve dolayısıyla kapalı sistem kodunu değiştirmeden dışarıdan çalışacağı bileşenin entegre edilebilmesi olanağına kavuşulur. Interface türünün kendisini implemente eden türleri taşıyabilmesi ve sebeple polimorfik *(çok biçimli)* hareket edebilmesi işin çözüldüğü noktadır. Örneğimizde Form bileşeninin bağımlı olduğu kaydetme operasyonu IPersistence arayüzü üzerinden CsvPersistence ve DbPersistence bileşenlerine uygulanmıştır. Bunun için Form sınıfından Constructor Injection tekniği ele alınmıştır.
+Senaryoda bizi bileşenler arası bağımlılıkları çözmeye itecek nokta kaydetme operasyonudur. Herhangibir t anında designer uygulamasının ekranın o anki halini kaydetmesi beklenir. Buna göre form üzerinde hangi kontrolleri olduğu, nerede konumlandıkları, adları, id bilgileri varsa ekstra değerleri kayıt altına alınmalıdır. Framework sunan taraf bu davranışı bir Interface üzerinde sağlar. Kendi için varsayılan olarak dosyaya kaydetme bileşenini de verir ancak framework'ü kullanan geliştiriciler isterlerse kendi kaydetme davranışlarını içeren bileşenleri çalışma zamanında kullanabilirler. Bu, framework içerisinde Form yönetimini sağlayan çalışma zamanının kendisine enjekte edilen kaydetme bileşeni ile birlikte çalışabilmesi demektir. İşte bu noktada SOLID' in Dependency Inversion ilkesi devreye girerek ilgili bağımlılığın tersine çevrilmesine ve dolayısıyla kapalı sistem kodunu değiştirmeden dışarıdan çalışacağı bileşenin entegre edilebilmesi olanağına kavuşulur. Interface türünün kendisini implemente eden türleri taşıyabilmesi ve sebeple polimorfik _(çok biçimli)_ hareket edebilmesi işin çözüldüğü noktadır. Örneğimizde Form bileşeninin bağımlı olduğu kaydetme operasyonu IPersistence arayüzü üzerinden CsvPersistence ve DbPersistence bileşenlerine uygulanmıştır. Bunun için Form sınıfından Constructor Injection tekniği ele alınmıştır.
 
 ```csharp
 public class Form
@@ -361,7 +361,7 @@ Bu derste Chapter06 isimli terminal uygulamasında Azon.Web.Persistence ve Azon.
 
 - SRP _(Single Responsibility Principle)_ : Bir sınıfın yalnızca bir görevi ve bu görevin de yalnızca bir sebebi olmalıdır.
 - OCP _(Open/Closed Principle)_ : Sınıflar yeni özelliklere açık, değişikliklere kapalı olmalıdır.
-- LSP _(Liskov Substitution Principle)_ : Türetilmiş sınıflar bir üst sınıfın yerine *(türetildikleri sınıf)* kullanılabilmelidir.
+- LSP _(Liskov Substitution Principle)_ : Türetilmiş sınıflar bir üst sınıfın yerine _(türetildikleri sınıf)_ kullanılabilmelidir.
 - ISP _(Interface Segregation Principle)_ : Bir interface onun uygulayıcısı olan türlerin ihtiyacı olmayan metotları içermemelidir.
 - DIP _(Dependency Inversion Principle)_ : Yüksek seviyeli modüller, düşük seviyeli modüllere bağımlı olmamamlıdır. Tüm bu modüller _(component'ler de olabilir)_ soyutlamalara bağımlı olmalıdır.
 
@@ -378,7 +378,7 @@ Yukarıda belirtilen ilkeler ile ilgili örnek kod uygulamaları FreeZone bölü
 
  _(Bu bölüm final sınavına dahil değildir)_
 
-Chapter06 isimli projede JsonPersistence ile Control nesne koleksiyonlarının JSON formatında kaydedilmesi söz konusudur. Ancak burada bir problem vardır. Control türünden olan nesne topluluğunu bu şekilde serileştirdiğimizde varsayılan olarak sadece Control sınıfının public özellik değerleri serileşir. Ancak Control sınıfından türeyen diğer türevlerin özelliklerinin de JSON serileştirmeye alınması istenmektedir. Bu tip senaryolarda hedefin ihtiyaç duyduğu verileri taşıyan transfer nesneleri kullanılabilir. Data Transfer Object _(DTO)_ esasından karmaşık kontrol nesneleri yerine sadece serileştirilmesi istenen özellikler barındıran basit Entity sınıflarıdır. Sadece veriyi tutar. Form sınıfı içerisindeki herhangibir Control nesnesinin karşılığı olan bir DTO nesnesine dönüştürülmesi ise sanıldığı kadar kolay olmayabilir. Zira public olmayan özelliklerin alınması için çalışma zamanında bir çözümleme yapılması gerekebilir. 
+Chapter06 isimli projede JsonPersistence ile Control nesne koleksiyonlarının JSON formatında kaydedilmesi söz konusudur. Ancak burada bir problem vardır. Control türünden olan nesne topluluğunu bu şekilde serileştirdiğimizde varsayılan olarak sadece Control sınıfının public özellik değerleri serileşir. Ancak Control sınıfından türeyen diğer türevlerin özelliklerinin de JSON serileştirmeye alınması istenmektedir. Bu tip senaryolarda hedefin ihtiyaç duyduğu verileri taşıyan transfer nesneleri kullanılabilir. Data Transfer Object _(DTO)_ esasından karmaşık kontrol nesneleri yerine sadece serileştirilmesi istenen özellikler barındıran basit Entity sınıflarıdır. Sadece veriyi tutar. Form sınıfı içerisindeki herhangibir Control nesnesinin karşılığı olan bir DTO nesnesine dönüştürülmesi ise sanıldığı kadar kolay olmayabilir. Zira public olmayan özelliklerin alınması için çalışma zamanında bir çözümleme yapılması gerekebilir.
 
 Burada Control sınıfından türeyen nesnelerin karşılığı olan Dto nesnelerine dönüştürme işlemi için Reflection adı verilen teknik kullanılır. Reflection, tipler ve üyeler hakkında çalışma zamanında bilgi almamızı sağlayan bir metodolojidir. Bu yöntemle örneğin bir nesnenin çalışma zamanındaki verisini öğrenebiliriz. Yani bir CheckBox kontrolünün sahip olduğu değerleri çalışma zamanında yakalayabilir ve karşılık olarak bir Dto nesnesinin örneklenmesi için kullanabiliriz. Böylece JSON dosyasına Control türevleri değil Dto karşılıkları serileşir. Tam tersi işlem de mümkündür. Yani serileştirilmiş JSON içeriğini DTO nesnelerine ters serileştirme _(Deserialization)_ ile almak ve bu DTO nesnelerinden asıl Control türevlerine geçmek de kolaydır. Chapter06'da bu işler için ControlMapper isimli sınıftan yararlanılmaktadır. Ayrıca JSON serileştirme için NewtonSoft nuget paketinden yararlanılmıştır. Zira System.Text.Json'dan gelen varsayılan Json serileştirme sınıfı polimorfik yapıları yani alt türleri olan koleksiyonları tüm detayları ile serileştiremeyebilir. Newtonsoft ile gelen serileştiricinin ise bu özelliği vardır. Sonuç itibariyle aşağıdaki gibi bir JSON çıktısı oluşur.
 
