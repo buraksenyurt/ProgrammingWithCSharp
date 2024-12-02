@@ -1,5 +1,5 @@
-﻿using Azon.Web.Persistence;
-using Azon.Web.Sdk.Components;
+﻿using Azon.Web.Sdk.Components;
+using Chapter06.Persistence;
 
 namespace Chapter06;
 
@@ -11,7 +11,7 @@ namespace Chapter06;
  */
 internal class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         // var csvSaver = new CsvPersistence();
         var jsonSaver = new JsonPersistence(); // Bu runtime için eklediğimiz kendi Persistence bileşenimiz

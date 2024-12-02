@@ -2,7 +2,7 @@
 
 namespace Azon.Web.Sdk.Components;
 
-internal class GridBox(int id, string name, (double, double) position)
+public class GridBox(int id, string name, (double, double) position)
         : Control(id, name, position), IDrawable
 {
     public int RowCount { get; set; }

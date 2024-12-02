@@ -5,7 +5,7 @@ namespace Azon.Web.Sdk.Components;
 public class Button(int id, string name, (double, double) position)
         : ButtonBase(id, name, position), IDrawable
 {
-    protected bool IsCorneredCurve { get; set; }
+    public bool IsCorneredCurve { get; set; }
     public string? Text { get; set; }
 
     public void Draw()
