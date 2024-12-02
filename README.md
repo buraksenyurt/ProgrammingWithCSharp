@@ -2,26 +2,27 @@
 
 C# programalama dersi için açılmış olan ve örnek kodları içeren repodur.
 
-- [Başlangıç](#programming-with-csharp)
-    - [x] [Chapter 00](#ders-00)
-    - [x] [Chapter 01](#ders-01)
-    - [x] [Chapter 02](#ders-02)
-    - [x] [Chapter 03](#ders-03)
-    - [x] [Chapter 04](#ders-04)
-    - [x] [Chapter 05](#ders-05)
-    - [x] [Chapter 06](#ders-06)
-    - [ ] [Chapter 07](#ders-07)
-    - [ ] [Chapter 08](#ders-08)
-    - [ ] [Chapter 09](#ders-09)
-    - [ ] [Chapter 10](#ders-10)
-    - [ ] [Chapter 11](#ders-11)
+- [OOP Fundamentals with C#](#programming-with-csharp)
+    - [Ders 00: .Net Platformunun Tanıtımı, Ortam Gereksinimleri ve Hello World Uygulaması](#ders-00-net-platformunun-tanitimi-ortam-gereksinimleri-ve-hello-world-uygulamasi)
+    - [Ders 01: Temel Veri Türleri, Class ve Struct Tanımlamaları](#ders-01-temel-veri-türleri-class-ve-struct-tanimlamalari)
+    - [Ders 02: Metotlar, Karar Yapıları, Basit Döngüler ve Debug İşlemleri](#ders-02-metotlar-karar-yapilari-basit-döngüler-ve-debug-işlemleri)
+    - [Ders 03: Kalıtım Konusuna Giriş, Exception Hiyerarşisi ve Exception Handling](#ders-03-kalitım-konusuna-giriş-exception-hiyerarşisi-ve-exception-handling)
+    - [Ders 04: Abstract ve Interface Türleri, Çok Biçimlilik Kavramı](#ders-04-abstract-ve-interface-türleri-çok-biçimlilik-kavramı)
+    - [Ders 05: Bileşenler Arası Bağımlılıkların Yönetimi](#ders-05-bileşenler-arası-bağımlılıkların-yönetimi)
+    - [Ders 06: Library Geliştirme, Genişletilebilir Uygulamalar ve SOLID Prensiplerinin Temelleri](#ders-06-library-geliştirme-genişletilebilir-uygulamalar-ve-solid-prensiplerinin-temelleri)
+        - [JSON Serileştirme ve DTO Senaryosu](#json-serileştirme-ve-dto-senaryosu)
+    - [Ders 07](#ders-07)
+    - [Ders 08](#ders-08)
+    - [Ders 09](#ders-09)
+    - [Ders 10](#ders-10)
+    - [Ders 11](#ders-11)
     - [Çerezlik Kod Pratikleri](#çerezlik-kod-pratikleri)
     - [Free Zone](#free-zone)
     - [Kaynak Önerileri](#kaynak-önerileri)
     - [Vize Sınavı Soruları](#vize-sınavı-soruları)
     - [Final Sınavı Soruları](#final-sınavı-soruları)
 
-## Ders 00
+## Ders 00 _(.Net Platformunun Tanımıtı, Ortam Gereksinimleri ve Hello World Uygulaması)_
 
 Bu ilk dersteki amacımız standart bir Hello World uygulamasından ziyade dersin ana konularından olan nesne kavramını anlamaya çalışmaktır. Nesne yönelimli dil konsepti _(Object Oriented Programming)_ gerçek hayat iş modellerinin kurgulanmasında büyük kolaylıklar sağlar. Bu açıdan bakıldığıda her hangibir şeyi nesnel olarak modellemek mümkündür. Bu felsefeyi kavramak soyut kavramları nedeniyle çoğu zaman zordur. Bu nedenle ders için verilen proje ödevlerinin tutulduğu JSON bazlı dosya üzerine basit bir iş modeli kurgusu tartışılmıştır. Data.json içerisinde yer alan her bir projeyi programatik ortamda başka object user'ların _(ya da diğer programcıların)_ da kullanabilmesi için nasıl bir yol izlenebilir? İşte burada kendi veri türümüzün tasarımını yapmamız gerektiği kararına varabiliriz.
 
@@ -44,7 +45,7 @@ Bu tartışmalarda özelliklere _(Properties)_ erişimi kasıtlı olarak kontrol
 
 Başlangıçta zor gelen bu konular ilerleyen derslerde daha sık kullanılacağından panik yapmaya gerek yoktur ;)
 
-## Ders 01
+## Ders 01 _(Temel Veri Türleri, Class ve Struct Tanımlamaları)_
 
 İkinci dersin amacı temel değişkenleri ve .Net Common Type System içerisinde [built-in](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types) olarak gelen bazı veri türlerini tanımaktır. Konu genellikle türlerin bellekte tutuluş şekli ile ilişkilendirilir. Stack ve Heap bellek bölgelerinin işleyişi üzerinde durulur. Basit sayısal değerler, metinsel veri türleri, mantıksal olan versiyonlar, karakter türleri ele alınır.
 
@@ -85,7 +86,7 @@ git push
 git pull
 ```
 
-## Ders 02
+## Ders 02 _(Metotlar, Karar Yapıları, Basit Döngüler ve Debug İşlemleri)_
 
 Bu dersteki amaç nesnelerin işe yarar fonksiyonellikler ile güçlendirilmesi ve bazı temel karar yapıları ile döngüleri kullanmaktır. Bu senaryoları kavramsal bütünlüğü olan namepsace siloları ve hatta ayrık sınıf kütüphanelerinde _(Class Library)_ inşa etmek de hedefler arasındadır.
 
@@ -101,7 +102,7 @@ Dersimizde Solution kavramı ve içeriğinden de bahsettik. Bir solution içeris
 
 Ayrıca debug işlemlerine de değindik. Kodun çalışma zamanında nasıl çalıştığını görmek açısından debug modda ilerlenebilir. Debug modda kodun belli uğrak noktaları _(Breakpoint)_ programcı tarafında belirlenebilir. Kod satırlarında ilerlerken Step Into, Step Over gibi teknikler kullanılabilir. Örneğin Step Into ile sıradaki metodun içerisine girilebilirken, Step Over ile metod çağrısı sonrasındaki satıra geçilebilir. F5 ile breakpoint noktaları arasında da hızlı hareket etmek imkanı vardır. Debug işlemlerini genelde kodun nasıl çalıştığını gözlemlemek için ya da çalışma zamanındaki problemleri görmek için kullanırız. Ancak tavsiye edilen çeşitli kabul kriterleri _(assertions)_ nezninden çalışırlığı test edilmiş kodlar yazmak ve gelişmiş log mekanizmaları ile olası problemleri gözlemlemektir.
 
-## Ders 03
+## Ders 03 _(Kalıtım Konusuna Giriş, Exception Hiyerarşisi ve Exception Handling)_
 
 Bu derse kadar öğrendiklerimizle bir sınıf veya struct modelini inşa edebilir, belli özellikler ekleyebilir, bazı metotlar ile fonksiyonellikle ve davranışlar kazandırabiliriz. Encapsulation kavramını da gördüğümüz için nesne yönelimli dillerin bir diğer prensibi olan kalıtım konusuna değinebiliriz. Kalıtım(Inheritance) yine soyut bir kavram olduğunda teorik anlatımla öğrenilmesi zor olabilir. Ancak kullanılan platformun kendi dinamikleri içerisinde bu pratiğin sıklıkla uygulandığı gerçek hayat senaryolarına rastlarız. 
 
@@ -234,7 +235,7 @@ Bu derste kendi Exception sınıfımızı türetip basit bir türetme deneyimind
 
 GameObject sınıfı kendisinden türeyen oyun sahası aktörleri için ortak özellikler ve metotlar barındırabilir. Bu türetme kabiliyetinin bir sonucudur. Plane ve Player nesneleri aynı zamanda birer GameObject nesnesidir. Base türde tanımlı özelliklere erişebilirler, metotları kullanabilir, değiştirebilirler ve ayrıca kendilerine has özellik ve metotları da barındırabilirler. Ayrıca Draw operasyonunu bu derste virtual olarak tanımladık. Buna göre Draw metodu default bir davranışa sahip olmakla birlikte türeyen sınıflarda istenirse yeniden yazılabilir. Plane için Draw yeniden yazılmıştır(overrider) Geldiğimiz noktada GameObject nesnesinin Draw operasyonu üzerinden çok biçimli davranış sergileyebilmesi mümkündür. Örneğin, Plane türünden bir değişken bir GameObject nesnesine atandıktan sonra GameObject nesnesi Plane sınıfında ezilmiş olan Draw operasyonunu işletebilir. Bu belli davranışı uygulayan alt türleri karşılayan veri listesinden anlam kazanan bir kabiliyettir. Örneğin Level 1'deki oyun nesnenelerinden Draw davranışını sergileyenlerin tamamı için ortak bir fonksiyonda List< GameObject > kullanılabilir. Bu noktada üst tür koleksiyonlarını kullanan sistemlerin alt türlerin mutlaka sahip olması ya da yapması gerekenleri nasıl tanımlayabileceğimiz sorusu ortaya çıkart. Abstract tür ve üye kullanımı ile interface tipi bu noktada önemli rollere sahiptir. Her ikisini önümüzdeki ders inceleyeceğiz.
 
-## Ders 04
+## Ders 04 _(Abstract ve Interface Türleri, Çok Biçimlilik Kavramı)_
 
 Bu derste ağırlıklı olarak kalıtım _(Inheritance)_ ve çok biçimlilik _(polymorphism)_ üzerinde duruldu. Bunun için abstract sınıf, abstract üyeler ve interface kavramlarına değinildi. Çok biçimlilik _(polymorphism)_ genel olarak çalışma zamanı olan veya genişletilebilir olması istenen kütüphanelerde daha çok anlam kazanan bir kavramdır. Sistemin hangi davranışları işletebileceğini dışarıya bir sözleşme olarak açması olarak da düşünülebilir. 
 
@@ -242,9 +243,9 @@ Abstract sınıflar normal sınıflara benzer bir başka deyişle metotlar, öze
 
 Interface türü iş yapan kod blokları içermez. Sadece kendisini uygulayan türler için uygulamaları gereken kuralları belirten bir sözleşme _(contract)_ sunar. Hem interface hem de abstract türler kendilerinden türeyen nesneleri taşıyabildiğinden farklı türetme örneklerinin yer aldığı toplu veri kümelerini işlemek kolaylaşır. Bu da uygulamaların kod değişikliğine gerek kalmadan genişletilebilirliğinin yolunu açar. Plug-In'ler geliştirmek, çalışma zamanlarına yeni davranış biçimleri kazandırmak bu ilkenin uygulanmasının bir sonucudur. .Net sistemi içerisinde kullanılan birçok interface türü vardır. Bunların bazıları ile ilgili örnekler Learning.Interfaces projesinde yer almaktadır.
 
-## Ders 05
+## Ders 05 _(Bileşenler Arası Bağımlılıkların Yönetimi)_
 
-Bir önceki dersimizde kalıtım ve polimorfik yapıları incelemiş ve son olarak interface türünün nasıl kullanılabileceğine bakmıştım. Bu derste amacımız bileşenler arası bağımlılıkları konuşmak ve özellikle Dependency Inversion prensibini öğrenmek olacak. Bileşenler (Component) kendi işleri ile uğraşan ve bu anlamda belli fonksiyonellikleri icra eden yapıtaşları olarak düşünülebilirler. Çoğu senaryoda bir bileşen bazı işlevleri için farklı bileşenlere ihtiyaç duyar. Bileşenler arası bağımlılıkları yönetimi önemli bir konudur. Kodun değişime uğramadan genişletilebilmesi gibi önemli problemlerin çözümünde sıkı bağlı (tightly coupled) ilişkiler yerine gevşek bağlı (loosely coupled) bir yaklaşım tercih edilir. Bu soyut konuları daha iyi irdelemek ve kalıtım konusunu da bu çerçevede tekrar etmek için aşağıdaki örnek senaryoyu ele alabiliriz.
+Bir önceki dersimizde kalıtım ve polimorfik yapıları incelemiş ve son olarak interface türünün nasıl kullanılabileceğine bakmıştım. Bu derste amacımız bileşenler arası bağımlılıkları konuşmak ve özellikle Dependency Inversion prensibini öğrenmek olacak. Bileşenler _(Component)_ kendi işleri ile uğraşan ve bu anlamda belli fonksiyonellikleri icra eden yapıtaşları olarak düşünülebilirler. Çoğu senaryoda bir bileşen bazı işlevleri için farklı bileşenlere ihtiyaç duyar. Bileşenler arası bağımlılıkları yönetimi önemli bir konudur. Kodun değişime uğramadan genişletilebilmesi gibi önemli problemlerin çözümünde sıkı bağlı (tightly coupled) ilişkiler yerine gevşek bağlı (loosely coupled) bir yaklaşım tercih edilir. Bu soyut konuları daha iyi irdelemek ve kalıtım konusunu da bu çerçevede tekrar etmek için aşağıdaki örnek senaryoyu ele alabiliriz.
 
 ![image](https://github.com/user-attachments/assets/a5f4cc08-2865-4f1f-83a7-ba1f228392d0)
 
@@ -352,7 +353,7 @@ Yukarıdaki senaryoya alternatif olabilecek farklı konular da ele alınabilir. 
 - **Roll Playing Game Türevi:** Bir oyun dünyasındaki nesneler ve arasındaki etkileşimler ele alınabilir. Örneğin Warrior, Mage, Rogue gibi karakterler Actor isimli bir base sınıftan türeyebilir. Her oyun karakterinin bazı ortak özellikleri Actor sınfından devralınır _(Mana, AttackPower, Health, Defend vb)_ Lakin her oyun karakterinin kendine has Attack ve SpecialSkill uygulaması olur ki burada da polimorfizm devreye girer. Oyundaki bazı sistemler karakterlere bağımlı olmadan çalışmalıdır. Örneğin BattleSystem, boss karaktere bağımlı olmadan çalışabilir. Burada Inventory, BattleSystem, QuestSystem gibi sınıflar single responsibility prensibini uygular ve kendi sorumlulukları ile ilgili işleri yaparlar.
 - **Restoran Yönetim Sistemi:** Farklı menülerin ortak özellikleri MenuItem isimli bir sınıfta tutulur. Buradan Drink, Dessert, MainCourse gibi alt türler oluşturulabilir. Siparişleri Order isimli bir sınıf takip ederken bunları mutfağa ileten de Waiter isimli bir sınıftır. Menülerdeki farklı türlerin fiyatlandırmasında polimorfizmden yararlanılabilir ve ödeme yöntemleri de dependency inversion prensibi kullanılarak ele alınabilir.
 
-# Ders 06
+## Ders 06 _(Library Geliştirme, Genişletilebilir Uygulamalar ve SOLID Prensiplerinin Temelleri)_
 
 Bu derste Chapter06 isimli terminal uygulamasında Azon.Web.Persistence ve Azon.Web.Sdk projelerini referans ederek bileşen bazında nasıl genişletme yapabileceğimizi inceledik. Azon.Sdk kendi içerisinde hazır form kontrolleri ve bazı interface tanımlamaları içermekte. Özellikle Form isimli Container sınıfı, Control sınıfından türeyen nesneleri kullanıyor ve t anında kendi verisini kaydetmek için IPersistence arayüzü ile uygulanan Save metodunu çağırıyor. Form sınıfının kontrolleri ve kaydetme işlevleri Sdk üzerinden dışarıya da açık. Dolayısıyla başka bir proje isterse kendi Control türevlerini ya da IPersistence davranışlarını kullanabilir. Chapter06'daki PictureBox, Sdk dışında yazılmış bir nesnedir. Benzer şekilde JsonPersistence sınıfı da IFilePersistence türevli olup yine Chapter06 projesinde tanımlanmış bir kaydedici bileşendir.
 
@@ -373,7 +374,9 @@ Bu derste Chapter06 isimli terminal uygulamasında Azon.Web.Persistence ve Azon.
 
 Yukarıda belirtilen ilkeler ile ilgili örnek kod uygulamaları FreeZone bölümünde yer almaktadır.
 
-## JSON Serileştirme ve DTO Senaryosu _(Bu bölüm final sınavına dahil değildir)_
+### JSON Serileştirme ve DTO Senaryosu
+
+ _(Bu bölüm final sınavına dahil değildir)_
 
 Chapter06 isimli projede JsonPersistence ile Control nesne koleksiyonlarının JSON formatında kaydedilmesi söz konusudur. Ancak burada bir problem vardır. Control türünden olan nesne topluluğunu bu şekilde serileştirdiğimizde varsayılan olarak sadece Control sınıfının public özellik değerleri serileşir. Ancak Control sınıfından türeyen diğer türevlerin özelliklerinin de JSON serileştirmeye alınması istenmektedir. Bu tip senaryolarda hedefin ihtiyaç duyduğu verileri taşıyan transfer nesneleri kullanılabilir. Data Transfer Object _(DTO)_ esasından karmaşık kontrol nesneleri yerine sadece serileştirilmesi istenen özellikler barındıran basit Entity sınıflarıdır. Sadece veriyi tutar. Form sınıfı içerisindeki herhangibir Control nesnesinin karşılığı olan bir DTO nesnesine dönüştürülmesi ise sanıldığı kadar kolay olmayabilir. Zira public olmayan özelliklerin alınması için çalışma zamanında bir çözümleme yapılması gerekebilir. 
 
@@ -477,27 +480,27 @@ Burada Control sınıfından türeyen nesnelerin karşılığı olan Dto nesnele
 
 **Not:** Nesneler arası özellik atamaları için yani bir nesnesi başka bir nesneye dönüştürmek için çeşitli mapper araçları da vardır. AutoMapper, Mapster, TinyMapper gibi bazı Nuget paketleri ile de nesneler arası değişimler kolayca sağlanabilir.
 
-# Ders 07
+## Ders 07
 
 **throw new NotImplementedException();**
 
-# Ders 08
+## Ders 08
 
 **throw new NotImplementedException();**
 
-# Ders 09
+## Ders 09
 
 **throw new NotImplementedException();**
 
-# Ders 10
+## Ders 10
 
 **throw new NotImplementedException();**
 
-# Ders 11
+## Ders 11
 
 **throw new NotImplementedException();**
 
-# Ders 12
+## Ders 12
 
 **throw new NotImplementedException();**
 
