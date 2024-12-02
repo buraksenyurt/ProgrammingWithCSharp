@@ -9,7 +9,7 @@ C# programalama dersi için açılmış olan ve örnek kodları içeren repodur.
     - [x] [Chapter 03](#ders-03)
     - [x] [Chapter 04](#ders-04)
     - [x] [Chapter 05](#ders-05)
-    - [ ] [Chapter 06](#ders-06)
+    - [x] [Chapter 06](#ders-06)
     - [ ] [Chapter 07](#ders-07)
     - [ ] [Chapter 08](#ders-08)
     - [ ] [Chapter 09](#ders-09)
@@ -354,11 +354,13 @@ Yukarıdaki senaryoya alternatif olabilecek farklı konular da ele alınabilir. 
 
 # Ders 06
 
+Bu derste Chapter06 isimli terminal uygulamasında Azon.Web.Persistence ve Azon.Web.Sdk projelerini referans ederek bileşen bazında nasıl genişletme yapabileceğimizi inceledik. Azon.Sdk kendi içerisinde hazır form kontrolleri ve bazı interface tanımlamaları içermekte. Özellikle Form isimli Container sınıfı, Control sınıfından türeyen nesneleri kullanıyor ve t anında kendi verisini kaydetmek için IPersistence arayüzü ile uygulanan Save metodunu çağırıyor. Form sınıfının kontrolleri ve kaydetme işlevleri Sdk üzerinden dışarıya da açık. Dolayısıyla başka bir proje isterse kendi Control türevlerini ya da IPersistence davranışlarını kullanabilir. Chapter06'daki PictureBox, Sdk dışında yazılmış bir nesnedir. Benzer şekilde JsonPersistence sınıfı da IFilePersistence türevli olup yine Chapter06 projesinde tanımlanmış bir kaydedici bileşendir.
+
 Önceki derslerde nesne yönelimli dil özelliklerinin temellerini inceledik. Son derslerde ise özellikle Single Responsibility ve Depedency Inversion gibi kavramlara hafif geçişler yaptık. Her iki prensip Robert C. Martin tarafından ortaya konan ve S.O.L.I.D. olarak kısaltılan yazılım geliştirme felsefesinin unsurlarıdır. Bu prensipler temelde yüksek kalite kodlamayı ve sürdürülebilirliği hedefler. Amaç kodun okunabilir, değiştirilebilir, genişletilebilir ve bakımının kolay yapılabilmesini sağlamaktır. Prensipler doğru ve yerinde kullanıldığında test edilebilirliği yüksek, güvenilir, daha az hataya sebep olan kodların üretilmesi mümkün hale gelir. Bu da standartlara uygun bir kodlama tabanının oluşmasına ve olası problemlerin minimize edilmesine zemin hazırlar. Bu dersteki amacımız prensipleri basit uygulamalar üzerinden incelemektir. Öncelikle her ilke kısaca neyi öğütlüyor bir bakalım.
 
 - SRP _(Single Responsibility Principle)_ : Bir sınıfın yalnızca bir görevi ve bu görevin de yalnızca bir sebebi olmalıdır.
 - OCP _(Open/Closed Principle)_ : Sınıflar yeni özelliklere açık, değişikliklere kapalı olmalıdır.
-- LSP _(Liskov Substitution Principle)_ : Türetilmiş sınıflar bir üst sınıfın yerine (türetildikleri sınıf) kullanılabilmelidir.
+- LSP _(Liskov Substitution Principle)_ : Türetilmiş sınıflar bir üst sınıfın yerine *(türetildikleri sınıf)* kullanılabilmelidir.
 - ISP _(Interface Segregation Principle)_ : Bir interface onun uygulayıcısı olan türlerin ihtiyacı olmayan metotları içermemelidir.
 - DIP _(Dependency Inversion Principle)_ : Yüksek seviyeli modüller, düşük seviyeli modüllere bağımlı olmamamlıdır. Tüm bu modüller _(component'ler de olabilir)_ soyutlamalara bağımlı olmalıdır.
 
@@ -367,9 +369,113 @@ Yukarıdaki senaryoya alternatif olabilecek farklı konular da ele alınabilir. 
 - **SRP ve ISP Karışıklığı:** SRP bir sınıfın tek bir sorumluluğa sahip olmasını gerektirir ve Interface Segregation prensibi de bir arayüz için uygulayıcılarının ihtiyaç duymadığı metotları içermemesi gerektiğini belirtir. Bu bazen birbirlerine karıştırılabilir ama sınıfları SRP'ye uygun hale getirmek arayüzlerin de ISP'ye uygun hale getirilmesi sonucunu doğurur.
 - **LSP ve OCP Karışıklığı:** Liskov ilkesi türetilmiş sınıfların türediği taban sınıf gibi davranabilmesini savunur ve bu OCP ile karışabilir ancak şöyle bir durum vardır; LSP'nin ihlal edildiği durumlarda OCP'yi sağlamak pek mümkün değildir.
 - **OCP ve DIP Karışıklığı:** Open/Closed ilkesi yeni davranışlar eklemek için mevcut kodun değiştirilmemesini savunurken, Dependency Inversion prensibi bağımlılıkların soyutlanarak sağlanması gerektiğini öğütler. Esasında DIP ile bağımlılıklar soyutlandığında OCP otomatik olarak sağlanmış olur. Bağımlılıkların mümkün mertebe somut sınıflar yerine arayüzler _(interface)_ yardımıyla soyutlanması gerekir.
-- SRP ve OCP Karmaşıklığı: OCP bir sınıfa yeni davranış eklerken mevcut kodun değiştirilmemesi gerektiğini söyler ve SPR'de bir sınıfın tek bir sorumluluğu olması gerektiğini belirtir. SRP'nin birincil olarak ele alınması sınıfların doğru şekilde bölünmesini de kolaylaştırır ve bu doğarl olarak OCP'nin uygulanmasını da kolaylaştırır.
+- **SRP ve OCP Karmaşıklığı:** OCP bir sınıfa yeni davranış eklerken mevcut kodun değiştirilmemesi gerektiğini söyler ve SPR'de bir sınıfın tek bir sorumluluğu olması gerektiğini belirtir. SRP'nin birincil olarak ele alınması sınıfların doğru şekilde bölünmesini de kolaylaştırır ve bu doğarl olarak OCP'nin uygulanmasını da kolaylaştırır.
 
 Yukarıda belirtilen ilkeler ile ilgili örnek kod uygulamaları FreeZone bölümünde yer almaktadır.
+
+## JSON Serileştirme ve DTO Senaryosu _(Bu bölüm final sınavına dahil değildir)_
+
+Chapter06 isimli projede JsonPersistence ile Control nesne koleksiyonlarının JSON formatında kaydedilmesi söz konusudur. Ancak burada bir problem vardır. Control türünden olan nesne topluluğunu bu şekilde serileştirdiğimizde varsayılan olarak sadece Control sınıfının public özellik değerleri serileşir. Ancak Control sınıfından türeyen diğer türevlerin özelliklerinin de JSON serileştirmeye alınması istenmektedir. Bu tip senaryolarda hedefin ihtiyaç duyduğu verileri taşıyan transfer nesneleri kullanılabilir. Data Transfer Object _(DTO)_ esasından karmaşık kontrol nesneleri yerine sadece serileştirilmesi istenen özellikler barındıran basit Entity sınıflarıdır. Sadece veriyi tutar. Form sınıfı içerisindeki herhangibir Control nesnesinin karşılığı olan bir DTO nesnesine dönüştürülmesi ise sanıldığı kadar kolay olmayabilir. Zira public olmayan özelliklerin alınması için çalışma zamanında bir çözümleme yapılması gerekebilir. 
+
+Burada Control sınıfından türeyen nesnelerin karşılığı olan Dto nesnelerine dönüştürme işlemi için Reflection adı verilen teknik kullanılır. Reflection, tipler ve üyeler hakkında çalışma zamanında bilgi almamızı sağlayan bir metodolojidir. Bu yöntemle örneğin bir nesnenin çalışma zamanındaki verisini öğrenebiliriz. Yani bir CheckBox kontrolünün sahip olduğu değerleri çalışma zamanında yakalayabilir ve karşılık olarak bir Dto nesnesinin örneklenmesi için kullanabiliriz. Böylece JSON dosyasına Control türevleri değil Dto karşılıkları serileşir. Tam tersi işlem de mümkündür. Yani serileştirilmiş JSON içeriğini DTO nesnelerine ters serileştirme _(Deserialization)_ ile almak ve bu DTO nesnelerinden asıl Control türevlerine geçmek de kolaydır. Chapter06'da bu işler için ControlMapper isimli sınıftan yararlanılmaktadır. Ayrıca JSON serileştirme için NewtonSoft nuget paketinden yararlanılmıştır. Zira System.Text.Json'dan gelen varsayılan Json serileştirme sınıfı polimorfik yapıları yani alt türleri olan koleksiyonları tüm detayları ile serileştiremeyebilir. Newtonsoft ile gelen serileştiricinin ise bu özelliği vardır. Sonuç itibariyle aşağıdaki gibi bir JSON çıktısı oluşur.
+
+```json
+{
+  "$type": "System.Collections.Generic.List`1[[Chapter06.Dto.ControlDto, Chapter06]], System.Private.CoreLib",
+  "$values": [
+    {
+      "$type": "Chapter06.Dto.ButtonDto, Chapter06",
+      "IsCorneredCurve": false,
+      "Text": "Save",
+      "BackgroundColor": null,
+      "ForegroundColor": null,
+      "Id": 101,
+      "Name": "btnSave",
+      "Position": {
+        "$type": "System.ValueTuple`2[[System.Double, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Private.CoreLib",
+        "Item1": 0.0,
+        "Item2": 100.0
+      }
+    },
+    {
+      "$type": "Chapter06.Dto.ButtonDto, Chapter06",
+      "IsCorneredCurve": false,
+      "Text": "Close",
+      "BackgroundColor": null,
+      "ForegroundColor": null,
+      "Id": 102,
+      "Name": "btnClose",
+      "Position": {
+        "$type": "System.ValueTuple`2[[System.Double, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Private.CoreLib",
+        "Item1": 0.0,
+        "Item2": 500.0
+      }
+    },
+    {
+      "$type": "Chapter06.Dto.LabelDto, Chapter06",
+      "Text": "Title",
+      "Id": 106,
+      "Name": "lblTitle",
+      "Position": {
+        "$type": "System.ValueTuple`2[[System.Double, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Private.CoreLib",
+        "Item1": 50.0,
+        "Item2": 50.0
+      }
+    },
+    {
+      "$type": "Chapter06.Dto.LinkButtonDto, Chapter06",
+      "Url": "https://www.azon.com.tr/about",
+      "BackgroundColor": null,
+      "ForegroundColor": null,
+      "Id": 204,
+      "Name": "lnkAbout",
+      "Position": {
+        "$type": "System.ValueTuple`2[[System.Double, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Private.CoreLib",
+        "Item1": 400.0,
+        "Item2": 50.0
+      }
+    },
+    {
+      "$type": "Chapter06.Dto.CheckBoxDto, Chapter06",
+      "Text": "Is Active Profile",
+      "IsChecked": true,
+      "Id": 104,
+      "Name": "chkIsActive",
+      "Position": {
+        "$type": "System.ValueTuple`2[[System.Double, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Private.CoreLib",
+        "Item1": 0.0,
+        "Item2": 10.0
+      }
+    },
+    {
+      "$type": "Chapter06.Dto.DbConnectorDto, Chapter06",
+      "ConnectionString": "data source=localhost:database=Northwind;integrated security=sspi",
+      "Id": 90,
+      "Name": "dbConnector",
+      "Position": {
+        "$type": "System.ValueTuple`2[[System.Double, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Private.CoreLib",
+        "Item1": 0.0,
+        "Item2": 0.0
+      }
+    },
+    {
+      "$type": "Chapter06.Dto.PictureBoxDto, Chapter06",
+      "ImagePath": "profilePhoto.png",
+      "Width": 64,
+      "Height": 64,
+      "Id": 0,
+      "Name": null,
+      "Position": {
+        "$type": "System.ValueTuple`2[[System.Double, System.Private.CoreLib],[System.Double, System.Private.CoreLib]], System.Private.CoreLib",
+        "Item1": 0.0,
+        "Item2": 0.0
+      }
+    }
+  ]
+}
+```
+
+**Not:** Nesneler arası özellik atamaları için yani bir nesnesi başka bir nesneye dönüştürmek için çeşitli mapper araçları da vardır. AutoMapper, Mapster, TinyMapper gibi bazı Nuget paketleri ile de nesneler arası değişimler kolayca sağlanabilir.
 
 # Ders 07
 
