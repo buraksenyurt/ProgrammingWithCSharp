@@ -11,7 +11,7 @@ C# programalama dersi için açılmış olan ve örnek kodları içeren repodur.
   - [Ders 05: Bileşenler Arası Bağımlılıkların Yönetimi](#ders-05-bileşenler-arası-bağımlılıkların-yönetimi)
   - [Ders 06: Library Geliştirme, Genişletilebilir Uygulamalar ve SOLID Prensiplerinin Temelleri](#ders-06-library-geliştirme-genişletilebilir-uygulamalar-ve-solid-prensiplerinin-temelleri)
     - [JSON Serileştirme ve DTO Senaryosu](#json-serileştirme-ve-dto-senaryosu)
-  - [Ders 07](#ders-07)
+  - [Ders 07](#ders-07-unit-test)
   - [Ders 08](#ders-08)
   - [Ders 09](#ders-09)
   - [Ders 10](#ders-10)
@@ -480,9 +480,11 @@ Burada Control sınıfından türeyen nesnelerin karşılığı olan Dto nesnele
 
 **Not:** Nesneler arası özellik atamaları için yani bir nesnesi başka bir nesneye dönüştürmek için çeşitli mapper araçları da vardır. AutoMapper, Mapster, TinyMapper gibi bazı Nuget paketleri ile de nesneler arası değişimler kolayca sağlanabilir.
 
-## Ders 07
+## Ders 07 (Unit Test)
 
-**throw new NotImplementedException();**
+Bu derse kadar işlenen konularla nesne yönelimli dil prensiplerini öğrendik. Son derslerde değinilen SOLID ilkeleri ile de yüksek kalite kod geliştirmek için gerekli bazı yazılım prensiplerini öğrendik. Yüksek kalite kod denildiğinde, okunabilir, rahat genişletilebilir, belli standartlara uyan, bakımı kolayca yapılabilen, güvenilir ve az hataya sebebiyet veren çözümleri kastederiz. OOP temellerinin bilinmesi yüksek kalite kodlama için yeterli bir kriter değildir. Bu ilkelerin bazı prensiplerle birlikte ele alınması gerekir. İyi kodlanmış programların önemli özelliklerinden birisi de yüksek test edilebilirlik oranlarıdır. Test edilmiş kod hiç test edilmemiş koda göre çok daha güvenilirdir zira beklenen çıktıları testler sayesinde garanti edilmiş olur. 
+
+Kodun test edilebilirliği ile ilgili olarak kullanılan önemli yöntemlerden birisi de birim test _(Unit Test)_ yazmaktır. Bir fonksiyonun olası tüm çalışma durumlarının çeşitli kabül kriterleri ile _(Acceptence Criteria)_ test edilmesi olarak özetlenebilir. Bazen var olan business fonksiyonlar için birim testler yazmak durumunda kalınır. Bazı hallerde de Test Driven Development gibi teknikler kullanılarak geliştirmeler yapılır. TDD önemli bir pratiktir.
 
 ## Ders 08
 
