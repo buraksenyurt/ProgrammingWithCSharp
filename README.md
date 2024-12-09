@@ -492,9 +492,15 @@ Kodun test edilebilirliği ile ilgili olarak kullanılan önemli yöntemlerden b
 
 ![image](https://github.com/user-attachments/assets/e8e44bc7-9360-4179-a8e6-018bbc7ab447)
 
-TDD _(Test Driven Development)_ Red, Blue, Green ilkesine göre işletine bir tekniktir. Buna göre önce istenen iş fonksiyonelliği için gerekli kabül testleri vardır. Kabül kriterlerine göre yani testin başarılı olma durumuna göre kod yazılır ve ilk test fail durumunda kalır. Sonrasında testin başarılı olması için gerekli kod değişiklikleri yapılır ve bu safha Green aşaması olarak değerlendirilir. Son aşamada ise kod yeniden revize edilir ve en iyi haline getirilir. Burası Refactoring aşamasıdır ve Blue olara ifade edilir.
+TDD _(Test Driven Development)_ Red, Blue, Green ilkesine göre işletine bir tekniktir. Buna göre önce istenen iş fonksiyonelliği için gerekli kabül testleri vardır. Kabül kriterlerine göre yani testin başarılı olma durumuna göre kod yazılır ve ilk test fail durumunda kalır. Sonrasında testin başarılı olması için gerekli kod değişiklikleri yapılır ve bu safha Green aşaması olarak değerlendirilir. Son aşamada ise kod yeniden revize edilir ve en iyi haline getirilir. Burası Refactoring aşamasıdır ve Blue olarak ifade edilir.
 
 ![image](https://github.com/user-attachments/assets/f33a719c-103c-47da-9a74-dd7ce7c5cc1b)
+
+TDD ile geliştirilen uygulamalarda tüm testler baştan tanımlanmış olduğu için Code Coverage değerleri yüksek, garanti kodların oluşması sağlanır. Bu yaklaşım geliştirme süresini bir miktar uzatmaktadır ve programcılara ters gelen bir bakış açısına sahiptir ancak test yazımları belli bir süre sonrasında ideal hızına ulaşır. 
+
+Birim Testi yazılan metotların bulunduğu sınıflar bazen dış komponentlere bağımlı olabilirler. Yani test edilecek metotların kullandığı bileşenler tightly coupled depdency'ler içerebilir. Interface soyutlamaları ile loosely coupled hale getirilen dependency'lerin birim testlerde mock nesneler ile yer değiştirilerek kullanılması da mümkün hale gelir. Örneğin test edilen bir fonksiyonun kabül kriterlerini karşılamak için içeride kullanılan bir veritabanı operasyonu varsa ve test koşumlarının yapıldığı ortamlarda bu tip dış kaynaklara erişim yoksa/olmaması gerekiyorsa birim testler işletilemez. Ancak veri tabanı operasyonunu üstlenen bileşenin soyutlanması onu taklit eden bir bileşenle testin çalıştırılmasının yolunu da açar. Mocking kavramı burada ele alınabilir.
+
+*Bu dersteki örnekler Azon.Business ve Azon.Business.Test projeleri içerisinde yer almaktadır.*
 
 ## Ders 08
 
