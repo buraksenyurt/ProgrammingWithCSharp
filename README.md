@@ -11,7 +11,7 @@ Sektör Kampüste projesi kapsamında 2024-2025 güz dönemi İTÜ Matematik Mü
   - [Ders 05: Bileşenler Arası Bağımlılıkların Yönetimi](#ders-05-bileşenler-arası-bağımlılıkların-yönetimi)
   - [Ders 06: Library Geliştirme, Genişletilebilir Uygulamalar ve SOLID Prensiplerinin Temelleri](#ders-06-library-geliştirme-genişletilebilir-uygulamalar-ve-solid-prensiplerinin-temelleri)
     - [JSON Serileştirme ve DTO Senaryosu](#json-serileştirme-ve-dto-senaryosu)
-  - [Ders 07](#ders-07-unit-test)
+  - [Ders 07: Yüksek Kalite Kodlama için Unit Test](#ders-07-unit-test)
   - [Ders 08](#ders-08)
   - [Ders 09](#ders-09)
   - [Ders 10](#ders-10)
@@ -478,9 +478,23 @@ Burada Control sınıfından türeyen nesnelerin karşılığı olan DTO nesnele
 
 ## Ders 07 (Unit Test)
 
-Bu derse kadar işlenen konularla nesne yönelimli dil prensiplerini öğrendik. Son derslerde değinilen SOLID ilkeleri ile de yüksek kalite kod geliştirmek için gerekli bazı yazılım prensiplerini öğrendik. Yüksek kalite kod denildiğinde, okunabilir, rahat genişletilebilir, belli standartlara uyan, bakımı kolayca yapılabilen, güvenilir ve az hataya sebebiyet veren çözümleri kastederiz. OOP temellerinin bilinmesi yüksek kalite kodlama için yeterli bir kriter değildir. Bu ilkelerin bazı prensiplerle birlikte ele alınması gerekir. İyi kodlanmış programların önemli özelliklerinden birisi de yüksek test edilebilirlik oranlarıdır. Test edilmiş kod hiç test edilmemiş koda göre çok daha güvenilirdir zira beklenen çıktıları testler sayesinde garanti edilmiş olur. 
+Bu derse kadar işlenen konularla nesne yönelimli dil prensiplerini öğrendik. Son derslerde değinilen SOLID ilkeleri ile de yüksek kalite kod geliştirmek için gerekli bazı yazılım prensiplerini öğrendik. Yüksek kalite kod denildiğinde, okunabilir, rahat genişletilebilir, belli standartlara uyan, bakımı kolayca yapılabilen, güvenilir ve az hataya sebebiyet veren çözümleri kastederiz. OOP temellerinin bilinmesi yüksek kalite kodlama için yeterli bir kriter değildir. Bu ilkelerin bazı prensiplerle birlikte ele alınması gerekir. İyi kodlanmış programların önemli özelliklerinden birisi de yüksek test edilebilirlik oranlarıdır. Test edilmiş kod hiç test edilmemiş koda göre çok daha güvenilirdir zira beklenen çıktıları testler sayesinde garanti edilmiş olur.
 
-Kodun test edilebilirliği ile ilgili olarak kullanılan önemli yöntemlerden birisi de birim test _(Unit Test)_ yazmaktır. Bir fonksiyonun olası tüm çalışma durumlarının çeşitli kabül kriterleri ile _(Acceptence Criteria)_ test edilmesi olarak özetlenebilir. Bazen var olan business fonksiyonlar için birim testler yazmak durumunda kalınır. Bazı hallerde de Test Driven Development gibi teknikler kullanılarak geliştirmeler yapılır. TDD önemli bir pratiktir.
+Yüksek Kalite Kodlamadanın Genel Kavramları
+
+![image](https://github.com/user-attachments/assets/eae899cc-e3ca-4b49-9303-ea78f3791bac)
+
+OOP için Yüksek Kalite Kodlama Prensipleri
+
+![image](https://github.com/user-attachments/assets/90fdfbc9-5005-4688-863e-d5963e826836)
+
+Kodun test edilebilirliği ile ilgili olarak kullanılan önemli yöntemlerden birisi de birim test _(Unit Test)_ yazmaktır. Bir fonksiyonun olası tüm çalışma durumlarının çeşitli kabül kriterleri ile _(Acceptence Criteria)_ test edilmesi olarak özetlenebilir. Bazen var olan business fonksiyonlar için birim testler yazmak durumunda kalınır. Bazı hallerde de Test Driven Development gibi teknikler kullanılarak geliştirmeler yapılır. TDD önemli bir pratiktir. Genel olarak test denilen kavram aşağıdaki piramit ile ifade edilir.
+
+![image](https://github.com/user-attachments/assets/e8e44bc7-9360-4179-a8e6-018bbc7ab447)
+
+TDD _(Test Driven Development)_ Red, Blue, Green ilkesine göre işletine bir tekniktir. Buna göre önce istenen iş fonksiyonelliği için gerekli kabül testleri vardır. Kabül kriterlerine göre yani testin başarılı olma durumuna göre kod yazılır ve ilk test fail durumunda kalır. Sonrasında testin başarılı olması için gerekli kod değişiklikleri yapılır ve bu safha Green aşaması olarak değerlendirilir. Son aşamada ise kod yeniden revize edilir ve en iyi haline getirilir. Burası Refactoring aşamasıdır ve Blue olara ifade edilir.
+
+![image](https://github.com/user-attachments/assets/f33a719c-103c-47da-9a74-dd7ce7c5cc1b)
 
 ## Ders 08
 
