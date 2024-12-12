@@ -12,7 +12,7 @@ Sektör Kampüste projesi kapsamında 2024-2025 güz dönemi İTÜ Matematik Mü
   - [Ders 06: Library Geliştirme, Genişletilebilir Uygulamalar ve SOLID Prensiplerinin Temelleri](#ders-06-library-geliştirme-genişletilebilir-uygulamalar-ve-solid-prensiplerinin-temelleri)
     - [JSON Serileştirme ve DTO Senaryosu](#json-serileştirme-ve-dto-senaryosu)
   - [Ders 07: Yüksek Kalite Kodlama için Unit Test](#ders-07-unit-test)
-  - [Ders 08](#ders-08)
+  - [Ders 08](#ders-08-birim-testlerde-soyutlamalar-ve-mock-kütüphane-kullanımları)
   - [Ders 09](#ders-09)
   - [Ders 10](#ders-10)
   - [Ders 11](#ders-11)
@@ -478,33 +478,31 @@ Burada Control sınıfından türeyen nesnelerin karşılığı olan DTO nesnele
 
 ## Ders 07 (Unit Test)
 
-Bu derse kadar işlenen konularla nesne yönelimli dil prensiplerini öğrendik. Son derslerde değinilen SOLID ilkeleri ile de yüksek kalite kod geliştirmek için gerekli bazı yazılım prensiplerini öğrendik. Yüksek kalite kod denildiğinde, okunabilir, rahat genişletilebilir, belli standartlara uyan, bakımı kolayca yapılabilen, güvenilir ve az hataya sebebiyet veren çözümleri kastederiz. OOP temellerinin bilinmesi yüksek kalite kodlama için yeterli bir kriter değildir. Bu ilkelerin bazı prensiplerle birlikte ele alınması gerekir. İyi kodlanmış programların önemli özelliklerinden birisi de yüksek test edilebilirlik oranlarıdır. Test edilmiş kod hiç test edilmemiş koda göre çok daha güvenilirdir zira beklenen çıktıları testler sayesinde garanti edilmiş olur.
-
-Yüksek Kalite Kodlamadanın Genel Kavramları
+Önceki derslerde nesne yönelimli dil prensiplerine değinildi. Temel ilkeler olan **Encapsulation, Inheritance, Polymorphism** ve **Abstraction** üzerine kurulumuş olan pek çok yazılım prensibi veya davranışı söz konusudur **_(KISS, DRY, YAGNI vb)_** Bunlardan birisi olan **SOLID** ilkeleri _(Önceki derste örneklerle açıklanmıştır)_ aynı zamanda yüksek kalite kod geliştirmek için kullanılan metodolojileri içermektedir. Yüksek kalite kod denildiğinde, okunabilir, kolayca genişletilebilir, genel yazılım geliştirme standartlarına uygun, bakımı kolay, güvenilir ve az hataya sebebiyet veren çözümler kastedilir. **OOP** temellerinin bilinmesi yüksek kalite kodlama için yeterli bir kriter değildir. Bu ilkelerin bazı prensiplerle birlikte ele alınması gerekir. Ayrıca iyi kodlanmış programların önemli özelliklerinden birisi de yüksek seviyede test edilebilirlik oranlarıdır. Pek tabii test edilmiş kod hiç test edilmemiş koda göre çok daha güvenilirdir, zira beklenen çıktıları vermesi testler sayesinde garanti edilmiştir. Yüksek kalite kodlamanın genel kavramları aşağıdaki çizelge ile özetlenebilir.
 
 ![image](https://github.com/user-attachments/assets/eae899cc-e3ca-4b49-9303-ea78f3791bac)
 
-OOP için Yüksek Kalite Kodlama Prensipleri
+Ayrıca nesne yönelimli diller için yüksek kalite kodlama prensiplerini aşağıdaki gösterim ile özetlenebilir.
 
 ![image](https://github.com/user-attachments/assets/90fdfbc9-5005-4688-863e-d5963e826836)
 
-Kodun test edilebilirliği ile ilgili olarak kullanılan önemli yöntemlerden birisi de birim test _(Unit Test)_ yazmaktır. Bir fonksiyonun olası tüm çalışma durumlarının çeşitli kabül kriterleri ile _(Acceptence Criteria)_ test edilmesi olarak özetlenebilir. Bazen var olan business fonksiyonlar için birim testler yazmak durumunda kalınır. Bazı hallerde de Test Driven Development gibi teknikler kullanılarak geliştirmeler yapılır. TDD önemli bir pratiktir. Genel olarak test denilen kavram aşağıdaki piramit ile ifade edilir.
+Kodun test edilebilir olması, içinde geçen birçok durumun beklenen davranışı sergileyeceğinin ispatı olarak da düşünülebilir. Kodun test edilebilirliği ile ilgili olarak kullanılan önemli yöntemlerden birisi de **birim test _(Unit Test)_** yazmaktır. Bir fonksiyonun olası tüm çalışma durumlarının **çeşitli kabül kriterleri ile _(Acceptence Criteria)_** test edilmesi olarak özetlenebilir. Ancak bazı durumlarda önceden yazılmış business fonksiyonlar için birim testler geliştirmek durumunda kalınır. Söz gelimi günümüz legacy sistemlerinin çoğu birim test içermez ve statik kod tarama araçları bu ürünlerde **Code Coverage** değerlerini **%0**'lar mertebesinde ölçümleyebilir. **Statik kod tarama araçları** bir kod tabanının kalitesini ölçümlemek için sıklıkla kullanılırlar. Özellikle ürünün **teknik borcunu _(Technical Debt)_** ortaya koymak, olası güvenlik açıklarını göstermek, kokan kod olarak da adlandırılan defolarını keştfetmek gibi birçok çıktıyı verirler. 
+
+Diğer yandan ürün kod kalitesi için **Test Driven Development _(TDD)_** gibi teknikler kullanılarak de geliştirme yapılabilir. TDD oldukça önemli bir yazılım geliştirme pratiğidir. Yazılımda test kavramı genel olarak aşağıdaki grafikte görülen piramidle ifade edilir.
 
 ![image](https://github.com/user-attachments/assets/e8e44bc7-9360-4179-a8e6-018bbc7ab447)
 
-TDD _(Test Driven Development)_ Red, Blue, Green ilkesine göre işletine bir tekniktir. Buna göre önce istenen iş fonksiyonelliği için gerekli kabül testleri vardır. Kabül kriterlerine göre yani testin başarılı olma durumuna göre kod yazılır ve ilk test fail durumunda kalır. Sonrasında testin başarılı olması için gerekli kod değişiklikleri yapılır ve bu safha Green aşaması olarak değerlendirilir. Son aşamada ise kod yeniden revize edilir ve en iyi haline getirilir. Burası Refactoring aşamasıdır ve Blue olarak ifade edilir.
+**TDD _(Test Driven Development)_** yöntemi **Red, Blue, Green** ilkesine göre işletilen bir tekniktir. İlk olarak kabül kriterlerine göre kodlama yapılır ve ilk test **Fail** durumunda kalır. Bu safhada genellikle kullanıllmak istenen bileşenler, metotlar, parametre yapıları veya diğer enstrümanlar belirsizdir. Günümüzün pek çok kod geliştirme editörü _(Visual Studio Code, Visual Studio, IntelliJ IDE, Rustrover vs)_ bu durumda ilgili enstrümanların otomatik olarak oluşturulması için gerekli özellikler sunar _(Söz gelimi önce var olmayan sınıf adı ve çağırılacak metot ile dönüşt değişkeni yazılır ve bunlar ortada olmasa da editör üzerinden oluşturulması sağlanır)_ **Red** aşamasını testin başarılı olması için gerekli kod değişikliklerinin yapıldığı **Green** isimli safha takip eder. Bu aşamada artık testlerin **Success** durumuna geçmesi için gerekli kod değişiklikleri yapılır. **Blue** ile ifade edilen üçüncü ve son aşamada ise ilgili kod parçasının yeniden gözden geçirilip iyileştirilmesi söz konusudur. Bu etkinlik **Code Refactoring** olarak da bilinir.
 
 ![image](https://github.com/user-attachments/assets/f33a719c-103c-47da-9a74-dd7ce7c5cc1b)
 
-TDD ile geliştirilen uygulamalarda tüm testler baştan tanımlanmış olduğu için Code Coverage değerleri yüksek, garanti kodların oluşması sağlanır. Bu yaklaşım geliştirme süresini bir miktar uzatmaktadır ve programcılara ters gelen bir bakış açısına sahiptir ancak test yazımları belli bir süre sonrasında ideal hızına ulaşır. 
-
-Birim Testi yazılan metotların bulunduğu sınıflar bazen dış komponentlere bağımlı olabilirler. Yani test edilecek metotların kullandığı bileşenler tightly coupled depdency'ler içerebilir. Interface soyutlamaları ile loosely coupled hale getirilen dependency'lerin birim testlerde mock nesneler ile yer değiştirilerek kullanılması da mümkün hale gelir. Örneğin test edilen bir fonksiyonun kabül kriterlerini karşılamak için içeride kullanılan bir veritabanı operasyonu varsa ve test koşumlarının yapıldığı ortamlarda bu tip dış kaynaklara erişim yoksa/olmaması gerekiyorsa birim testler işletilemez. Ancak veri tabanı operasyonunu üstlenen bileşenin soyutlanması onu taklit eden bir bileşenle testin çalıştırılmasının yolunu da açar. Mocking kavramı burada ele alınabilir.
+TDD ile geliştirilen uygulamalarda tüm testler baştan tanımlanmış olduğu için **Code Coverage** değerleri yüksek olan ve beklenen davranışları sergiyeceği garanti edilmiş kodların üretilmesi sağlanır. Bu yaklaşım, geliştirme süresini bir miktar uzatır ve programcılara ters gelen bir bakış açısına sahiptir ancak test yazımları belli bir süre sonrasında ideal hızına ulaşır. **TDD** modelinin önemli avantajlarından birisi de kodda yapılan değişikliklere karşın sistemin vereceği tepkidir. Zira pek çok yazılım geliştirme süreci **Continous Integration/Continous Delivery _(CI/CD)_** gibi süreçleri barındırır. Bu süreçlerde **Unit Test** koşumları otomatik olarak dağıtım hattının _(Deployment)_ bir parçası olarak yürütülür. Çok doğal olarak testleri Fail durumuna düşürecek _(patlatacak)_ kod değişiklikleri bu aşamada ortaya çıkar.
 
 *Bu dersteki örnekler Azon.Business ve Azon.Business.Test projeleri içerisinde yer almaktadır.*
 
-## Ders 08
+## Ders 08 (Birim Testlerde Soyutlamalar ve Mock Kütüphane Kullanımları)
 
-**throw new NotImplementedException();**
+Önceki derste yazılım kod kalitesini artıran unsurlardan birisi olan birim test konusu işlenmiştir. Birim Testi yazılan metotların bulunduğu sınıflar bazen dış komponentlere bağımlı olabilirler. Yani test edilecek metotların kullandığı bileşenler **Tightly Coupled Dependency**'ler içerebilir. **Interface** soyutlamaları ile **Loosely Coupled** hale getirilen dependency'lerin birim testlerde **Mock** nesneler ile yer değiştirilerek kullanılması da mümkündür. Örneğin test edilen bir fonksiyonun kabül kriterlerini karşılamak için içeride kullanılan bir veritabanı operasyonu varsa ve test koşumlarının yapıldığı ortamlarda bu tip dış kaynaklara erişim yoksa/olmaması gerekiyorsa birim testler işletilemez. Ancak veri tabanı operasyonunu üstlenen bileşenin soyutlanması onu taklit eden bir bileşenle testin çalıştırılmasının yolunu da açar. **Mocking** kavramı burada ele alınabilir.
 
 ## Ders 09
 
@@ -584,6 +582,7 @@ C# dilini nesne yönelimli dil özelliklerini de harmanlayan bazı kaynakların 
 - **Street Coder.** _Sedat Kapanoğlu_
 - **Dependency Injection Principles, Practices, and Patterns.** _Mark Seemann, Steven Van Deursen_
 - **AntiPatterns: Refactoring Software, Architectures, and Projects in Crisis.** _William J. Brown, Raphael C. Malveau, Hays W. "Skip" McCormick, Thomas J. Mowbray_
+- **Unit Testing Principles, Practices, and Patterns: Effective Testing Styles, Patterns, and Reliable Automation for Unit Testing, Mocking, and Integration Testing with Examples in C#.** _Vladimir Khorikov_
 
 ## Vize Sınavı Soruları
 
