@@ -12,7 +12,7 @@ Sektör Kampüste projesi kapsamında 2024-2025 güz dönemi İTÜ Matematik Mü
   - [Ders 06: Library Geliştirme, Genişletilebilir Uygulamalar ve SOLID Prensiplerinin Temelleri](#ders-06-library-geliştirme-genişletilebilir-uygulamalar-ve-solid-prensiplerinin-temelleri)
     - [JSON Serileştirme ve DTO Senaryosu](#json-serileştirme-ve-dto-senaryosu)
   - [Ders 07: Yüksek Kalite Kodlama için Unit Test](#ders-07-unit-test)
-  - [Ders 08](#ders-08-birim-testlerde-soyutlamalar-ve-mock-kütüphane-kullanımları)
+  - [Ders 08: Birim Testlerde Soyutlamalar ve Mock Kütüphane Kullanımları](#ders-08-birim-testlerde-soyutlamalar-ve-mock-kütüphane-kullanımları)
   - [Ders 09](#ders-09)
   - [Ders 10](#ders-10)
   - [Ders 11](#ders-11)
