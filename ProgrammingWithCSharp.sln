@@ -73,6 +73,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azon.Business", "Azon.Busin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azon.Business.Test", "Azon.Business.Test\Azon.Business.Test.csproj", "{47A1D367-9639-4DCC-9139-C84472D43BE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azon.Games", "FreeZone\Azon.Games\Azon.Games.csproj", "{FC4BE2D9-3740-4563-BD41-F9AE5546BBA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -187,6 +189,10 @@ Global
 		{47A1D367-9639-4DCC-9139-C84472D43BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47A1D367-9639-4DCC-9139-C84472D43BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47A1D367-9639-4DCC-9139-C84472D43BE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC4BE2D9-3740-4563-BD41-F9AE5546BBA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC4BE2D9-3740-4563-BD41-F9AE5546BBA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC4BE2D9-3740-4563-BD41-F9AE5546BBA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC4BE2D9-3740-4563-BD41-F9AE5546BBA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -209,6 +215,7 @@ Global
 		{262A692A-5576-4D57-AD1A-8EC8DDA02897} = {0C8F7AAE-55DC-46D9-9BE6-F7CA135C9214}
 		{A1C3AAB1-B625-4660-8BA6-387F1B854568} = {0C8F7AAE-55DC-46D9-9BE6-F7CA135C9214}
 		{1EC4FBFC-E1D6-482E-9A48-1075C8641114} = {0C8F7AAE-55DC-46D9-9BE6-F7CA135C9214}
+		{FC4BE2D9-3740-4563-BD41-F9AE5546BBA3} = {0C8F7AAE-55DC-46D9-9BE6-F7CA135C9214}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2622B61-B5A7-4CAD-9CC3-84B635B74D60}
