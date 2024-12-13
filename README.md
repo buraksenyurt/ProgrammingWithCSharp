@@ -502,6 +502,10 @@ TDD ile geliştirilen uygulamalarda tüm testler baştan tanımlanmış olduğu 
 
 ## Ders 08 (Birim Testlerde Soyutlamalar ve Mock Kütüphane Kullanımları)
 
+Birim testlerin gerçek hayat senaryolarındaki önemi üzerinde durulmalıdır. Bu ders konularına geçmeden önce aşağıdaki çizelge ile ilgili olarak konuşulur.
+
+![image](https://github.com/user-attachments/assets/2711fc52-b16d-4fa3-a2b7-b8ae817273ec)
+
 Önceki derste yazılım kod kalitesini artıran unsurlardan birisi olan birim test konusu işlenmiştir. Birim Testi yazılan metotların bulunduğu sınıflar bazen dış komponentlere bağımlı olabilirler. Yani test edilecek metotların kullandığı bileşenler **Tightly Coupled Dependency**'ler içerebilir. **Interface** soyutlamaları ile **Loosely Coupled** hale getirilen dependency'lerin birim testlerde **Mock** nesneler ile yer değiştirilerek kullanılması da mümkündür. Örneğin test edilen bir fonksiyonun kabül kriterlerini karşılamak için içeride kullanılan bir veritabanı operasyonu varsa ve test koşumlarının yapıldığı ortamlarda bu tip dış kaynaklara erişim yoksa/olmaması gerekiyorsa birim testler işletilemez. Ancak veri tabanı operasyonunu üstlenen bileşenin soyutlanması onu taklit eden bir bileşenle testin çalıştırılmasının yolunu da açar. **Mocking** kavramı burada ele alınabilir.
 
 ## Ders 09
