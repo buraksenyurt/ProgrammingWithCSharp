@@ -13,7 +13,7 @@ Sektör Kampüste projesi kapsamında 2024-2025 güz dönemi İTÜ Matematik Mü
     - [JSON Serileştirme ve DTO Senaryosu](#json-serileştirme-ve-dto-senaryosu)
   - [Ders 07: Yüksek Kalite Kodlama için Unit Test](#ders-07-unit-test)
   - [Ders 08: Birim Testlerde Soyutlamalar ve Mock Kütüphane Kullanımları](#ders-08-birim-testlerde-soyutlamalar-ve-mock-kütüphane-kullanımları)
-  - [Ders 09](#ders-09)
+  - [Ders 09: Delegate Tipi, Extension Methods ve LINQ](#ders-09-delegate-tipi-extension-methods-ve-linq)
   - [Ders 10](#ders-10)
   - [Ders 11](#ders-11)
   - [Çerezlik Kod Pratikleri](#çerezlik-kod-pratikleri)
@@ -508,9 +508,9 @@ Birim testlerin gerçek hayat senaryolarındaki önemi üzerinde durulmalıdır.
 
 Önceki derste yazılım kod kalitesini artıran unsurlardan birisi olan birim test konusu işlenmiştir. Birim Testi yazılan metotların bulunduğu sınıflar bazen dış komponentlere bağımlı olabilirler. Yani test edilecek metotların kullandığı bileşenler **Tightly Coupled Dependency**'ler içerebilir. **Interface** soyutlamaları ile **Loosely Coupled** hale getirilen dependency'lerin birim testlerde **Mock** nesneler ile yer değiştirilerek kullanılması da mümkündür. Örneğin test edilen bir fonksiyonun kabül kriterlerini karşılamak için içeride kullanılan bir veritabanı operasyonu varsa ve test koşumlarının yapıldığı ortamlarda bu tip dış kaynaklara erişim yoksa/olmaması gerekiyorsa birim testler işletilemez. Ancak veri tabanı operasyonunu üstlenen bileşenin soyutlanması onu taklit eden bir bileşenle testin çalıştırılmasının yolunu da açar. **Mocking** kavramı burada ele alınabilir.
 
-## Ders 09
+## Ders 09 (Delegate Tipi, Extension Methods ve LINQ)
 
-**throw new NotImplementedException();**
+C# programlama dilinin kullandığı önemli enstrümanlardan birisi de **Delegate** tipidir. Delegate tipi esasında bir metodu işaret eden **pointer** olarak düşünülebilir. Deleagate tipi sayesinde fonksiyonel programlama argümanları kolayca uygulanabilir. Örneğin metotlara parametre olarak başka metotlar aktarılabilir ya da metotlar bir değişkene eşitlenip çağırılabilir. Pek tabii **closure** olarak da bilinen fonksiyon gövdelerinin değişken olarak kullanılması ya da metotlara parametre olarak geçilmesi de mümkündür. **Delagate** tipi ayrıca **LINQ _(Language INtegrated Query)_** olarak bilinen ve nesne koleksiyonları üzerinde **SQL** ifadelerine benzer sorgular yazılmasını sağlayan bir enstrümandır. Bunun haricinde **olay güdümlü programlama _(Event Driven Programming)_** konseptinde de ele alınır. Örneğin stok bilgisinin değişmesi sonnucu object user'ın ele alması beklenen bir aksiyon bu tip olay metodu argümanları ile desteklenebilir. Bu derste **delagate** tipinin nasıl tanımlandığı, **LINQ** sorgularında ne şekilde ele alındığı ve **Extension** metotların bu konudaki yeri ele alınmaktadır. Extension metot aslında var olan bir tipin fonksiyonel olarak genişletilmesi yani yeni kabiliyetler kazandırılması için bir yol sunar. Herhangibir tipin aslında var olmayan bir davranış için asıl kütüphaneyi değiştirmeden eklemeler yapılmasının yolunu açar. Microsoft Net tarafında özellikle **LINQ** sorguları göz önüne alınırsa var olan koleksiyon tipleri için yazılmış bir çok genişletme metodu olduğu görülür **_(Where, OrderBy, Select vb)_**
 
 ## Ders 10
 
