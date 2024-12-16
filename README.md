@@ -512,7 +512,93 @@ Birim testlerin gerçek hayat senaryolarındaki önemi üzerinde durulmalıdır.
 
 ## Ders 09 (Delegate Tipi, Extension Methods ve LINQ)
 
-C# programlama dilinin kullandığı önemli enstrümanlardan birisi de **Delegate** tipidir. Delegate tipi esasında bir metodu işaret eden **pointer** olarak düşünülebilir. Deleagate tipi sayesinde fonksiyonel programlama argümanları kolayca uygulanabilir. Örneğin metotlara parametre olarak başka metotlar aktarılabilir ya da metotlar bir değişkene eşitlenip çağırılabilir. Pek tabii **closure** olarak da bilinen fonksiyon gövdelerinin değişken olarak kullanılması ya da metotlara parametre olarak geçilmesi de mümkündür. **Delagate** tipi ayrıca **LINQ _(Language INtegrated Query)_** olarak bilinen ve nesne koleksiyonları üzerinde **SQL** ifadelerine benzer sorgular yazılmasını sağlayan bir enstrümandır. Bunun haricinde **olay güdümlü programlama _(Event Driven Programming)_** konseptinde de ele alınır. Örneğin stok bilgisinin değişmesi sonnucu object user'ın ele alması beklenen bir aksiyon bu tip olay metodu argümanları ile desteklenebilir. Bu derste **delagate** tipinin nasıl tanımlandığı, **LINQ** sorgularında ne şekilde ele alındığı ve **Extension** metotların bu konudaki yeri ele alınmaktadır. Extension metot aslında var olan bir tipin fonksiyonel olarak genişletilmesi yani yeni kabiliyetler kazandırılması için bir yol sunar. Herhangibir tipin aslında var olmayan bir davranış için asıl kütüphaneyi değiştirmeden eklemeler yapılmasının yolunu açar. Microsoft Net tarafında özellikle **LINQ** sorguları göz önüne alınırsa var olan koleksiyon tipleri için yazılmış bir çok genişletme metodu olduğu görülür **_(Where, OrderBy, Select vb)_**
+C# programlama dilinin kullandığı önemli enstrümanlardan birisi de **Delegate** tipidir. Delegate tipi esasında bir metodu işaret eden **pointer** olarak düşünülebilir. Deleagate tipi sayesinde fonksiyonel programlama argümanları kolayca uygulanabilir. Örneğin metotlara parametre olarak başka metotlar aktarılabilir ya da metotlar bir değişkene eşitlenip çağırılabilir. Pek tabii **closure** olarak da bilinen fonksiyon gövdelerinin değişken olarak kullanılması ya da metotlara parametre olarak geçilmesi de mümkündür. **Delagate** tipi ayrıca **LINQ _(Language INtegrated Query)_** olarak bilinen ve nesne koleksiyonları üzerinde **SQL** ifadelerine benzer sorgular yazılmasında da kullanılır. Bunun haricinde **olay güdümlü programlama _(Event Driven Programming)_** konseptinde de ele alınır. Örneğin stok bilgisinin değişmesi sonnucu object user'ın ele alması beklenen bir aksiyon bu tip olay metodu argümanları ile desteklenebilir. Bu derste **delagate** tipinin nasıl tanımlandığı, **LINQ** sorgularında ne şekilde ele alındığı ve **Extension** metotların bu konudaki yeri ele alınmaktadır. Extension metot aslında var olan bir tipin fonksiyonel olarak genişletilmesi yani yeni kabiliyetler kazandırılması için bir yol sunar. Herhangibir tipin aslında var olmayan bir davranış için asıl kütüphaneyi değiştirmeden eklemeler yapılmasının yolunu açar. Microsoft .Net tarafında özellikle **LINQ** sorguları göz önüne alınırsa var olan koleksiyon tipleri için yazılmış bir çok genişletme metodu olduğu görülür **_(Where, OrderBy, Select vb)_**
+
+.Net tarafında sık kullanılan bazı delegate tiplerinin tanımlamaları aşağıdaki gibidir.
+
+```csharp
+public delegate TResult Func<in T, out TResult>(T arg);
+
+public delegate bool Predicate<in T>(T obj);
+```
+
+Bu temsiciler generic türlerle çalışır ve aslında işaret edilebilecek bir metodun parametrik yapısını temsil eder. Aşağıdaki örnek kullanımda kendi tanımladığımız delegate tipini kullanan genel bir metot vardır.
+
+```csharp
+public delegate bool PredicateDelegate(Game game);
+
+public static class Scenario01
+{
+    public static List<Game> Search(List<Game> games,PredicateDelegate predicate)
+    {
+        var result = new List<Game>();
+
+        foreach (var game in games)
+        {
+            if (predicate(game))
+            {
+                result.Add(game);
+            }
+        }
+
+        return result;
+    }
+}
+```
+
+Burada Search metodu PredicateDelegate temsilcisini kullanır. Buna göre Search metoduna Game nesnesi alan ve boolean sonuç döndüren herhangi bir fonksiyon veya kob bloğu _(closure)_ geçilebilir. Örneğin,
+
+```csharp
+class Program
+{
+    static void Main()
+    {
+        var catalog = new Catalog();
+        var games = catalog.LoadGames();
+
+        var resultSet = Scenario01.Search(games, IsStrategyGame);
+        resultSet = Scenario01.Search(games, IsUnderrated);
+        resultSet = Scenario01.Search(games, g => !g.OnSale);
+        resultSet = games.FindAll(g => g.ListPrice > 30);
+
+    }
+    static bool IsStrategyGame(Game game)
+    {
+        return game.Category.Name.ToLower().Contains("strategy");
+    }
+    static bool IsUnderrated(Game game)
+    {
+        return game.UserRate < 6;
+    }
+}
+```
+
+Burada games koleksiyonun her elemanı için parametre olarak gelen metotlar _(IsStrategyGame,IsUnderrated)_ çağırılır. Ayrıca OnSale kontrolü yapılan satırda lambda operatörü ile _(=>)_ PredicateDelegate üzerinden bir kod bloğunun Search fonksiyonuna geçilmesi söz konusudur. Esasında kendi yazdığımız bu arama fonksiyonu generic List türünün FindAll metodu ile de karşılanır. FindAll metodu built-in tanımlanmış Predicate temsilcisini kullanır. Where, Select, OrderBy, Sum vb birçok genişletme metodu da _(Extension Methods)_ Func gibi temsilcileri kullanarak nesne koleksiyonlarında her eleman için bir fonksiyonun ya da kod bloğunun çalıştırılmasını mümkün kılar. Fonksiyonel dillerde bu tip davranışlar sıklıkla görülür. Fonksiyonlar değişkenlere atanabilir, fonksiyonlara parametre olarak taşınabilirler. Diğer dillerdeki benzerlikler için High Order Functions konusu araştırılabilir. 
+
+Aşağıdaki kod parçasında çok basit bir genişletme metoduna yer verilmiştir. 
+
+```csharp
+public static class StingExtensions
+{
+    public static string WriteSmart(this string text,char seperator)
+    {
+        var result = string.Empty;
+        for (int i = 0; i < text.Length; i++)
+        {
+            result += text[i] + seperator.ToString();
+        }
+
+        return result;
+    }
+}
+```
+
+Böylece her string değişkeni üzerinden WriteSmart metodunu kullanabiliriz. Normalde String sınıfında böyle bir fonksiyon yoktur ama genişletme metodu tekniği ile eklenebilir ve aşağıdaki gibi çağırılabilir.
+
+```csharp
+string motto = "Ne kadar güzel bir gün değil mi?";
+Console.WriteLine(motto.WriteSmart('_'));
+```
 
 ## Ders 10
 
