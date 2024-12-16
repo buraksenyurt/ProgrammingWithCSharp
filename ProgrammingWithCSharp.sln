@@ -77,6 +77,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azon.Games", "FreeZone\Azon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chapter08", "Chapter08\Chapter08.csproj", "{E459E504-8F0E-4724-87B7-EF8CC03A51F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.LINQ", "FreeZone\Learning.LINQ\Learning.LINQ.csproj", "{B25B39C3-397B-4842-B6AE-52F9E27C51C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -199,6 +201,10 @@ Global
 		{E459E504-8F0E-4724-87B7-EF8CC03A51F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E459E504-8F0E-4724-87B7-EF8CC03A51F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E459E504-8F0E-4724-87B7-EF8CC03A51F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B25B39C3-397B-4842-B6AE-52F9E27C51C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B25B39C3-397B-4842-B6AE-52F9E27C51C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B25B39C3-397B-4842-B6AE-52F9E27C51C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B25B39C3-397B-4842-B6AE-52F9E27C51C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -222,6 +228,7 @@ Global
 		{A1C3AAB1-B625-4660-8BA6-387F1B854568} = {0C8F7AAE-55DC-46D9-9BE6-F7CA135C9214}
 		{1EC4FBFC-E1D6-482E-9A48-1075C8641114} = {0C8F7AAE-55DC-46D9-9BE6-F7CA135C9214}
 		{FC4BE2D9-3740-4563-BD41-F9AE5546BBA3} = {0C8F7AAE-55DC-46D9-9BE6-F7CA135C9214}
+		{B25B39C3-397B-4842-B6AE-52F9E27C51C7} = {0C8F7AAE-55DC-46D9-9BE6-F7CA135C9214}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A2622B61-B5A7-4CAD-9CC3-84B635B74D60}
