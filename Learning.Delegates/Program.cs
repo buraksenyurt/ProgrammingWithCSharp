@@ -12,6 +12,8 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        
+        BasicSample.Run();
+        MulticastSample.Run();
+        EventSample.Run();
     }
 }
