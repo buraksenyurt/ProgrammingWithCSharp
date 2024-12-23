@@ -14,11 +14,12 @@ Sektör Kampüste projesi kapsamında 2024-2025 güz dönemi İTÜ Matematik Mü
   - [Ders 07: Yüksek Kalite Kodlama için Unit Test](#ders-07-unit-test)
   - [Ders 08: Birim Testlerde Soyutlamalar ve Mock Kütüphane Kullanımları](#ders-08-birim-testlerde-soyutlamalar-ve-mock-kütüphane-kullanımları)
   - [Ders 09: Delegate Tipi, Extension Methods ve LINQ](#ders-09-delegate-tipi-extension-methods-ve-linq)
-  - [Ders 10](#ders-10)
+  - [Ders 10: Delegate Tipi ve Event Kullanımları, Attribute ve Reflection](#ders-10-delegate-tipi-ve-event-kullanımları-attribute-ve-reflection)
   - [Ders 11](#ders-11)
   - [Çerezlik Kod Pratikleri](#çerezlik-kod-pratikleri)
   - [Free Zone](#free-zone)
   - [Kaynak Önerileri](#kaynak-önerileri)
+  - [Dönem Ödevleri](#dönem-ödevleri)
   - [Vize Sınavı Soruları](#vize-sınavı-soruları)
   - [Final Sınavı Soruları](#final-sınavı-soruları)
 
@@ -600,9 +601,11 @@ string motto = "Ne kadar güzel bir gün değil mi?";
 Console.WriteLine(motto.WriteSmart('_'));
 ```
 
-## Ders 10
+## Ders 10 (Delegate Tipi ve Event Kullanımları, Attribute ve Reflection)
 
-**throw new NotImplementedException();**
+Önceki derste delegate türünden yararlanarak metotlara parametre olarak metotların nasıl aktarılabileceği incelenmişti. Delegate türünün bir diğer kullanım alanı da event mekanizmalarıdır. Nesnelerin state değişikliklerinde, object user'lara ele alabilecekleri olay metotlarının _(event method)_ sağlanmasında da kullanılırlar.
+
+Bu dersete ele alınan bir diğer konu da metadata programlamada sıklıkla başvurulan Attribute kavramıdır. Attribute'lar ile çalışma zamanına ekstra bilgiler taşınabilir. Bir çalışma zamanına sahip uygulamalar bu bilgilerden yararlanarak çeşitli akışları işletebilir. Örneğin bir sınıfın servis olarak sunulabileceğine karar verilmesi, bir nesnenin tablo olarak oluşturulması için gerekli migration planının üretilmesi veya bir IDE'ye yeni özelliklerin kodu değiştirmeden dahil edilmesi _(plug-in tabanlı programlama)_ gibi bir çok durumda kullanılırlar. Attribute'lar ağırlıklı olarak Reflection konusu ile ele alınır. Reflection, çalışma zamanında tipler ve üyeleri hakkında bilgi toplamak ve hatta nesne örneklerini oluşturmak için kullanılır. Buna göre bir çalışma zamanının kendisine bildirilen fonksiyonellikleri içeren nesneleri örneklemesi ve işletmesi mümkün hale gelir. 
 
 ## Ders 11
 
@@ -675,6 +678,49 @@ C# dilini nesne yönelimli dil özelliklerini de harmanlayan bazı kaynakların 
 - **Dependency Injection Principles, Practices, and Patterns.** _Mark Seemann, Steven Van Deursen_
 - **AntiPatterns: Refactoring Software, Architectures, and Projects in Crisis.** _William J. Brown, Raphael C. Malveau, Hays W. "Skip" McCormick, Thomas J. Mowbray_
 - **Unit Testing Principles, Practices, and Patterns: Effective Testing Styles, Patterns, and Reliable Automation for Unit Testing, Mocking, and Integration Testing with Examples in C#.** _Vladimir Khorikov_
+
+## Dönem Ödevleri
+
+Ders dönemi boyunca öğrencilerden aşağıdaki projelerden birisini seçmeleri ve dönem sonuna kadar teslim etmeleri istenir.
+
+|   Id | Homework                                                  | Summary                                                                                                                                                                                                                                                                      |   Level |
+|-----:|:----------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------:|
+|    1 | Inventory Tracking System                                 | Bu projede amaç basit bir envanter takip sistemi geliştirilmesidir.                                                                                                                                                                                                          |      70 |
+|    2 | Terminal-Based Dungeon Game                               | Terminalden programın sorduğu sorulara göre oyuncuyu yönlendirilen bir zindan oyunudur. Tek level tasarlanması yeterlidir. Görsel bir öğe içermemektedir.                                                                                                                    |      90 |
+|    3 | Random Data Set Generator                                 | Hepimizin derdi bazen rastgele test verisi bulmak olur. Örnek ürün listeleri, kullanıcı profilleri gibi. Bu tip veri setlerini oluşturmayı kolaylaştıran bir programdır.                                                                                                     |      80 |
+|    4 | Simple Abstract Syntax Tree (AST) Interpreter             | Oldukça basit seviyede bir dil yorumlayıcı programdır.                                                                                                                                                                                                                       |     100 |
+|    5 | Lightweight API Gateway                                   | API Gateway prensiplerini içeren bir yönetim programıdır.                                                                                                                                                                                                                    |      70 |
+|    6 | Backend Service Development for Kanban Board Applications | Önyüz tarafında Kanban modelinde çalışan bir arayüz için gerekli fonksiyonellikleri sağlayan bir Web API'dir. Rest veya gRPC şeklinde çalıştırılabilir.                                                                                                                      |      65 |
+|    7 | Static Code Quality Analyzer                              | Bir .net uygulama kodunu tarayıp belli başlı kod kalite metriklerini ölçümleyerek raporlayan bir araçtır.                                                                                                                                                                    |     100 |
+|    8 | Data Transfer Application Between Different Sources       | Farklı kaynaklar arasında veri taşıması yapılmasını sağlayan yönetici uygulamadır. SSIS (Sql Server Integration Services) benzeri bir uygulamanın çok basit bir sürümüdür.                                                                                                   |      85 |
+|    9 | Radio Stations Program                                    | Internet üzerinden yayın yapan radyo programları için offline çalışan bir desktop uygulamasıdır.                                                                                                                                                                             |      60 |
+|   10 | E-commerce Cart System                                    | Bir e-ticaret sistesinin sadece alışveriş sepeti modülünün geliştirilmesini içerir. Önyüz tasarımından ziyade arka plandaki model yapılarının tasarımı, bileşenler ve fonksiyonların içeriği önemlidir.                                                                      |      85 |
+|   11 | Library Management System (Nuget Clone)                   | Burada Nuget benzeri bir paket yönetim sisteminin benzeri inşa edilir. Paket listeleme, versiyonlama, doküman desteği ve programlara indirebilme özelliklerinin olması yeterlidir.                                                                                           |      90 |
+|   12 | Online Multi User Exam/Quiz Platform (Mentimeter Clone)   | Online platformda çalışan öğrenciler için soru setlerinin hazırlanabildiği bir web uygulamasıdır.                                                                                                                                                                            |     100 |
+|   13 | Employee Management System                                | Hafifsiklet bir insan kaynakları yönetimi uygulamasıdır. Mavi yakalılar için tasarlanabilir. Organizasyon ağacı desteği olmalıdır.                                                                                                                                           |      65 |
+|   14 | Topic Based ChatBot Application                           | Azure platformunun AI kabiliyetleri kullanılarak tasarlanacak ve platforma giren kullanıcılara yardım edebilecek bir chat bot uygulamasıdır                                                                                                                                  |      75 |
+|   15 | Stock Market Tracking and Analysis Program                | Piyasa verilerini analiz ederen bir takım sonuçlar üreten ve tavsiyelerde bulunan bir web uygulaması olarak düşünülebilir.                                                                                                                                                   |      60 |
+|   16 | Sequential Task Management System                         | Bir sistemdeki planlı işleri çalışıtırıp, yönetiminin de yapılabildiği desktop uygulamasıdır. Web tabanlı olarak da tasarlanabilir.                                                                                                                                          |      90 |
+|   17 | Real-Time Data Processing Service                         | Bir veri setini gerçek zamanlı olarak analiz edip sonuç çıkartan servis uygulamasıdır. Performans öncelikli bir uygulama olduğu için paralel çalıştırma veya multitasking gibi özellikler öne çıkar.                                                                         |     100 |
+|   18 | Smart Notepad Application (Notion Clone)                  | Notion benzeri bir not tutma uygulaması olarak düşünülebilir. Desktop uygulaması stilinde geliştirilebilir. Notion'daki her özelliği içermesine gerek yoktur ancak notları kalıcı olarak saklama, hatırlatma, önceliklendir ve export/import gibi özellikler barındırabilir. |      70 |
+|   19 | Simple 2D Platform Game                                   | OpenGL veya DirectX gibi kütüphanelere erişebilen paketler ile masaüstü windows uygulaması olarak geliştirilebileceği gibi Unity ile de yazılabilir. Tek sahnelik bir platform oyunu olması yeterlidir.                                                                      |      80 |
+|   20 | ECS Based Game Engine                                     | Burada asıl amaç ECS (Entity Component System) yapısını kullanan basit bir oyun motorunun inşasıdır. C# dilinin temel enstrümanları ve .net platformunun bazı özellikleri kullanılarak tasarlanmaya çalışılır.                                                               |     100 |
+
+Dönem ödevi ders geçme notunda doğrudan etki eder ve aşağıdaki kriterlere göre puanlanır.
+
+| Criterion                          | Factor |
+|------------------------------------|--------|
+| Use of OOP Principles              | 30     |
+| Originality                        | 5      |
+| Model Design                       | 5      |
+| Clean Code Factors                 | 20     |
+| Warning Counts                     | 15     |
+| Memory Consumption                 | 5      |
+| User Experience (Only for UI apps) | 5      |
+| Tooling                            | 5      |
+| Source Code Repo Check             | 10     |
+| **Total**                          | **100**|
+
 
 ## Vize Sınavı Soruları
 
