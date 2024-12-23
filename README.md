@@ -605,6 +605,8 @@ Console.WriteLine(motto.WriteSmart('_'));
 
 Önceki derste delegate türünden yararlanarak metotlara parametre olarak metotların nasıl aktarılabileceği incelenmişti. Delegate türünün bir diğer kullanım alanı da event mekanizmalarıdır. Nesnelerin state değişikliklerinde, object user'lara ele alabilecekleri olay metotlarının _(event method)_ sağlanmasında da kullanılırlar.
 
+*Olayların .Net içerisindeki gerçek kullanımına ait örnek olarak [EF Core tarafına](https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/events) bakılabilir.*
+
 Bu dersete ele alınan bir diğer konu da metadata programlamada sıklıkla başvurulan Attribute kavramıdır. Attribute'lar ile çalışma zamanına ekstra bilgiler taşınabilir. Bir çalışma zamanına sahip uygulamalar bu bilgilerden yararlanarak çeşitli akışları işletebilir. Örneğin bir sınıfın servis olarak sunulabileceğine karar verilmesi, bir nesnenin tablo olarak oluşturulması için gerekli migration planının üretilmesi veya bir IDE'ye yeni özelliklerin kodu değiştirmeden dahil edilmesi _(plug-in tabanlı programlama)_ gibi bir çok durumda kullanılırlar. Attribute'lar ağırlıklı olarak Reflection konusu ile ele alınır. Reflection, çalışma zamanında tipler ve üyeleri hakkında bilgi toplamak ve hatta nesne örneklerini oluşturmak için kullanılır. Buna göre bir çalışma zamanının kendisine bildirilen fonksiyonellikleri içeren nesneleri örneklemesi ve işletmesi mümkün hale gelir. 
 
 ## Ders 11
