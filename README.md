@@ -14,8 +14,8 @@ Sektör Kampüste projesi kapsamında 2024-2025 güz dönemi İTÜ Matematik Mü
   - [Ders 07: Yüksek Kalite Kodlama için Unit Test](#ders-07-unit-test)
   - [Ders 08: Birim Testlerde Soyutlamalar ve Mock Kütüphane Kullanımları](#ders-08-birim-testlerde-soyutlamalar-ve-mock-kütüphane-kullanımları)
   - [Ders 09: Delegate Tipi, Extension Methods ve LINQ](#ders-09-delegate-tipi-extension-methods-ve-linq)
-  - [Ders 10: Delegate Tipi ve Event Kullanımları, Attribute ve Reflection](#ders-10-delegate-tipi-ve-event-kullanımları-attribute-ve-reflection)
-  - [Ders 11](#ders-11)
+  - [Ders 10: Delegate Tipi ile Event Kullanımları ve Attribute Kavramı](#ders-10-delegate-tipi-ile-event-kullanımları-ve-attribute-kavramı)
+  - [Ders 11: Metadata Programlama, Attribute ve Reflection](#ders-11-metadata-programlama-attribute-ve-reflection)
   - [Çerezlik Kod Pratikleri](#çerezlik-kod-pratikleri)
   - [Free Zone](#free-zone)
   - [Kaynak Önerileri](#kaynak-önerileri)
@@ -601,23 +601,117 @@ string motto = "Ne kadar güzel bir gün değil mi?";
 Console.WriteLine(motto.WriteSmart('_'));
 ```
 
-## Ders 10 (Delegate Tipi ve Event Kullanımları, Attribute ve Reflection)
+## Ders 10 (Delegate Tipi ile Event Kullanımları ve Attribute Kavramı)
 
-Önceki derste delegate türünden yararlanarak metotlara parametre olarak metotların nasıl aktarılabileceği incelenmişti. Delegate türünün bir diğer kullanım alanı da event mekanizmalarıdır. Nesnelerin state değişikliklerinde, object user'lara ele alabilecekleri olay metotlarının _(event method)_ sağlanmasında da kullanılırlar.
+Önceki derste delegate türünden yararlanarak metotlara parametre olarak metotların nasıl aktarılabileceği incelenmiştir. Delegate türünün farklı kullanım alanları da vardır. Örneğinde birden fazla metodun tek bir delegate türü üzerinden çağırılması _(Multicast Delegates)_ ve event mekanizmalarıdır. Nesnelerin state değişikliklerinde, object user'lara ele alabilecekleri olay metotlarının _(event method)_ sağlanmasında da kullanılırlar. Burada verilebilecek en güzel örneklerden birisi görsel arayüz bileşenlerindeki olay metotlarıdır. Örneğin bir metodun tıklanması sonrasın Click isimli event gerçekleşir ve object user isterse bu olaya ilişkin bir metodu programlayabilir. Kendi tasarladığımız Framework kurgularında da, diğer kullanıcıların nesne durumlarındaki değişiklikler ile ilgili uygulayabilecekleri olay metotları _(event methods)_ sağlanabilir.
+
+Bir event bir delegate türü ile ifade edilir. Event'in tetiklenmesi, kendi tanımında yer alan delegate türünün işaret ettiği metotların çağırılması anlamına gelir. Bu metot pek tabii object user tarafından yazılır. .Net kendi içerisinde standart türden olay bildirimleri için generic EventArgs< T > türünü sağlar. Olay metotlarına, olay çağrılarının yapıldığı yerden ekstra veriler de gönderilebilir. Bu genellikle EventArgs olarak da bilinen bir kavramdır. Aşağıda örnek bir olay bildirimi tanımı yer almaktadır.
+
+```csharp
+class StockLevelChangedEventArgs
+{
+    public int OldLevel { get; set; }
+    public int Change { get; set; }
+}
+
+class StockService
+{
+    public event EventHandler<StockLevelChangedEventArgs> StockLevelChanged;
+
+    public string Owner { get; set; }
+
+    private int _level;
+    public int Level
+    {
+        get
+        {
+            return _level;
+        }
+        set
+        {
+            var eventArgs = new StockLevelChangedEventArgs
+            {
+                OldLevel = value,
+                Change = _level - value
+            };
+
+            _level = value;
+
+            StockLevelChanged?.Invoke(this, eventArgs);
+        }
+    }
+}
+```
+
+Bu basit ve temel kurguda StockService sınıfı onu kullanacak taraflara StockLevelChanged isimli bir event desteği sağlar. Buna göre Object User, StockService sınıfı için StockLevelChanged olayına karşılık bir metot tanımlamışsa, her stok değişikliğinde ilgili olay metodu _(event method)_ tetiklenecektir. Sürekli vurguladığımız Object User kullanımı aşağıdaki kod parçasında olduğu gibi örneklenebilir.
+
+```csharp
+public static void Main()
+{
+    var stockServiceLondon = new StockService
+    {
+        Owner = "London"
+    };
+    var stockServiceNewYork = new StockService
+    {
+        Owner = "New York"
+    };
+
+    stockServiceLondon.StockLevelChanged += StockService_StockLevelChanged;
+    stockServiceNewYork.StockLevelChanged += StockService_StockLevelChanged;
+    stockServiceLondon.Level = 90;
+    stockServiceLondon.Level -= 5;
+    stockServiceNewYork.Level = 45;
+}
+
+// Event Method
+private static void StockService_StockLevelChanged(object? sender, StockLevelChangedEventArgs args)
+{
+    if (sender is StockService eventOwner)
+    {
+        Console.WriteLine($"{eventOwner.Owner}. Stok seviyesinin eski değeri {args.OldLevel}. Değişim {args.Change}");
+    }
+    else
+    {
+        Console.WriteLine($"Stok seviyesinin eski değeri {args.OldLevel}. Değişim {args.Change}");
+    }
+}
+```
 
 *Olayların .Net içerisindeki gerçek kullanımına ait örnek olarak [EF Core tarafına](https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/events) bakılabilir.*
 
-Bu dersete ele alınan bir diğer konu da metadata programlamada sıklıkla başvurulan Attribute kavramıdır. Attribute'lar ile çalışma zamanına ekstra bilgiler taşınabilir. Bir çalışma zamanına sahip uygulamalar bu bilgilerden yararlanarak çeşitli akışları işletebilir. Örneğin bir sınıfın servis olarak sunulabileceğine karar verilmesi, bir nesnenin tablo olarak oluşturulması için gerekli migration planının üretilmesi veya bir IDE'ye yeni özelliklerin kodu değiştirmeden dahil edilmesi _(plug-in tabanlı programlama)_ gibi bir çok durumda kullanılırlar. Attribute'lar ağırlıklı olarak Reflection konusu ile ele alınır. Reflection, çalışma zamanında tipler ve üyeleri hakkında bilgi toplamak ve hatta nesne örneklerini oluşturmak için kullanılır. Buna göre bir çalışma zamanının kendisine bildirilen fonksiyonellikleri içeren nesneleri örneklemesi ve işletmesi mümkün hale gelir.
+## Ders 11: Metadata Programlama, Attribute ve Reflection
 
-Attribute konusunu anlamak için aşağıdaki örnek üzerinden çalışılır.
+Bu dersete metadata programlama kavramı ve bunun .Net içerisindeki ele alınış biçimleri üzerinde durulur. Metadata programlamada çalışma zamanında ek bilgiler gönderilmesini sağlayan enstrümanlar söz konusudur. Bu enstrümanlar ile çalışma zamanına otomatik kod çıkartılması, kod manipülasyonu *(Özellikle macro desteği sunan dillerde)* gibi işlemler yapılabilir. Ayrıca çalışma zamanları _(runtime)_ için verilen ekstra bilgiler ile kod akışının değiştirilemsi de sağlanabilir. Örneğin bir sınıfın servis olarak sunulabileceğine karar verilmesi, gelen talebin belirlenmiş yetkilere sahip olup olmadığının anlaşılması _(Authorization)_,  bir nesnenin tablo olarak oluşturulması için gerekli migration planının üretilmesi veya bir IDE'ye yeni özelliklerin kodu değiştirmeden dahil edilmesi _(plug-in tabanlı programlama)_ gibi bir çok durum metadata programlama enstrümanları ile sağlanabilir.
+
+.Net dünyasında bunun için Attribute türünden ve Reflection tekniklerinden yararlanılır. Reflection, çalışma zamanında tipler ve üyeleri hakkında bilgi toplamak ve hatta nesne örneklerini oluşturmak için kullanılır. Buna göre bir çalışma zamanının kendisine bildirilen fonksiyonellikleri içeren nesneleri örneklemesi _(creating object's instance)_ ve işletmesi _(invoke)_ mümkün hale gelir.
+
+Attribute konusunu anlamak için aşağıdaki örnek senaryo üzerinden çalışılabilir.
 
 ![image](https://github.com/user-attachments/assets/34473a4a-ce13-4ee4-bacb-eff2575e6fca)
 
-Senaryoda Command Line Interface olarak çalışan bir migration aracı göz önüne alınır. Bu aracın çalışma zamanı _(runtime)_ bir kütüphane içerisindeki sınıfı okuyup, seçilen provider'a göre _(Sql Server, Postgresql, Mongodb vs)_ veri ile ilgili şemayı veya enstrümanı oluşturan script'leri hazırlar. Örneğin provider SQL server olarak seçilmişse, onunla ilgili Create Table script'ini hazırlar. Hazırlanan içerik bir migration plan olarak kaydedilir ve örneğin Up, Down gibi komutlarla çalıştırılarak veritabanının hazırlanması veya önceki verisyonuna döndürülmesi sağlanır. Burada program ortamındaki bir model nesnesinin, asıl veri kaynağında oluşturulması için gerekli içeriğin hazırlanmasında Attribute'lardan yararlanılır. Tablo adı ne olacak, hangi şemada duracak, kolonun veri tipi ne olacak, bu kolon bir pimary key' mi vs gibi daha birçok bilgi ilgili Attribute' lar sayesinde migration aracının runtime'ına taşınır.
+Senaryoda Command Line Interface _(CLI)_ olarak çalışan bir migration aracı göz önüne alınır. Bu aracın çalışma zamanı _(runtime)_ bir kütüphane içerisindeki sınıfı/sınıfları okuyup, seçilen provider'a göre _(Sql Server, Postgresql, Mongodb vs)_ veri ile ilgili şemayı veya enstrümanı oluşturan script'leri hazırlar. Örneğin provider SQL server olarak seçilmişse, onunla ilgili Create Table script'ini hazırlar. Hazırlanan içerik bir migration plan olarak kaydedilir ve örneğin Up, Down gibi komutlarla çalıştırılarak veritabanının hazırlanması veya önceki verisyonuna döndürülmesi sağlanır. Burada program ortamındaki bir model nesnesinin, asıl veri kaynağında oluşturulması için gerekli içeriğin hazırlanmasında Attribute bildirimlerinden yararlanılır. Tablo adı ne olacak hangi şemada duracak, kolonun veri tipi ne olacak, bu kolon bir pimary key' mi vs gibi daha birçok bilgi, ilgili Attribute' lar sayesinde migration aracının runtime'ına taşınır. Aşağıdaki sınıf tanımı Attribute'lar ile bezenmiştir. Attribute'lar derleme aşamasında _(Compile Time)_ koda dahil olur, başka bir runtime ise bu attribute'ları Reflection tekniği ile okuyarak karar verir.
 
-## Ders 11
+```csharp
+[Table(Schema = "Catalog", Name = "Products")]
+internal class Product
+    : EntityBase
+{
+    [Column(Name = "p_id", DataType = SqlDataType.BigInt, PrimaryKey = true)]
+    public int Id { get; set; }
+    [Column(Name = "p_title", DataType = SqlDataType.Nvarchar, Length = 50)]
+    public string Title { get; set; }
+    [Column(Name = "p_title", DataType = SqlDataType.Decimal)]
+    public decimal ListPrice { get; set; }
+    [Column(Name = "p_in_stock", DataType = SqlDataType.Bool)]
+    public bool InStock { get; set; }
+}
+```
 
-**throw new NotImplementedException();**
+Reflection oldukça geniş bir konsepttir ve özetle .Net içerisindeki tiplerin, tip üyelerinin tüm metadata bilgilerinin çalışma zamanında okunabilmesi için kullanılır. Bunun için .Net tip sisteminin genel karakteristiklerini bilmekte yarar vardır. Genel hatları ile .Net tarafında geliştirilen bir Solution, içerisinde yer alması muhtemel projeler, bu projeler içerisinde kullanılar tipler _(types)_ ve üyeleri _(members)_ aşağıda şemalar ile özetlenebilir.
+
+
+
 
 ## Ders 12
 
