@@ -16,6 +16,7 @@ Sektör Kampüste projesi kapsamında 2024-2025 güz dönemi İTÜ Matematik Mü
   - [Ders 09: Delegate Tipi, Extension Methods ve LINQ](#ders-09-delegate-tipi-extension-methods-ve-linq)
   - [Ders 10: Delegate Tipi ile Event Kullanımları ve Attribute Kavramı](#ders-10-delegate-tipi-ile-event-kullanımları-ve-attribute-kavramı)
   - [Ders 11: Metadata Programlama, Attribute ve Reflection](#ders-11-metadata-programlama-attribute-ve-reflection)
+  - [Ders 12: Dönem Projelerinin Kontrolü](#ders-12-dönem-projelerinin-kontrolü)
   - [Çerezlik Kod Pratikleri](#çerezlik-kod-pratikleri)
   - [Free Zone](#free-zone)
   - [Kaynak Önerileri](#kaynak-önerileri)
@@ -710,12 +711,13 @@ internal class Product
 
 Reflection oldukça geniş bir konsepttir ve özetle .Net içerisindeki tiplerin, tip üyelerinin tüm metadata bilgilerinin çalışma zamanında okunabilmesi için kullanılır. Bunun için .Net tip sisteminin genel karakteristiklerini bilmekte yarar vardır. Genel hatları ile .Net tarafında geliştirilen bir Solution, içerisinde yer alması muhtemel projeler, bu projeler içerisinde kullanılar tipler _(types)_ ve üyeleri _(members)_ aşağıda şemalar ile özetlenebilir.
 
+![solution_structure](https://github.com/user-attachments/assets/2c1d6030-4689-4134-b429-b7c43f772048)
 
+![reflection_design](https://github.com/user-attachments/assets/84316b47-c9ed-4185-9e14-7b5cb49198ba)
 
+## Ders 12: Dönem Projelerinin Kontrolü
 
-## Ders 12
-
-**throw new NotImplementedException();**
+Bu derste dönem projelerinden birkaçı incelenir ve profesyonel anlamda Code Review süreçleri işletilir.
 
 ## Çerezlik Kod Pratikleri
 
