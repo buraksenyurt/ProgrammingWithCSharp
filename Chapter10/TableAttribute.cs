@@ -1,4 +1,4 @@
-﻿namespace Chapter09
+﻿namespace Chapter10
 {
     /*
         Attribute sınıfları Attribute kelimesi ile bitecek şekilde isimlendirilir ve Attribute sınıfından türer.
@@ -8,7 +8,7 @@
     */
     [AttributeUsage(AttributeTargets.Class)]
     internal class TableAttribute
-    : Attribute
+        : Attribute
     {
         public string Schema { get; set; }
         public string Name { get; set; }
