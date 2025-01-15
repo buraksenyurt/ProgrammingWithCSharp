@@ -828,7 +828,7 @@ Dönem ödevi ders geçme notunda doğrudan etki eder ve aşağıdaki kriterlere
 2024 - 2025 Güz döneminde İTÜ Matematik Mühendisliğinden bu dersi alan değerli meslektaşlarımın geliştirdikleri projelere aşağıdaki adreslerden ulaşabilirsiniz.
 
 - Inventory Tracking System. [https://github.com/ecemerdogan/InventoryTrackingSystem](https://github.com/ecemerdogan/InventoryTrackingSystem) ve [https://github.com/oguzkaanis/MTH_Project](https://github.com/oguzkaanis/MTH_Project)
-- Terminal Based Dungeon Game. [https://github.com/CSharpDersi](https://github.com/CSharpDersi)
+- Terminal Based Dungeon Game. [https://github.com/CSharpDersi/TheDungeonGame](https://github.com/CSharpDersi/TheDungeonGame)
 - Random Dataset Generator. [https://github.com/koraykck/random-test-data-generator](https://github.com/koraykck/random-test-data-generator) ve [https://github.com/denizsahiner/RandomDataGeneratorWeb](https://github.com/denizsahiner/RandomDataGeneratorWeb)
 - Backend Service Development for Kanban App. [https://github.com/melaaunn/Kanban-Project/](https://github.com/melaaunn/Kanban-Project/) ve [https://github.com/IsE333/Kanban-Board](https://github.com/IsE333/Kanban-Board)
 - Radio Station Program [https://github.com/cinart22/radio_program](https://github.com/cinart22/radio_program) ve [https://github.com/zeynepygc/OfflineRadio](https://github.com/zeynepygc/OfflineRadio)
