@@ -825,6 +825,20 @@ Dönem ödevi ders geçme notunda doğrudan etki eder ve aşağıdaki kriterlere
 | Source Code Repo Check             | 10     |
 | **Total**                          | **100**|
 
+2024 - 2025 Güz döneminde İTÜ Matematik Mühendisliğinden bu dersi alan değerli meslektaşlarımın geliştirdikleri projelere aşağıdaki adreslerden ulaşabilirsiniz.
+
+- Inventory Tracking System. [https://github.com/ecemerdogan/InventoryTrackingSystem](https://github.com/ecemerdogan/InventoryTrackingSystem) ve [https://github.com/oguzkaanis/MTH_Project](https://github.com/oguzkaanis/MTH_Project)
+- Terminal Based Dungeon Game. [https://github.com/CSharpDersi](https://github.com/CSharpDersi)
+- Random Dataset Generator. [https://github.com/koraykck/random-test-data-generator](https://github.com/koraykck/random-test-data-generator) ve [https://github.com/denizsahiner/RandomDataGeneratorWeb](https://github.com/denizsahiner/RandomDataGeneratorWeb)
+- Backend Service Development for Kanban App. [https://github.com/melaaunn/Kanban-Project/](https://github.com/melaaunn/Kanban-Project/) ve [https://github.com/IsE333/Kanban-Board](https://github.com/IsE333/Kanban-Board)
+- Radio Station Program [https://github.com/cinart22/radio_program](https://github.com/cinart22/radio_program) ve [https://github.com/zeynepygc/OfflineRadio](https://github.com/zeynepygc/OfflineRadio)
+- E-Commerce Cart System [https://github.com/szgrm/EcomCartService](https://github.com/szgrm/EcomCartService) ve [https://github.com/zaferemre/CartApp-MTH404](https://github.com/zaferemre/CartApp-MTH404)
+- Library Management System(Nuget Clone) [https://github.com/efemete1905/MTH404EPROJE](https://github.com/efemete1905/MTH404EPROJE)
+- Online Multi User Exam/Quiz Platform [https://github.com/zerenenes18/LetsQuizWeb](https://github.com/zerenenes18/LetsQuizWeb)
+- Employee Management System [https://github.com/zeyaladag/OrgChart](https://github.com/zeyaladag/OrgChart)
+- Topic Based ChatBot Application [https://github.com/civanaban2/chatbot-project](https://github.com/civanaban2/chatbot-project)
+- Sequential Task Management System [https://github.com/kadrcankahvci/Sequential-Task-Management-System](https://github.com/kadrcankahvci/Sequential-Task-Management-System) ve [https://github.com/bkaracali/Task-Manager-Frontend](https://github.com/bkaracali/Task-Manager-Frontend) ve [https://github.com/Zhrurhn/Mathematics-Eng-C-Project-Sequential-Task-Management](https://github.com/Zhrurhn/Mathematics-Eng-C-Project-Sequential-Task-Management)
+- Simple 2D Platform Game [https://github.com/batuhancetinkaya1/2D-Platformer-Game](https://github.com/batuhancetinkaya1/2D-Platformer-Game)
 
 ## Vize Sınavı Soruları
 
