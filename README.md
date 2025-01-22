@@ -846,4 +846,4 @@ Sorular ve cevaplar [Midterm.md](Midterm.md) isimli dokümanda yer almaktadır.
 
 ## Final Sınavı Soruları
 
-Sorular ve cevaplar [FinalExam.md](Finalexam.md) isimli dokümanda yer almaktadır.
+Sorular ve cevaplar [FinalExam.md](FinalExam.md) isimli dokümanda yer almaktadır.
